@@ -6,7 +6,7 @@
       &nbsp;&nbsp;
       <a target="_black" href="http://www.jianshu.com/u/bf30f18c872c">Blog</a>
       &nbsp;&nbsp;
-      <a target="_black" href="admin@sniperoj.cn">Email</a>
+      <a target="_black" href="mailto:admin@sniperoj.cn">Email</a>
     </nav>
 
 
