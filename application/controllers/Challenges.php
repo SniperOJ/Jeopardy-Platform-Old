@@ -44,11 +44,7 @@ class Challenges extends CI_Controller {
     public function view()
     {
         if($this->is_logined()){
-            $challenges = $this->challenges_model->get_all_challenges();
-            for ($i=0; $i < count($challenges); $i++) { 
-                $challenges[$i]['solved_times'] = $this->challenges_model->get_challenge_solved_times($challenges[$i]['challengeID']);
-            }
-            $data['challenges'] = $challenges;
+            $data['challenges'] = $this->challenges_model->get_all_challenges();
             $this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_user')));
             $this->load->view('challenges/view', $data);
             $this->load->view('templates/footer');

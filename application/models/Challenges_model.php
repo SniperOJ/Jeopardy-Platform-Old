@@ -162,7 +162,11 @@ class Challenges_model extends CI_Model {
     public function get_all_challenges()
     {
         $query = $this->db->get("challenges");
-        return $query->result_array();
+        $challenges = $query->result_array();
+        for ($i=0; $i < count($challenges); $i++) { 
+            $challenges[$i]['solved_times'] = $this->challenges_model->get_challenge_solved_times($challenges[$i]['challengeID']);
+        }
+        return $challenges;
     }
 
     public function get_challenge_solved_times($challengeID){
