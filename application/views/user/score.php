@@ -1,9 +1,5 @@
 <h1>Score</h1>
-
-
-
 <table class="table table-hover">
-  <caption>Score</caption>
   <thead>
     <tr>
       <th>Rank</th>
