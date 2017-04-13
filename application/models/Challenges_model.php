@@ -162,7 +162,7 @@ class Challenges_model extends CI_Model {
     public function get_all_challenges()
     {
         $query = $this->db
-            ->where("fixing" => "0")
+            ->where(array("fixing" => "0"))
             ->get("challenges");
         $challenges = $query->result_array();
         for ($i=0; $i < count($challenges); $i++) { 
