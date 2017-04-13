@@ -25,6 +25,7 @@ $config = array(
 		"Challenges" => "/challenges/view", 
 		"CreateChallenge" => "/challenges/create", 
 		"SubmitLog" => "/challenges/submitlog",
+		"LoginLog" => "/user/loginlog",
 		"Score" => "/user/score", 
 		// "WriteUp" => "/writeup", 
 		// "Wiki" => "/wiki", 
