@@ -4,13 +4,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $config = array(
 	'navigation_bar_visitor' => array(
 		"Home" => "/", 
-		// "News" => "/news", 
+		"News" => "/news/view", 
 		"Login" => "/user/login", 
 		"Register" => "/user/register",
 	),
 	'navigation_bar_user' => array(
 		// "Home" => "/", 
-		// "News" => "/news", 
+		"News" => "/news/view", 
 		"Challenges" => "/challenges/view", 
 		"Score" => "/user/score", 
 		// "WriteUp" => "/writeup", 
@@ -20,7 +20,7 @@ $config = array(
 	),
 	'navigation_bar_admin' => array(
 		// "Home" => "/", 
-		// "News" => "/news", 
+		"News" => "/news/view", 
 		"Challenges" => "/challenges/view", 
 		"CreateChallenges" => "/challenges/create", 
 		"Score" => "/user/score", 
