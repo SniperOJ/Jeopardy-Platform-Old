@@ -164,4 +164,15 @@ class Challenges_model extends CI_Model {
         $query = $this->db->get("challenges");
         return $query->result_array();
     }
+
+    public function get_challenge_solved_times($challengeID){
+        $query = $this->db->select('submitID')
+        ->where(array(
+            "is_current" => "1",
+            "challengeID" => $challengeID,
+        ))
+        ->get('submit_log');
+        $result = $query->num_rows();
+        return $result;
+    }
 }

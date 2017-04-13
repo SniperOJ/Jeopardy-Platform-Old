@@ -7,13 +7,13 @@
       <tr>
         <th>Name</th>
         <th>Description</th>
-        <th>score</th>
-        <th>type</th>
-        <th>online_time</th>
-        <th>visit_times</th>
-        <th>resource</th>
-        <th>document</th>
-        <th>submit</th>
+        <th>Score</th>
+        <th>Type</th>
+        <th>Online Time</th>
+        <th>Solved times</th>
+        <th>Resource</th>
+        <th>Document</th>
+        <th>Submit</th>
       </tr>
     </thead>
 
@@ -25,7 +25,7 @@
           <td><?php echo $challenge_item['score']; ?></td>
           <td><?php echo $challenge_item['type']; ?></td>
           <td><?php echo date('Y-m-d H:i:s', $challenge_item['online_time']); ?></td>
-          <td>0 times</td>
+          <td><?php echo $challenge_item['solved_times']; ?></td>
           <?php
             echo '<td>';
             if (strlen($challenge_item['resource']) == 0){
