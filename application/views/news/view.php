@@ -13,15 +13,14 @@
     <tbody>
       <?php
       	for ($i=0; $i < count($news); $i++) { 
-      		echo "<tr>";
-	      		echo '<td>'.$news[$i]['newsID'].'</td>';
-	      		echo '<td>'.$news[$i]['title'].'</td>';
-	      		echo '<td>'.$news[$i]['content'].'</td>';
-	      		echo '<td>'.$news[$i]['authorID'].'</td>';
-	      		echo '<td>'.$news[$i]['submit_time'].'</td>';
-	      		echo '<td>'.$news[$i]['visit_times'].'</td>';
-      		echo "</tr>";
-
+			echo "<tr>";
+			echo '<td>'.$news[$i]['newsID'].'</td>';
+			echo '<td>'.$news[$i]['title'].'</td>';
+			echo '<td>'.$news[$i]['content'].'</td>';
+			echo '<td>'.$news[$i]['authorID'].'</td>';
+			echo '<td>'.date('Y-m-d H:i:s.', $news[$i]['submit_time']).'</td>';
+			echo '<td>'.$news[$i]['visit_times'].'</td>';
+			echo "</tr>";
       	}
       ?>
     </tbody>
