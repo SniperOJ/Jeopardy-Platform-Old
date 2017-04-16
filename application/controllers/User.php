@@ -5,7 +5,7 @@ class User extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-        $this->load->model('challenges_model');
+		$this->load->model('challenges_model');
 		$this->load->model('user_model');
 		$this->load->helper('url_helper');
 		$this->config->load('navigation_bar');
@@ -21,35 +21,35 @@ class User extends CI_Controller {
 
 	public function check_username($username)
 	{
-	    if (strlen($username) > 16 || strlen($username) < 4) {
-	        return false;
-	    }
-	    if(preg_match("/[\',.:;*?~`!@#$%^&+=)(<>{}]|\]|\[|\/|\\\|\"|\|/",$username)){ 
-	        // echo "请不要在用户名中包含符号 , 只有英文字母和数字是被允许的";
-	        return false;
-	    }
-	    return true;
+		if (strlen($username) > 16 || strlen($username) < 4) {
+			return false;
+		}
+		if(preg_match("/[\',.:;*?~`!@#$%^&+=)(<>{}]|\]|\[|\/|\\\|\"|\|/",$username)){ 
+			// echo "请不要在用户名中包含符号 , 只有英文字母和数字是被允许的";
+			return false;
+		}
+		return true;
 	}
 
 	public function check_password($password)
 	{
-	    if (strlen($password) > 16 || strlen($password) < 6) {
-	        // echo "password <= 16 chars >=6";
-	        return false;
-	    }
-	    // because the password is hashed before insert to db, so the following check is not necessary
-	    // if(preg_match("/[\'.,:;*?~`!@#$%^&+=)(<>{}]|\]|\[|\/|\\\|\"|\|/",$password)){ 
-	    //     return false;
-	    // }
-	    return true;
+		if (strlen($password) > 16 || strlen($password) < 6) {
+			// echo "password <= 16 chars >=6";
+			return false;
+		}
+		// because the password is hashed before insert to db, so the following check is not necessary
+		// if(preg_match("/[\'.,:;*?~`!@#$%^&+=)(<>{}]|\]|\[|\/|\\\|\"|\|/",$password)){ 
+		//     return false;
+		// }
+		return true;
 	}
 
 	public function check_college($college)
 	{
-	    if (strlen($college) > 64) {
-	        return false;
-	    }
-	    return true;
+		if (strlen($college) > 64) {
+			return false;
+		}
+		return true;
 	}
 
 	public function check_email($email)
@@ -59,29 +59,29 @@ class User extends CI_Controller {
 
 	public function verify_captcha($captcha)
 	{
-	    // First, delete old captchas
-	    $expiration = time() - 7200; // Two hour limit
-	    $this->db->where('captcha_time < ', $expiration)
-	        ->delete('captcha');
+		// First, delete old captchas
+		$expiration = time() - 7200; // Two hour limit
+		$this->db->where('captcha_time < ', $expiration)
+			->delete('captcha');
 
-	    // Then see if a captcha exists:
-	    $sql = 'SELECT COUNT(*) AS count FROM captcha WHERE word = ? AND ip_address = ? AND captcha_time > ?';
-	    $binds = array($captcha, $this->input->ip_address(), $expiration);
-	    $query = $this->db->query($sql, $binds);
-	    $row = $query->row();
+		// Then see if a captcha exists:
+		$sql = 'SELECT COUNT(*) AS count FROM captcha WHERE word = ? AND ip_address = ? AND captcha_time > ?';
+		$binds = array($captcha, $this->input->ip_address(), $expiration);
+		$query = $this->db->query($sql, $binds);
+		$row = $query->row();
 
-	    if ($row->count > 0)
-	    {
-	    	return true;
-	    }else{
-	    	return false;
-	    }
+		if ($row->count > 0)
+		{
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 
 	private function getEncryptedPassword($passord, $salt)
 	{
-	    return md5(md5($passord.$salt));
+		return md5(md5($passord.$salt));
 	}
 
 	public function do_login($username, $password)
@@ -93,19 +93,19 @@ class User extends CI_Controller {
 			$userID = $this->user_model->get_userID($username);
 			$current_password = $this->user_model->get_password($userID);
 			$salt = $this->user_model->get_salt($userID);
-	        return ($this->getEncryptedPassword($password, $salt) === $current_password);
+			return ($this->getEncryptedPassword($password, $salt) === $current_password);
 		}
 	}
 
 
 	public function is_user_not_exist($username)
 	{
-	    $query = $this->db->get_where('users', array('username' => $username));
-	    if ($query->num_rows() === 0){
-	        return true;
-	    }else{
-	        return false;
-	    }
+		$query = $this->db->get_where('users', array('username' => $username));
+		if ($query->num_rows() === 0){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 	public function send_active_code($active_code, $reciver_email)
@@ -162,9 +162,9 @@ class User extends CI_Controller {
 		if ($query->num_rows() === 1){
 			// clear token , wait for user login
 			$data = array(
-			    'verified' => '1',
-			    'token' => '',
-			    // 'token_alive_time' => 0, // is it safe ??? 
+				'verified' => '1',
+				'token' => '',
+				// 'token_alive_time' => 0, // is it safe ??? 
 			);
 			$this->db->where('token', $active_code);
 			$this->db->update('users', $data);
@@ -176,32 +176,32 @@ class User extends CI_Controller {
 
 	public function is_overdue($token_alive_time)
 	{
-	    $now_time = time();
+		$now_time = time();
 
-	    if ($now_time > $token_alive_time) {
-	    	return false;
-	    }else{
-	    	return true;
-	    }
+		if ($now_time > $token_alive_time) {
+			return false;
+		}else{
+			return true;
+		}
 	}
 
 	// is logined
 	public function is_logined()
 	{
-	    // is set in session
-	    if ($this->session->userID == NULL){
-	        return false;
-	    }else{
-	        // is overdue
-	        $userID = $this->session->userID;
-	        $token_alive_time = $this->user_model->get_token_alive_time($userID);
+		// is set in session
+		if ($this->session->userID == NULL){
+			return false;
+		}else{
+			// is overdue
+			$userID = $this->session->userID;
+			$token_alive_time = $this->user_model->get_token_alive_time($userID);
 
-	        if ($this->is_overdue($token_alive_time)){
-	        	return true;
-	        }else{
-	        	return false;
-	        }
-	    }
+			if ($this->is_overdue($token_alive_time)){
+				return true;
+			}else{
+				return false;
+			}
+		}
 	}
 
 	// check whether the account is verified
@@ -225,8 +225,8 @@ class User extends CI_Controller {
 	{
 		if($this->is_logined()){
 			// login success
-            $this->load->view('templates/header');
-            $this->load->view('navigation_bar/navigation_bar_user');
+			$this->load->view('templates/header');
+			$this->load->view('navigation_bar/navigation_bar_user');
 			$this->load->view('user/profile');
 			$this->load->view('templates/footer');
 		}else{
@@ -272,8 +272,8 @@ class User extends CI_Controller {
 									redirect("/challenges/view");
 								}else{
 									// Account have not verified
-									                        $this->load->view('templates/header');
-                        $this->load->view('navigation_bar/navigation_bar_visitor');
+															$this->load->view('templates/header');
+						$this->load->view('navigation_bar/navigation_bar_visitor');
 									$this->load->view('notice/view', array('type' => 'error', 'message' => '请激活您的账号!'));
 									$this->load->view('user/login');
 									$this->load->view('templates/footer');
@@ -456,8 +456,8 @@ class User extends CI_Controller {
 				'user_data' => $this->user_model->get_user_data($userID),
 				'submit_log' => $submit_log,
 			);
-			                        $this->load->view('templates/header');
-                        $this->load->view('navigation_bar/navigation_bar_user');
+									$this->load->view('templates/header');
+						$this->load->view('navigation_bar/navigation_bar_user');
 			$this->load->view('user/profile', $user_data);
 			$this->load->view('templates/footer');
 		}else{
