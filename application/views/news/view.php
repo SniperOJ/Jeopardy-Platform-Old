@@ -1,13 +1,18 @@
+<?php
+    $this->load->language("news");
+?>
+
+<h1><?php echo $this->lang->line('NEWS_NAME'); ?></h1>
 <div class="news">
   <table class="table" style="font-size: 20px">
     <thead>
       <tr>
-        <th>NewsID</th>
-        <th>Title</th>
-        <th>Content</th>
-        <th>AuthorID</th>
-        <th>Submit Time</th>
-        <th>Visit Times</th>
+        <th><?php echo $this->lang->line('NEWS_ID'); ?></th>
+        <th><?php echo $this->lang->line('NEWS_TITLE'); ?></th>
+        <th><?php echo $this->lang->line('NEWS_CONTENT'); ?></th>
+        <th><?php echo $this->lang->line('NEWS_AUTHOR'); ?></th>
+        <th><?php echo $this->lang->line('NEWS_SUBMIT_TIME'); ?></th>
+        <th><?php echo $this->lang->line('NEWS_VISIT_TIMES'); ?></th>
       </tr>
     </thead>
     <tbody>
@@ -18,7 +23,7 @@
 			echo '<td>'.$news[$i]['title'].'</td>';
 			echo '<td>'.$news[$i]['content'].'</td>';
 			echo '<td>'.$news[$i]['authorID'].'</td>';
-			echo '<td>'.date('Y-m-d H:i:s.', $news[$i]['submit_time']).'</td>';
+			echo '<td>'.date('Y-m-d H:i:s', $news[$i]['submit_time']).'</td>';
 			echo '<td>'.$news[$i]['visit_times'].'</td>';
 			echo "</tr>";
       	}
