@@ -15,7 +15,7 @@ class Challenges extends CI_Controller {
     public function is_overdue($token_alive_time)
     {
         $now_time = time();
-        return ($now_time > $token_alive_time)
+        return ($now_time > $token_alive_time);
     }
 
     // is logined
