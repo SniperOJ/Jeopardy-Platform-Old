@@ -210,6 +210,22 @@ class User_model extends CI_Model {
         $this->session->set_userdata($data);
     }
 
+    public function set_session_by_userID($userID)
+    {
+        // set session
+        $data = array(
+            'userID' => $userID,
+            'username' => $this->get_username($userID),
+            'email' => $this->get_email($userID),
+            'score' => $this->get_score($userID),
+            'college' => $this->get_college($userID),
+            'token' => $this->get_token($userID),
+            'token_alive_time' => ($this->get_token_alive_time($userID) + $this->config->item('sess_expiration')),
+            'usertype' => $this->get_usertype($userID),
+        );
+        $this->session->set_userdata($data);
+    }
+
 
     // get_user_data($userID)
     public function get_user_data($userID)
@@ -243,6 +259,13 @@ class User_model extends CI_Model {
                 ->get('users');
         $result = $query->result_array();
         return $result;
+    }
+
+    public function get_userID_by_token($token)
+    {
+        $query = $this->db->get_where('users', array('token' => $token));
+        $result = $query->row_array();
+        return intval($result['userID']);
     }
 
 }

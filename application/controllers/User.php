@@ -349,6 +349,7 @@ class User extends CI_Controller {
 										$this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_visitor')));
 										$this->load->view('notice/view', array('message' => 'Register success! Please check your mailbox to verify your account!'));
 										$this->load->view('user/login'); // jump to login or profile ?
+										// no , user must verify his/her account at first
 										$this->load->view('templates/footer');
 									}else{
 										// register failed
@@ -406,13 +407,16 @@ class User extends CI_Controller {
 	{
 		// ??? safe ???
 		$active_code = $this->uri->segment(3);
+		$userID = $this->user_model->get_userID_by_token($active_code);
+		$username = $this->user_model->get_username($userID);
+		$time = time();
+		$token_alive_time = $time + $this->config->item('sess_expiration');
 
 		if($this->do_active($active_code)){
-			// active success
-			$this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_visitor')));
-			$this->load->view('notice/view', array('message' => '激活成功!'));
-			$this->load->view('user/login');
-			$this->load->view('templates/footer');
+			$this->user_model->set_session($username);
+			// update db token_alive_time
+			$this->user_model->set_token_alive_time($userID, $token_alive_time + $this->config->item('sess_expiration'));
+			redirect("/challenges/view");
 		}else{
 			// active failed
 			$this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_visitor')));
@@ -461,6 +465,17 @@ class User extends CI_Controller {
 	{
 		$this->session->sess_destroy();
 		redirect("/");
+	}
+
+	public function dump_session()
+	{
+		foreach ($this->session as $key => $value) {
+			var_dump($key);
+			echo "->";
+			var_dump($value);
+			echo "<br>\n";
+		}
+		die();
 	}
 
 }
