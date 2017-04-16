@@ -13,8 +13,8 @@
                 "yahoo.com.cn",
                 "live.com",
                 "sohu.com",
-                "sina.com"
-                "outlook.com"
+                "sina.com",
+                "outlook.com",
             ], //邮件数组
             zIndex: 11
         };
