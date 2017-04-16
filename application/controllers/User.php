@@ -121,6 +121,21 @@ class User extends CI_Controller {
 		} 
 	}
 
+
+	public function send_reset_code($active_code, $reciver_email)
+	{
+		$this->email->from('admin@sniperoj.cn', 'admin');
+		$this->email->to($reciver_email);
+		$this->email->subject('[No Reply] Sniper OJ Reset Password Email');
+		$this->email->message("you can reset your password by visiting the following link, which is valid for 2 hours.\nYour active code : http://www.sniperoj.cn/user/verify/".$active_code."\n");
+		if($this->email->send()==1){ 
+			return true;
+		}else{ 
+			return false;
+		} 
+	}
+
+
 	public function do_register($username, $password, $email, $college)
 	{
 		$salt = random_string('alnum', 16);
@@ -179,10 +194,12 @@ class User extends CI_Controller {
 		$now_time = time();
 
 		if ($now_time > $token_alive_time) {
-			return false;
-		}else{
 			return true;
+		}else{
+			return false;
 		}
+
+
 	}
 
 	// is logined
@@ -197,9 +214,9 @@ class User extends CI_Controller {
 			$token_alive_time = $this->user_model->get_token_alive_time($userID);
 
 			if ($this->is_overdue($token_alive_time)){
-				return true;
-			}else{
 				return false;
+			}else{
+				return true;
 			}
 		}
 	}
@@ -269,7 +286,7 @@ class User extends CI_Controller {
 									$this->user_model->set_session($username);
 									// update db token_alive_time
 									$this->user_model->set_token_alive_time($userID, time() + $this->config->item('sess_expiration'));
-									redirect("/challenges/view");
+									redirect("/user/profile");
 								}else{
 									// Account have not verified
 									$this->load->view('templates/header');
@@ -441,8 +458,8 @@ class User extends CI_Controller {
 		if($this->do_active($active_code)){
 			$this->user_model->set_session($username);
 			// update db token_alive_time
-			$this->user_model->set_token_alive_time($userID, $token_alive_time + $this->config->item('sess_expiration'));
-			redirect("/challenges/view");
+			$this->user_model->set_token_alive_time($userID, $time + $this->config->item('sess_expiration'));
+			redirect("/user/profile");
 		}else{
 			// active failed
 			$this->load->view('templates/header');
@@ -522,7 +539,8 @@ class User extends CI_Controller {
 			// get form data failed
 			$this->load->view('templates/header');
 			$this->load->view('navigation_bar/navigation_bar_visitor');
-			$this->load->view('user/login');
+			$this->load->view('notice/view', array('type' => 'error', 'message' => 'Please input all fileds!'));
+			$this->load->view('user/forget');
 			$this->load->view('templates/footer');
 		}else{
 			$captcha = $this->input->post('captcha');
@@ -530,19 +548,20 @@ class User extends CI_Controller {
 
 			// get form data success
 			if($this->verify_captcha($captcha)){
-				if($this->user_model->is_email_existed($email)){
+				if($this->user_model->is_email_exist($email)){
 					if($this->do_forget_password($email)){
 						// load reset password view
 						$this->load->view('templates/header');
 						$this->load->view('navigation_bar/navigation_bar_visitor');
-						$this->load->view('user/reset');
+						$this->load->view('notice/view', array('type' => 'error', 'message' => 'Send reset code success! Please check your email box!'));
+						$this->load->view('user/login');
 						$this->load->view('templates/footer');
 					}else{
 						// reset error
 						$this->load->view('templates/header');
 						$this->load->view('navigation_bar/navigation_bar_visitor');
 						$this->load->view('notice/view', array('type' => 'error', 'message' => 'System error! Please contact with admin@sniperoj.cn'));
-						$this->load->view('user/login');
+						$this->load->view('user/forget');
 						$this->load->view('templates/footer');
 					}
 				}else{
@@ -550,7 +569,7 @@ class User extends CI_Controller {
 					$this->load->view('templates/header');
 					$this->load->view('navigation_bar/navigation_bar_visitor');
 					$this->load->view('notice/view', array('type' => 'error', 'message' => 'Email not exist!'));
-					$this->load->view('user/login');
+					$this->load->view('user/forget');
 					$this->load->view('templates/footer');
 				}
 			}else{
@@ -558,14 +577,151 @@ class User extends CI_Controller {
 				$this->load->view('templates/header');
 				$this->load->view('navigation_bar/navigation_bar_visitor');
 					$this->load->view('notice/view', array('type' => 'error', 'message' => 'Captcha error!'));
-				$this->load->view('user/register');
+				$this->load->view('user/forget');
 				$this->load->view('templates/footer');
 			}
 		}
 	}
 
-	public function do_forget_password()
+	public function get_encrypted_reset_code($email, $salt)
 	{
+		return md5(md5($email.$salt));
+	}
 
+	public function do_forget_password($email)
+	{
+		$time = time();
+
+		$userID = $this->user_model->get_userID_by_email($email);
+
+		$salt = random_string('alnum', 16);
+		$reset_code = $this->get_encrypted_reset_code($email, $salt);
+		$reset_code_alive_time = $time + $this->config->item('sess_expiration');
+
+		$data = array(
+			'userID' => $userID,
+			'email' => $email,
+			'salt' => $salt,
+			'reset_code' => $reset_code,
+			'reset_code_alive_time' => $reset_code_alive_time,
+			'verified' => 0,
+		);
+		
+		if($this->db->insert('reset_password', $data) && $this->send_reset_code($reset_code, $email)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public function verify_reset_code()
+	{
+		$reset_code = $this->uri->segment(3);
+		$time = time();
+		if($this->user_model->is_reset_code_exist($reset_code)){
+			$reset_code_item = $this->user_model->get_reset_code_code_item($reset_code);
+
+			$salt = $reset_code_item['salt'];
+			$email = $reset_code_item['email'];
+			$current_reset_code = $reset_code_item['reset_code'];
+			$reset_code_alive_time = intval($reset_code_item['reset_code_alive_time']);
+
+			if (!$this->is_overdue($reset_code_alive_time)){
+				// reset code current
+				// jump to reset code
+            	$this->load->helper('form');
+
+				$data = array('reset_code' => $reset_code,);
+				$this->load->view('templates/header');
+				$this->load->view('navigation_bar/navigation_bar_visitor');
+				$this->load->view('user/reset', $data);
+				$this->load->view('templates/footer');
+			}else{
+				// reset code overdue
+				$this->load->view('templates/header');
+				$this->load->view('navigation_bar/navigation_bar_visitor');
+				$this->load->view('notice/view', array('type' => 'error', 'message' => 'Reset code overdue!'));
+				$this->load->view('user/login');
+				$this->load->view('templates/footer');
+			}
+		}else{
+			// reset code not exist
+			$this->load->view('templates/header');
+			$this->load->view('navigation_bar/navigation_bar_visitor');
+				$this->load->view('notice/view', array('type' => 'error', 'message' => 'Reset code error!'));
+			$this->load->view('user/login');
+			$this->load->view('templates/footer');
+		}
+	}
+
+	public function reset_password()
+	{
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('password', 'Password', 'required');
+		$this->form_validation->set_rules('reset_code', 'Reset code', 'required');
+
+		if ($this->form_validation->run() === FALSE)
+		{
+			// 用户体验???
+			$this->load->view('templates/header');
+			$this->load->view('navigation_bar/navigation_bar_visitor');
+			$this->load->view('notice/view', array('type' => 'error', 'message' => 'Please input all fileds!'));
+			$this->load->view('user/reset', array('reset_code' => 'NULL', ));
+			$this->load->view('templates/footer');
+		}
+		else
+		{
+			// get form data success
+			$new_password = $this->input->post('password');
+			$reset_code = $this->input->post('reset_code');
+
+			if($this->user_model->is_reset_code_exist($reset_code)){
+				$new_salt = random_string('alnum', 16);
+				$userID = $this->user_model->get_userID_by_reset_code($reset_code);
+				$username = $this->user_model->get_username($userID);
+
+				if ($this->do_reset_password($userID, $new_password, $new_salt)){
+					// jmp to user profile
+					$this->user_model->set_session($username);
+					// update db token_alive_time
+					$this->user_model->set_token_alive_time($userID, time() + $this->config->item('sess_expiration'));
+					$this->destroy_reset_code($reset_code);
+					redirect("/user/profile");
+				}else{
+					// reset code not exist
+					$this->load->view('templates/header');
+					$this->load->view('navigation_bar/navigation_bar_visitor');
+						$this->load->view('notice/view', array('type' => 'error', 'message' => 'Reset password error!'));
+					$this->load->view('user/login');
+					$this->load->view('templates/footer');
+				}
+			}else{
+				// reset code not exist
+				redirect("/user/login");
+			}
+		}
+	}
+
+	public function do_reset_password($userID, $new_password, $new_salt)
+	{
+		$encrypted_password = $this->getEncryptedPassword($new_password, $new_salt);
+		$data = array(
+			'password' => $encrypted_password,
+			'salt' => $new_salt,
+		);
+		$this->db->set($data);
+		$this->db->where('userID', $userID);
+		if ($this->db->update('users')){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public function destroy_reset_code($reset_code)
+	{
+		$this->user_model->destroy_reset_code($reset_code);
 	}
 }

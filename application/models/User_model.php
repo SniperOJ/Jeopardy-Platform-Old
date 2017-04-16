@@ -268,6 +268,13 @@ class User_model extends CI_Model {
         return intval($result['userID']);
     }
 
+    public function get_userID_by_email($email)
+    {
+        $query = $this->db->get_where('users', array('email' => $email));
+        $result = $query->row_array();
+        return intval($result['userID']);
+    }
+
     public function is_email_exist($email)
     {
         $query = $this->db->get_where('users', array('email' => $email));
@@ -280,4 +287,29 @@ class User_model extends CI_Model {
         return ($query->num_rows() > 0);
     }
 
+    public function get_userID_by_reset_code($reset_code)
+    {
+        $query = $this->db->get_where('reset_password', array('reset_code' => $reset_code, 'verified' => '0'));
+        $result = $query->row_array();
+        return intval($result['userID']);
+    }
+
+    public function is_reset_code_exist($reset_code)
+    {
+        $query = $this->db->get_where('reset_password', array('reset_code' => $reset_code, 'verified' => '0'));
+        return ($query->num_rows() > 0);
+    }
+
+    public function get_reset_code_code_item($reset_code)
+    {
+        $query = $this->db->get_where('reset_password', array('reset_code' => $reset_code));
+        return $query->row_array();
+    }
+
+    public function destroy_reset_code($reset_code)
+    {
+        $this->db->set(array('verified' => '1'));
+        $this->db->where('reset_code', $reset_code);
+        $this->db->update('reset_password');
+    }
 }
