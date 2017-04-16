@@ -43,7 +43,7 @@
     <input type="password" id="inputPassword" class="form-control" placeholder="<?php echo $this->lang->line('REGISTE_PASSWORD_PLACEHOLDER'); ?>" name="password" value="<?php echo set_value('password'); ?>" required>
 
     <label for="inputEmail" class="sr-only"><?php echo $this->lang->line('REGISTE_EMAIL_LABEL'); ?></label>
-    <input type="text" id="inputEmail" class="form-control" placeholder="<?php echo $this->lang->line('REGISTE_EMAIL_PLACEHOLDER'); ?>" name="email" value="<?php echo set_value('email'); ?>" required autofocus>
+    <input type="text" id="inputEmail" class="form-control inputMailList" placeholder="<?php echo $this->lang->line('REGISTE_EMAIL_PLACEHOLDER'); ?>" name="email" value="<?php echo set_value('email'); ?>" required autofocus>
 
     <label for="inputCollege" class="sr-only"><?php echo $this->lang->line('REGISTE_COLLEGE_LABEL'); ?></label>
     <input type="text" id="inputCollege" class="form-control" placeholder="<?php echo $this->lang->line('REGISTE_COLLEGE_PLACEHOLDER'); ?>" name="college" value="<?php echo set_value('college'); ?>" required autofocus>
@@ -57,3 +57,5 @@
     <button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo $this->lang->line('REGISTE_LABEL'); ?></button>
 
 </form>
+<script src="/assets/js/mail-auto-complete.js"></script>
+<script type="text/javascript">$(".inputMailList").mailAutoComplete();//使用方法</script>
