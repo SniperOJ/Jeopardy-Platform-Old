@@ -732,4 +732,44 @@ class User extends CI_Controller {
 	{
 		$this->user_model->destroy_reset_code($reset_code);
 	}
+
+
+	// public function do_update_user_info($userID, $user_info)
+	// {
+
+	// 	$this->db->where('userID', $userID);
+	// 	$this->db->update('users', $user_info);
+	// }
+
+
+	// public function update_user_info()
+	// {
+	// 	$this->load->helper('form');
+	// 	$this->load->library('form_validation');
+
+	// 	$this->form_validation->set_rules('password', 'Password', 'required');
+	// 	$this->form_validation->set_rules('reset_code', 'Reset code', 'required');
+
+	// 	if ($this->form_validation->run() === FALSE)
+	// 	{
+	// 		// 用户体验???
+	// 		$this->load->view('templates/header');
+	// 		$this->load->view('navigation_bar/navigation_bar_visitor');
+	// 		$this->load->view('notice/view', array('type' => 'error', 'message' => 'Please input all fileds!'));
+	// 		$this->load->view('user/reset', array('reset_code' => 'NULL', ));
+	// 		$this->load->view('templates/footer');
+	// 	}
+	// 	else
+	// 	{
+			
+	// 		$user_info = array(
+	// 			'verified' => '1',
+	// 			'token' => '',
+	// 		);
+
+	// 	}
+
+
+
+	// }
 }
