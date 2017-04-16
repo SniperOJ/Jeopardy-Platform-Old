@@ -37,7 +37,9 @@
     <label for="captcha" class="sr-only">Captcha</label>
     <input type="text" id="inputCaptcha" class="form-control" placeholder="Captcha" name= "captcha" required>
     <?php
-        echo $cap['image'].'<br>';
+        echo "<a href='/user/forget'>";
+        echo $cap['image'];
+        echo "</a>";
     ?>
 
     <button class="btn btn-lg btn-primary btn-block" type="submit">Send reset email</button>

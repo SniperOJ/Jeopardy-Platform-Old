@@ -52,7 +52,9 @@
     <label for="captcha" class="sr-only"><?php echo $this->lang->line('REGISTE_CAPTCHA_LABEL'); ?></label>
     <input type="text" id="inputCaptcha" class="form-control" placeholder="<?php echo $this->lang->line('REGISTE_CAPTCHA_PLACEHOLDER'); ?>" name= "captcha" required>
     <?php
-        echo $cap['image'].'<br>';
+        echo "<a href='/user/register'>";
+        echo $cap['image'];
+        echo "</a>";
     ?>
 
     <button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo $this->lang->line('REGISTE_LABEL'); ?></button>
