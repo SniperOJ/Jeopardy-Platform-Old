@@ -140,6 +140,9 @@ $this->load->view('navigation_bar/navigation_bar_user');
                     );
                     $this->db->insert('submit_log', $submit_data);
 
+                    // flush data
+                    $data['challenges'] = $this->challenges_model->get_all_challenges();
+
                     // load seccess view
                     if ($is_current === 1){
                         $this->load->view('templates/header');
@@ -147,15 +150,12 @@ $this->load->view('navigation_bar/navigation_bar_user');
                         $this->load->view('notice/view', array('message' => 'Congratulations'));
                         $this->load->view('challenges/view', $data);
                         $this->load->view('templates/footer');
-                        redirect("/challenges/view");
                     }else{
                         $this->load->view('templates/header');
                         $this->load->view('navigation_bar/navigation_bar_user');
                         $this->load->view('notice/view', array('message' => 'Wrong answer!'));
                         $this->load->view('challenges/view', $data);
                         $this->load->view('templates/footer');
-                        redirect("/challenges/view");
-                        
                     }
                 }
             }
