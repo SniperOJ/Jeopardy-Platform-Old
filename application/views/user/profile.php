@@ -1,42 +1,47 @@
+<?php
+    $this->load->language("profile");
+    $this->load->language("submit_log");
+?>
+
 <link href="../../assets/css/style.css" rel='stylesheet' type='text/css' />
 <div class="banner-info">
 	<div class="col-md-7 header-right" style="color:#111;text-align:initial;padding-left: 400px;">
-		<h1>Profile</h1>
+		<h1><?php echo $this->lang->line('PROFILE_NAME'); ?></h1>
 		<ul class="address">
 		
 		<li>
 				<ul class="address-text">
-					<li><b>NAME</b></li>
+					<li><b><?php echo $this->lang->line('USERNAME'); ?></b></li>
 					<li><?php echo $user_data['username']; ?></li>
 				</ul>
 			</li>
 			<li>
 				<ul class="address-text">
-					<li><b>E-Mail</b></li>
+					<li><b><?php echo $this->lang->line('EMAIL'); ?></b></li>
 					<li><a href="<?php echo $user_data['email']; ?>"><?php echo $user_data['email']; ?></a></li>
 				</ul>
 			</li>
 			<li>
 				<ul class="address-text">
-					<li><b>College</b></li>
+					<li><b><?php echo $this->lang->line('COLLEGE'); ?></b></li>
 					<li><?php echo $user_data['college']; ?></li>
 				</ul>
 			</li>
 			<li>
 				<ul class="address-text">
-					<li><b>Register Time</b></li>
+					<li><b><?php echo $this->lang->line('REGISTER_TIME'); ?></b></li>
 					<li><?php echo $user_data['registe_time']; ?></li>
 				</ul>
 			</li>
 			<li>
 				<ul class="address-text">
-					<li><b>Register IP</b></li>
+					<li><b><?php echo $this->lang->line('REGISTER_IP'); ?></b></li>
 					<li><?php echo $user_data['registe_ip']; ?></li>
 				</ul>
 			</li>
 			<li>
 				<ul class="address-text">
-					<li><b>Score</b></li>
+					<li><b><?php echo $this->lang->line('SCORE'); ?></b></li>
 					<li><?php echo $user_data['score']; ?></li>
 				</ul>
 			</li>
@@ -52,14 +57,14 @@
 </div>
 
 <table class="table table-hover">
-  <caption>Submit log</caption>
+  <caption><h3><?php echo $this->lang->line('SUBMIT_LOG_NAME'); ?></h3></caption>
   <thead>
     <tr>
-      <th>ID</th>
-      <th>ChallengeName</th>
-      <th>Flag</th>
-      <th>Time</th>
-      <th>Current</th>
+      <th><?php echo $this->lang->line('SUBMIT_ID'); ?></th>
+      <th><?php echo $this->lang->line('CHALLENGE_NAME'); ?></th>
+      <th><?php echo $this->lang->line('FLAG'); ?></th>
+      <th><?php echo $this->lang->line('SUBMIT_TIME'); ?></th>
+      <th><?php echo $this->lang->line('CURRENT'); ?></th>
     </tr>
   </thead>
   <tbody>
