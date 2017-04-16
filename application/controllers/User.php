@@ -98,14 +98,14 @@ class User extends CI_Controller {
 	}
 
 
-	public function is_user_not_exist($username)
+	public function is_username_not_exist($username)
 	{
-		$query = $this->db->get_where('users', array('username' => $username));
-		if ($query->num_rows() === 0){
-			return true;
-		}else{
-			return false;
-		}
+		return !($this->user_model->is_username_exist($username));
+	}
+
+	public function is_email_not_exist($email)
+	{
+		return !($this->user_model->is_email_exist($email));
 	}
 
 	public function send_active_code($active_code, $reciver_email)
@@ -272,8 +272,8 @@ class User extends CI_Controller {
 									redirect("/challenges/view");
 								}else{
 									// Account have not verified
-															$this->load->view('templates/header');
-						$this->load->view('navigation_bar/navigation_bar_visitor');
+									$this->load->view('templates/header');
+									$this->load->view('navigation_bar/navigation_bar_visitor');
 									$this->load->view('notice/view', array('type' => 'error', 'message' => '请激活您的账号!'));
 									$this->load->view('user/login');
 									$this->load->view('templates/footer');
@@ -320,6 +320,7 @@ class User extends CI_Controller {
 
 	public function register()
 	{
+
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
@@ -351,20 +352,29 @@ class User extends CI_Controller {
 					if ($this->check_password($password)){
 						if ($this->check_college($college)){
 							if ($this->check_email($email)){
-								if ($this->is_user_not_exist($username)){
-									if($this->do_register($username, $password, $email, $college)){
-										// register success
-										$this->load->view('templates/header');
-										$this->load->view('navigation_bar/navigation_bar_visitor');
-										$this->load->view('notice/view', array('type' => 'success', 'message' => 'Register success! Please check your mailbox to verify your account!'));
-										$this->load->view('user/login'); // jump to login or profile ?
-										// no , user must verify his/her account at first
-										$this->load->view('templates/footer');
+								if ($this->is_username_not_exist($username)){
+									if ($this->is_email_not_exist($email)){
+										if($this->do_register($username, $password, $email, $college)){
+											// register success
+											$this->load->view('templates/header');
+											$this->load->view('navigation_bar/navigation_bar_visitor');
+											$this->load->view('notice/view', array('type' => 'success', 'message' => 'Register success! Please check your mailbox to verify your account!'));
+											$this->load->view('user/login'); // jump to login or profile ?
+											// no , user must verify his/her account at first
+											$this->load->view('templates/footer');
+										}else{
+											// register failed
+											$this->load->view('templates/header');
+											$this->load->view('navigation_bar/navigation_bar_visitor');
+											$this->load->view('notice/view', array('type' => 'error', 'message' => 'Register failed! Please contact : admin@sniperoj.cn'));
+											$this->load->view('user/register');
+											$this->load->view('templates/footer');
+										}
 									}else{
-										// register failed
+										// User existed!
 										$this->load->view('templates/header');
 										$this->load->view('navigation_bar/navigation_bar_visitor');
-										$this->load->view('notice/view', array('type' => 'error', 'message' => 'Register failed! Please contact : admin@sniperoj.cn'));
+										$this->load->view('notice/view', array('type' => 'error', 'message' => 'Email has been used!'));
 										$this->load->view('user/register');
 										$this->load->view('templates/footer');
 									}
@@ -372,7 +382,7 @@ class User extends CI_Controller {
 									// User existed!
 									$this->load->view('templates/header');
 									$this->load->view('navigation_bar/navigation_bar_visitor');
-									$this->load->view('notice/view', array('type' => 'error', 'message' => 'User existed!'));
+									$this->load->view('notice/view', array('type' => 'error', 'message' => 'Username has been used!'));
 									$this->load->view('user/register');
 									$this->load->view('templates/footer');
 								}
@@ -497,4 +507,65 @@ class User extends CI_Controller {
 		die();
 	}
 
+
+	/* 忘记密码 */
+	public function forget_password()
+	{
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('email', 'Email', 'required');
+		$this->form_validation->set_rules('captcha', 'Captcha', 'required');
+
+		if ($this->form_validation->run() === FALSE)
+		{
+			// get form data failed
+			$this->load->view('templates/header');
+			$this->load->view('navigation_bar/navigation_bar_visitor');
+			$this->load->view('user/login');
+			$this->load->view('templates/footer');
+		}else{
+			$captcha = $this->input->post('captcha');
+			$email = $this->input->post('email');
+
+			// get form data success
+			if($this->verify_captcha($captcha)){
+				if($this->user_model->is_email_existed($email)){
+					if($this->do_forget_password($email)){
+						// load reset password view
+						$this->load->view('templates/header');
+						$this->load->view('navigation_bar/navigation_bar_visitor');
+						$this->load->view('user/reset');
+						$this->load->view('templates/footer');
+					}else{
+						// reset error
+						$this->load->view('templates/header');
+						$this->load->view('navigation_bar/navigation_bar_visitor');
+						$this->load->view('notice/view', array('type' => 'error', 'message' => 'System error! Please contact with admin@sniperoj.cn'));
+						$this->load->view('user/login');
+						$this->load->view('templates/footer');
+					}
+				}else{
+					// Email not existed
+					$this->load->view('templates/header');
+					$this->load->view('navigation_bar/navigation_bar_visitor');
+					$this->load->view('notice/view', array('type' => 'error', 'message' => 'Email not exist!'));
+					$this->load->view('user/login');
+					$this->load->view('templates/footer');
+				}
+			}else{
+				// verify captcha failed
+				$this->load->view('templates/header');
+				$this->load->view('navigation_bar/navigation_bar_visitor');
+					$this->load->view('notice/view', array('type' => 'error', 'message' => 'Captcha error!'));
+				$this->load->view('user/register');
+				$this->load->view('templates/footer');
+			}
+		}
+	}
+
+	public function do_forget_password()
+	{
+
+	}
 }

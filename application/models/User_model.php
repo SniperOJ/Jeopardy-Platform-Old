@@ -268,4 +268,16 @@ class User_model extends CI_Model {
         return intval($result['userID']);
     }
 
+    public function is_email_exist($email)
+    {
+        $query = $this->db->get_where('users', array('email' => $email));
+        return ($query->num_rows() > 0);
+    }
+
+    public function is_username_exist($username)
+    {
+        $query = $this->db->get_where('users', array('username' => $username));
+        return ($query->num_rows() > 0);
+    }
+
 }
