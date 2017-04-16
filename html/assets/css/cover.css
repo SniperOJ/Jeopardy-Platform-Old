@@ -199,3 +199,8 @@ input{
   height:200px; /*高为200那么margin-left为-100px;*/ 
   z-index:99; /*浮动在最上层 */ 
 }
+
+
+.email-auto-complete:hover{
+  background-color: #EEE;
+}

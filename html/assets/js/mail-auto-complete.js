@@ -2,7 +2,20 @@
     $.fn.mailAutoComplete = function(options) {
         var defaults = {
             className: "emailist",
-            email:  ["qq.com","gmail.com","126.com","163.com","hotmail.com","yahoo.com","yahoo.com.cn","live.com","sohu.com","sina.com"], //邮件数组
+            email:  [
+                "qq.com",
+                "foxmail.com",
+                "gmail.com",
+                "126.com",
+                "163.com",
+                "hotmail.com",
+                "yahoo.com",
+                "yahoo.com.cn",
+                "live.com",
+                "sohu.com",
+                "sina.com"
+                "outlook.com"
+            ], //邮件数组
             zIndex: 11
         };
         // 最终参数
@@ -27,7 +40,7 @@
                 }
             });
             $.each(arrEmailNew, function(index, email) {
-                htmlEmailList = htmlEmailList + '<li class="form-control"'+ (input.indexSelected===index? ' class="on"':'') +'>'+ arrValue[0] + "@" + email +'</li>';
+                htmlEmailList = htmlEmailList + '<li class="form-control email-auto-complete"'+ (input.indexSelected===index? ' class="on"':'') +'>'+ arrValue[0] + "@" + email +'</li>';
             });
             return htmlEmailList;
         };
