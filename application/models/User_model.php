@@ -204,7 +204,7 @@ class User_model extends CI_Model {
             'score' => $this->get_score($userID),
             'college' => $this->get_college($userID),
             'token' => $this->get_token($userID),
-            'token_alive_time' => ($this->get_token_alive_time($userID) + $this->config->item('sess_expiration')),
+            'token_alive_time' => (time() + $this->config->item('sess_expiration')),
             'usertype' => $this->get_usertype($userID),
         );
         $this->session->set_userdata($data);
