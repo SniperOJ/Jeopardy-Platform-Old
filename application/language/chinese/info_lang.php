@@ -16,4 +16,14 @@
 		"REGISTE_COLLEGE_PLACEHOLDER" => "请输入您的学校名称",
 		"REGISTE_CAPTCHA_LABEL" => "验证码",
 		"REGISTE_CAPTCHA_PLACEHOLDER" => "请输入验证码 (验证码为 4 位纯数字)",
+
+
+		"LOGIN_LABEL" => "登录",
+		"LOGIN_USERNAME_LABEL" => "用户名",
+		"LOGIN_USERNAME_PLACEHOLDER" => "请输入用户名 (长度大于等于4并且小于等于16 , 只允许使用字母与数字)",
+		"LOGIN_PASSWORD_LABEL" => "密码",
+		"LOGIN_PASSWORD_PLACEHOLDER" => "请输入密码 (长度大于等于6并且小于等于16)",
+		"LOGIN_EMAIL_LABEL" => "邮箱",
+		"LOGIN_CAPTCHA_LABEL" => "验证码",
+		"LOGIN_CAPTCHA_PLACEHOLDER" => "请输入验证码 (验证码为 4 位纯数字)",
 	);
