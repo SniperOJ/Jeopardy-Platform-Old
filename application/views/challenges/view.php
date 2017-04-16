@@ -2,7 +2,7 @@
     $this->load->language("challenges");
 ?>
 
-<h1>Challenges</h1>
+<h1><?php echo $this->lang->line('CHALLENGES'); ?></h1>
 
 <div class="challenges">
   

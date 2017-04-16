@@ -1,5 +1,6 @@
 <?php
 	$lang = array(
+		"CHALLENGES" => "赛题",
 		"NAME" => "名称",
 		"DESCRIPTION" => "描述",
 		"SCORE" => "分数",

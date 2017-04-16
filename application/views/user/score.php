@@ -1,11 +1,16 @@
-<h1>Score</h1>
+<?php
+    $this->load->language("score");
+?>
+
+
+<h1><?php echo $this->lang->line('SCORE_NAME'); ?></h1>
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Rank</th>
-      <th>Name</th>
-      <th>College</th>
-      <th>Score</th>
+      <th><?php echo $this->lang->line('RANK'); ?></th>
+      <th><?php echo $this->lang->line('USERNAME'); ?></th>
+      <th><?php echo $this->lang->line('COLLEGE'); ?></th>
+      <th><?php echo $this->lang->line('SCORE'); ?></th>
     </tr>
   </thead>
   <tbody>

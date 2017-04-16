@@ -6,7 +6,7 @@
 		"REGISTERLABEL" => "注册",
 
 		"CHALLENGES_LABEL" => "赛题",
-		"SCORE_LABEL" => "分数",
+		"SCORE_LABEL" => "排行榜",
 		"PROFILE_LABEL" => "我的",
 		"LOGOUT_LABEL" => "退出",
 

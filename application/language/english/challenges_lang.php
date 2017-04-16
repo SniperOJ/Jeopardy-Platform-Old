@@ -1,5 +1,6 @@
 <?php
 	$lang = array(
+		"CHALLENGES" => "Challenges",
 		"NAME" => "Name",
 		"DESCRIPTION" => "Description",
 		"SCORE" => "Score",
