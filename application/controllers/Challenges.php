@@ -105,7 +105,7 @@ class Challenges extends CI_Controller {
                 $user_flag = $this->input->post('flag');
                 if ($this->is_solved($userID, $challengeID)){
                     $this->load->view('templates/header');
-$this->load->view('navigation_bar/navigation_bar_user');
+                    $this->load->view('navigation_bar/navigation_bar_user');
                     $this->load->view('notice/view', array('type' => 'warning', 'message' => 'You have solved this challenge!'));
                     $this->load->view('challenges/view', $data);
                     $this->load->view('templates/footer');
