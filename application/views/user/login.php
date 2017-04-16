@@ -44,7 +44,7 @@
     <input type="text" id="inputUsername" class="form-control" placeholder="<?php echo $this->lang->line('LOGIN_USERNAME_PLACEHOLDER'); ?>" name="username" value="<?php echo set_value('username'); ?>" required autofocus>
 
     <label for="inputPassword" class="sr-only"><?php echo $this->lang->line('LOGIN_PASSWORD_LABEL'); ?></label>
-    <input type="password" id="inputPassword" class="form-control"   placeholder="<?php echo $this->lang->line('LOGIN_PASSWORD_PLACEHOLDER'); ?>" name="password" required>
+    <input type="password" id="inputPassword" class="form-control"   placeholder="<?php echo $this->lang->line('LOGIN_PASSWORD_PLACEHOLDER'); ?>" name="password" value="<?php echo set_value('password'); ?>"  required>
 
     <label for="captcha" class="sr-only"><?php echo $this->lang->line('LOGIN_CAPTCHA_LABEL'); ?></label>
     <input type="text" id="inputCaptcha" class="form-control" placeholder="<?php echo $this->lang->line('LOGIN_CAPTCHA_PLACEHOLDER'); ?>" name= "captcha" required>
