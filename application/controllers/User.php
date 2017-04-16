@@ -681,20 +681,28 @@ class User extends CI_Controller {
 				$new_salt = random_string('alnum', 16);
 				$userID = $this->user_model->get_userID_by_reset_code($reset_code);
 				$username = $this->user_model->get_username($userID);
-
-				if ($this->do_reset_password($userID, $new_password, $new_salt)){
-					// jmp to user profile
-					$this->user_model->set_session($username);
-					// update db token_alive_time
-					$this->user_model->set_token_alive_time($userID, time() + $this->config->item('sess_expiration'));
-					$this->destroy_reset_code($reset_code);
-					redirect("/user/profile");
+				if ($this->check_password($new_password)){
+					if ($this->do_reset_password($userID, $new_password, $new_salt)){
+						// jmp to user profile
+						$this->user_model->set_session($username);
+						// update db token_alive_time
+						$this->user_model->set_token_alive_time($userID, time() + $this->config->item('sess_expiration'));
+						$this->destroy_reset_code($reset_code);
+						redirect("/user/profile");
+					}else{
+						// reset code not exist
+						$this->load->view('templates/header');
+						$this->load->view('navigation_bar/navigation_bar_visitor');
+							$this->load->view('notice/view', array('type' => 'error', 'message' => 'Reset password error!'));
+						$this->load->view('user/login');
+						$this->load->view('templates/footer');
+					}
 				}else{
-					// reset code not exist
+					// password illegal
 					$this->load->view('templates/header');
 					$this->load->view('navigation_bar/navigation_bar_visitor');
-						$this->load->view('notice/view', array('type' => 'error', 'message' => 'Reset password error!'));
-					$this->load->view('user/login');
+					$this->load->view('notice/view', array('type' => 'error', 'message' => '密码长度必须大于等于 6 小于等于 16 个字符'));
+					$this->load->view('user/register');
 					$this->load->view('templates/footer');
 				}
 			}else{
