@@ -1,4 +1,4 @@
-[hidden] { display: none; }
+/*[hidden] { display: none; }
 
 div.awesomplete {
 	display: inline-block;
@@ -89,4 +89,4 @@ div.awesomplete > ul:empty {
 		div.awesomplete li[aria-selected="true"] mark {
 			background: hsl(86, 102%, 21%);
 			color: inherit;
-		}
+		}*/
