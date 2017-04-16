@@ -10,8 +10,7 @@
         <th>Score</th>
         <th>Type</th>
         <th>Online Time</th>
-        <th>Submit times</th>
-        <th>Solved times</th>
+        <th>PassRate</th>
         <th>Resource</th>
         <th>Document</th>
         <th>Submit</th>
@@ -26,8 +25,7 @@
           <td><?php echo $challenge_item['score']; ?></td>
           <td><?php echo $challenge_item['type']; ?></td>
           <td><?php echo date('Y-m-d H:i:s', $challenge_item['online_time']); ?></td>
-          <td><?php echo $challenge_item['submit_times']; ?></td>
-          <td><?php echo $challenge_item['solved_times']; ?></td>
+          <td><?php echo $challenge_item['solved_times']." / ".$challenge_item['submit_times']; ?></td>
           <?php
             echo '<td>';
             if (strlen($challenge_item['resource']) == 0){
