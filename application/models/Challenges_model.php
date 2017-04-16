@@ -159,7 +159,7 @@ class Challenges_model extends CI_Model {
     }
 
     /* advance function */
-    public function get_all_challenges()
+    public function get_all_challenges($userID)
     {
         $query = $this->db
             ->where(array("fixing" => "0"))
@@ -168,8 +168,22 @@ class Challenges_model extends CI_Model {
         for ($i=0; $i < count($challenges); $i++) { 
             $challenges[$i]['solved_times'] = $this->challenges_model->get_challenge_solved_times($challenges[$i]['challengeID']);
             $challenges[$i]['submit_times'] = $this->challenges_model->get_challenge_submit_times($challenges[$i]['challengeID']);
+            $challenges[$i]['is_solved'] = $this->challenges_model->is_solved_by_userID($challenges[$i]['challengeID'], $userID);
         }
         return $challenges;
+    }
+
+    public function is_solved_by_userID($challengeID, $userID)
+    {
+        $query = $this->db->select('submit_time')
+        ->where(array(
+            "challengeID" => $challengeID,
+            "userID" => $userID,
+            "is_current" => "1"
+        ))
+        ->get('submit_log');
+        $result = $query->num_rows();
+        return $result;
     }
 
     public function get_challenge_solved_times($challengeID){

@@ -44,7 +44,7 @@ class Challenges extends CI_Controller {
     public function view()
     {
         if($this->is_logined()){
-            $data['challenges'] = $this->challenges_model->get_all_challenges();
+            $data['challenges'] = $this->challenges_model->get_all_challenges($this->session->userID);
             $this->load->view('templates/header');
             $this->load->view('navigation_bar/navigation_bar_user');
             $this->load->view('challenges/view', $data);
@@ -90,7 +90,7 @@ class Challenges extends CI_Controller {
             $this->load->helper('form');
             $this->load->library('form_validation');
 
-            $data['challenges'] = $this->challenges_model->get_all_challenges();
+            $data['challenges'] = $this->challenges_model->get_all_challenges($this->session->userID);
 
             $this->form_validation->set_rules('challengeID', 'challengeID', 'required');
             $this->form_validation->set_rules('flag', 'Flag', 'required');
@@ -141,7 +141,7 @@ $this->load->view('navigation_bar/navigation_bar_user');
                     $this->db->insert('submit_log', $submit_data);
 
                     // flush data
-                    $data['challenges'] = $this->challenges_model->get_all_challenges();
+                    $data['challenges'] = $this->challenges_model->get_all_challenges($this->session->userID);
 
                     // load seccess view
                     if ($is_current === 1){
@@ -227,14 +227,14 @@ $this->load->view('navigation_bar/navigation_bar_user');
                     );
 
                     if ($this->do_create($new_challenge)) {
-                        $data['challenges'] = $this->challenges_model->get_all_challenges();
+                        $data['challenges'] = $this->challenges_model->get_all_challenges($this->session->userID);
                         $this->load->view('templates/header');
 $this->load->view('navigation_bar/navigation_bar_user');
                         $this->load->view('notice/view', array('type' => 'success', 'message' => 'Create challenge success!'));
                         $this->load->view('challenges/view', $data);
                         $this->load->view('templates/footer');
                     }else{
-                        $data['challenges'] = $this->challenges_model->get_all_challenges();
+                        $data['challenges'] = $this->challenges_model->get_all_challenges($this->session->userID);
                         $this->load->view('templates/header');
 $this->load->view('navigation_bar/navigation_bar_user');
                         $this->load->view('notice/view', array('type' => 'error', 'message' => 'Create challenge error! Please contact admin@sniperoj.cn'));

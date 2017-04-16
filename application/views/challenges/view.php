@@ -49,11 +49,21 @@
           ?>  
           
           <td><a target="_blank" href="<?php echo $challenge_item['document']; ?>">参考资料</a></td>
-          <td><form action="/challenges/submit" method="POST">
-              <input type="text" name="flag">
-              <input type="hidden" name="challengeID" value="<?php echo html_escape($challenge_item['challengeID']);?>">
-              <input class="btn btn-default" type="submit">
-          </form></td>
+          <td>
+            <?php
+              if ($challenge_item['is_solved'] === 0){
+                echo '<form action="/challenges/submit" method="POST">';
+                echo '<input type="text" name="flag">';
+                echo '<input type="hidden" name="challengeID" value="';
+                echo html_escape($challenge_item['challengeID']);
+                echo '">';
+                echo '<input class="btn btn-default" type="submit">';
+                echo '</form>';
+              }else{
+                echo "Solved";
+              }
+            ?>
+            </td>
       </tr>
       <?php endforeach; ?>
 
