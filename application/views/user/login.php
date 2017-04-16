@@ -53,4 +53,6 @@
     ?>
 
     <button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo $this->lang->line('LOGIN_LABEL'); ?></button>
+
+    <a class="btn btn-lg btn-primary btn-block" href="/user/forget">Forget Password</a>
 </form>
