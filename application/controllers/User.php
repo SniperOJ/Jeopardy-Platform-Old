@@ -262,7 +262,7 @@ class User extends CI_Controller {
 								if($this->check_verified($username)){
 									// login success
 									// $this->load->view('templates/header',  array('navigation_bar' => $this->config->item('navigation_bar_user')));
-									// $this->load->view('notice/view', array('message' => 'Login success'));
+									// $this->load->view('notice/view', array('tyep' => 'error', 'message' => 'Login success'));
 									// $this->load->view('user/profile');
 									// $this->load->view('templates/footer');
 									// set session
@@ -274,7 +274,7 @@ class User extends CI_Controller {
 									// Account have not verified
 									                        $this->load->view('templates/header');
                         $this->load->view('navigation_bar/navigation_bar_visitor');
-									$this->load->view('notice/view', array('message' => '请激活您的账号!'));
+									$this->load->view('notice/view', array('tyep' => 'error', 'message' => '请激活您的账号!'));
 									$this->load->view('user/login');
 									$this->load->view('templates/footer');
 								}
@@ -282,8 +282,8 @@ class User extends CI_Controller {
 								// login failed, must be password error!
 								$this->load->view('templates/header');
 								$this->load->view('navigation_bar/navigation_bar_visitor');
-								// $this->load->view('notice/view', array('message' => '登录失败!'));
-								$this->load->view('notice/view', array('message' => 
+								// $this->load->view('notice/view', array('tyep' => 'error', 'message' => '登录失败!'));
+								$this->load->view('notice/view', array('tyep' => 'error', 'message' => 
 									$this->lang->line('LOGIN_FAILED')));
 								$this->load->view('user/login');
 								$this->load->view('templates/footer');
@@ -292,7 +292,7 @@ class User extends CI_Controller {
 							// password illegal
 							$this->load->view('templates/header');
 							$this->load->view('navigation_bar/navigation_bar_visitor');
-							$this->load->view('notice/view', array('message' => '密码长度必须大于等于 6 小于等于 16 个字符'));
+							$this->load->view('notice/view', array('tyep' => 'error', 'message' => '密码长度必须大于等于 6 小于等于 16 个字符'));
 							$this->load->view('user/login');
 							$this->load->view('templates/footer');
 						}
@@ -300,7 +300,7 @@ class User extends CI_Controller {
 						// username illegal
 						$this->load->view('templates/header');
 						$this->load->view('navigation_bar/navigation_bar_visitor');
-						$this->load->view('notice/view', array('message' => '用户名只可以是字母和数字的组合 , 请不要在用户名中使用符号! 长度大于等于 4 字符 , 小于等于 16 个字符'));
+						$this->load->view('notice/view', array('tyep' => 'error', 'message' => '用户名只可以是字母和数字的组合 , 请不要在用户名中使用符号! 长度大于等于 4 字符 , 小于等于 16 个字符'));
 						$this->load->view('user/login');
 						$this->load->view('templates/footer');
 					}
@@ -308,7 +308,7 @@ class User extends CI_Controller {
 					// verify captcha failed
 					$this->load->view('templates/header');
 					$this->load->view('navigation_bar/navigation_bar_visitor');
-						$this->load->view('notice/view', array('message' => '验证码错误!'));
+						$this->load->view('notice/view', array('tyep' => 'error', 'message' => '验证码错误!'));
 					$this->load->view('user/login');
 					$this->load->view('templates/footer');
 				}
@@ -356,7 +356,7 @@ class User extends CI_Controller {
 										// register success
 										$this->load->view('templates/header');
 										$this->load->view('navigation_bar/navigation_bar_visitor');
-										$this->load->view('notice/view', array('message' => 'Register success! Please check your mailbox to verify your account!'));
+										$this->load->view('notice/view', array('tyep' => 'success', 'message' => 'Register success! Please check your mailbox to verify your account!'));
 										$this->load->view('user/login'); // jump to login or profile ?
 										// no , user must verify his/her account at first
 										$this->load->view('templates/footer');
@@ -364,7 +364,7 @@ class User extends CI_Controller {
 										// register failed
 										$this->load->view('templates/header');
 										$this->load->view('navigation_bar/navigation_bar_visitor');
-										$this->load->view('notice/view', array('message' => 'Register failed! Please contact : admin@sniperoj.cn'));
+										$this->load->view('notice/view', array('tyep' => 'error', 'message' => 'Register failed! Please contact : admin@sniperoj.cn'));
 										$this->load->view('user/register');
 										$this->load->view('templates/footer');
 									}
@@ -372,7 +372,7 @@ class User extends CI_Controller {
 									// User existed!
 									$this->load->view('templates/header');
 									$this->load->view('navigation_bar/navigation_bar_visitor');
-									$this->load->view('notice/view', array('message' => 'User existed!'));
+									$this->load->view('notice/view', array('tyep' => 'error', 'message' => 'User existed!'));
 									$this->load->view('user/register');
 									$this->load->view('templates/footer');
 								}
@@ -380,7 +380,7 @@ class User extends CI_Controller {
 								// Email illegal
 								$this->load->view('templates/header');
 								$this->load->view('navigation_bar/navigation_bar_visitor');
-								$this->load->view('notice/view', array('message' => 'Email illegal!'));
+								$this->load->view('notice/view', array('tyep' => 'error', 'message' => 'Email illegal!'));
 								$this->load->view('user/register');
 								$this->load->view('templates/footer');
 							}
@@ -388,7 +388,7 @@ class User extends CI_Controller {
 							// College illegal
 							$this->load->view('templates/header');
 							$this->load->view('navigation_bar/navigation_bar_visitor');
-							$this->load->view('notice/view', array('message' => 'College length < 64!'));
+							$this->load->view('notice/view', array('tyep' => 'error', 'message' => 'College length < 64!'));
 							$this->load->view('user/register');
 							$this->load->view('templates/footer');
 						}
@@ -396,7 +396,7 @@ class User extends CI_Controller {
 						// password illegal
 						$this->load->view('templates/header');
 						$this->load->view('navigation_bar/navigation_bar_visitor');
-						$this->load->view('notice/view', array('message' => '密码长度必须大于等于 6 小于等于 16 个字符'));
+						$this->load->view('notice/view', array('tyep' => 'error', 'message' => '密码长度必须大于等于 6 小于等于 16 个字符'));
 						$this->load->view('user/register');
 						$this->load->view('templates/footer');
 					}
@@ -404,7 +404,7 @@ class User extends CI_Controller {
 					// username illegal
 					$this->load->view('templates/header');
 					$this->load->view('navigation_bar/navigation_bar_visitor');
-					$this->load->view('notice/view', array('message' => '用户名只可以是字母和数字的组合 , 请不要在用户名中使用符号! 长度大于等于 4 字符 , 小于等于 16 个字符'));
+					$this->load->view('notice/view', array('tyep' => 'error', 'message' => '用户名只可以是字母和数字的组合 , 请不要在用户名中使用符号! 长度大于等于 4 字符 , 小于等于 16 个字符'));
 					$this->load->view('user/register');
 					$this->load->view('templates/footer');
 				}
@@ -412,7 +412,7 @@ class User extends CI_Controller {
 				// verify captcha failed
 				$this->load->view('templates/header');
 				$this->load->view('navigation_bar/navigation_bar_visitor');
-					$this->load->view('notice/view', array('message' => 'Captcha error!'));
+					$this->load->view('notice/view', array('tyep' => 'error', 'message' => 'Captcha error!'));
 				$this->load->view('user/register');
 				$this->load->view('templates/footer');
 			}
@@ -437,7 +437,7 @@ class User extends CI_Controller {
 			// active failed
 			$this->load->view('templates/header');
 			$this->load->view('navigation_bar/navigation_bar_visitor');
-			$this->load->view('notice/view', array('message' => '激活失败!'));
+			$this->load->view('notice/view', array('tyep' => 'error', 'message' => '激活失败!'));
 			$this->load->view('user/login');
 			$this->load->view('templates/footer');
 		}
