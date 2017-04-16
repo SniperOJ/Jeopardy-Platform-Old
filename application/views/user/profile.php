@@ -50,7 +50,7 @@
 		</ul>
 	</div>
 	<div class="col-md-5 header-left">
-		<img src="../../assets/images/avatar.png" alt="" style="width: 240px;
+		<img src="../../assets/images/avatar.jpg" alt="" style="width: 240px;
   height:240px;
   border-radius:120px">
 	</div>
