@@ -1,4 +1,8 @@
 <?php
+    $this->load->language("info");
+?>
+
+<?php
 
     $this->load->helper('captcha');
 
@@ -30,26 +34,26 @@
 
 <?php echo form_open('user/register'); ?>
 
-    <h2 class="form-signin-heading">Register</h2>
+    <h2 class="form-signin-heading"><?php echo $this->lang->line('REGISTE_LABEL'); ?></h2>
 
-    <label for="inputUsername" class="sr-only">Username</label>
-    <input type="text" id="inputUsername" class="form-control" placeholder="Username" name="username" required autofocus>
+    <label for="inputUsername" class="sr-only"><?php echo $this->lang->line('REGISTE_USERNAME_LABEL'); ?></label>
+    <input type="text" id="inputUsername" class="form-control" placeholder="<?php echo $this->lang->line('REGISTE_USERNAME_PLACEHOLDER'); ?>" name="username" required autofocus>
 
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+    <label for="inputPassword" class="sr-only"><?php echo $this->lang->line('REGISTE_PASSWORD_LABEL'); ?></label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="<?php echo $this->lang->line('REGISTE_PASSWORD_PLACEHOLDER'); ?>" name="password" required>
 
-    <label for="inputEmail" class="sr-only">Email</label>
-    <input type="text" id="inputEmail" class="form-control" placeholder="Email" name="email" required autofocus>
+    <label for="inputEmail" class="sr-only"><?php echo $this->lang->line('REGISTE_EMAIL_LABEL'); ?></label>
+    <input type="text" id="inputEmail" class="form-control" placeholder="<?php echo $this->lang->line('REGISTE_EMAIL_PLACEHOLDER'); ?>" name="email" required autofocus>
 
-    <label for="inputCollege" class="sr-only">College</label>
-    <input type="text" id="inputCollege" class="form-control" placeholder="College" name="college" required autofocus>
+    <label for="inputCollege" class="sr-only"><?php echo $this->lang->line('REGISTE_COLLEGE_LABEL'); ?></label>
+    <input type="text" id="inputCollege" class="form-control" placeholder="<?php echo $this->lang->line('REGISTE_COLLEGE_PLACEHOLDER'); ?>" name="college" required autofocus>
 
-    <label for="captcha" class="sr-only">Captcha</label>
-    <input type="text" id="inputCaptcha" class="form-control" placeholder="Captcha" name= "captcha" required>
+    <label for="captcha" class="sr-only"><?php echo $this->lang->line('REGISTE_CAPTCHA_LABEL'); ?></label>
+    <input type="text" id="inputCaptcha" class="form-control" placeholder="<?php echo $this->lang->line('REGISTE_CAPTCHA_PLACEHOLDER'); ?>" name= "captcha" required>
     <?php
         echo $cap['image'].'<br>';
     ?>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo $this->lang->line('REGISTE_LABEL'); ?></button>
 
 </form>
