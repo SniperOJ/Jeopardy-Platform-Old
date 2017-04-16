@@ -46,49 +46,19 @@ class News extends CI_Controller {
     {
         if($this->is_logined()){
             $data['news'] = $this->news_model->get_all_news();
-            $this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_user')));
+            $this->load->view('templates/header');
+            $this->load->view('navigation_bar/navigation_bar_user');
             $this->load->view('news/view', $data);
             $this->load->view('templates/footer');
         }else{
             $data['news'] = $this->news_model->get_all_news();
-            $this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_visitor')));
+            $this->load->view('templates/header');
+            $this->load->view('navigation_bar/navigation_bar_visitor');
             $this->load->view('news/view', $data);
             $this->load->view('templates/footer');
         }
     }
 
-    // /**
-    //  *
-    //  */
-    // public function index()
-    // {
-    //     $data['news'] = $this->news_model->get_news();
-    //     $data['title'] = 'News archive';
-
-    //     $this->load->view('templates/header', $data);
-    //     $this->load->view('news/index', $data);
-    //     $this->load->view('templates/footer');
-    // }
-
-    // /**
-    //  * 显示 News
-    //  */
-    // public function view($newsID = NULL)
-    // {
-    //     $data['news_item'] = $this->news_model->get_news($newsID);
-
-    //     if (empty($data['news_item']))
-    //     {
-    //         show_404();
-    //     }
-
-    //     $data['title'] = $data['news_item']['title'];
-
-    //     $this->load->view('templates/header', $data);
-    //     $this->load->view('news/view', $data);
-    //     $this->load->view('templates/footer');
-    // }
-    
     // /**
     //  * 创建 News
     //  */

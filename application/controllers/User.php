@@ -225,7 +225,8 @@ class User extends CI_Controller {
 	{
 		if($this->is_logined()){
 			// login success
-			$this->load->view('templates/header',  array('navigation_bar' => $this->config->item('navigation_bar_user')));
+            $this->load->view('templates/header');
+            $this->load->view('navigation_bar/navigation_bar_user');
 			$this->load->view('user/profile');
 			$this->load->view('templates/footer');
 		}else{
@@ -239,7 +240,8 @@ class User extends CI_Controller {
 			if ($this->form_validation->run() === FALSE)
 			{
 				// get form data failed
-				$this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_visitor')));
+				$this->load->view('templates/header');
+				$this->load->view('navigation_bar/navigation_bar_visitor');
 				$this->load->view('user/login');
 				$this->load->view('templates/footer');
 			}
@@ -270,14 +272,16 @@ class User extends CI_Controller {
 									redirect("/challenges/view");
 								}else{
 									// Account have not verified
-									$this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_visitor')));
+									                        $this->load->view('templates/header');
+                        $this->load->view('navigation_bar/navigation_bar_visitor');
 									$this->load->view('notice/view', array('message' => '请激活您的账号!'));
 									$this->load->view('user/login');
 									$this->load->view('templates/footer');
 								}
 							}else{
 								// login failed, must be password error!
-								$this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_visitor')));
+								$this->load->view('templates/header');
+								$this->load->view('navigation_bar/navigation_bar_visitor');
 								// $this->load->view('notice/view', array('message' => '登录失败!'));
 								$this->load->view('notice/view', array('message' => 
 									$this->lang->line('LOGIN_FAILED')));
@@ -286,21 +290,24 @@ class User extends CI_Controller {
 							}
 						}else{
 							// password illegal
-							$this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_visitor')));
+							$this->load->view('templates/header');
+							$this->load->view('navigation_bar/navigation_bar_visitor');
 							$this->load->view('notice/view', array('message' => '密码长度必须大于等于 6 小于等于 16 个字符'));
 							$this->load->view('user/login');
 							$this->load->view('templates/footer');
 						}
 					}else{
 						// username illegal
-						$this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_visitor')));
+						$this->load->view('templates/header');
+						$this->load->view('navigation_bar/navigation_bar_visitor');
 						$this->load->view('notice/view', array('message' => '用户名只可以是字母和数字的组合 , 请不要在用户名中使用符号! 长度大于等于 4 字符 , 小于等于 16 个字符'));
 						$this->load->view('user/login');
 						$this->load->view('templates/footer');
 					}
 				}else{
 					// verify captcha failed
-					$this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_visitor')));
+					$this->load->view('templates/header');
+					$this->load->view('navigation_bar/navigation_bar_visitor');
 						$this->load->view('notice/view', array('message' => '验证码错误!'));
 					$this->load->view('user/login');
 					$this->load->view('templates/footer');
@@ -324,7 +331,8 @@ class User extends CI_Controller {
 
 		if ($this->form_validation->run() === FALSE)
 		{
-			$this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_visitor')));
+			$this->load->view('templates/header');
+			$this->load->view('navigation_bar/navigation_bar_visitor');
 			$this->load->view('user/register');
 			$this->load->view('templates/footer');
 		}
@@ -346,56 +354,64 @@ class User extends CI_Controller {
 								if ($this->is_user_not_exist($username)){
 									if($this->do_register($username, $password, $email, $college)){
 										// register success
-										$this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_visitor')));
+										$this->load->view('templates/header');
+										$this->load->view('navigation_bar/navigation_bar_visitor');
 										$this->load->view('notice/view', array('message' => 'Register success! Please check your mailbox to verify your account!'));
 										$this->load->view('user/login'); // jump to login or profile ?
 										// no , user must verify his/her account at first
 										$this->load->view('templates/footer');
 									}else{
 										// register failed
-										$this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_visitor')));
+										$this->load->view('templates/header');
+										$this->load->view('navigation_bar/navigation_bar_visitor');
 										$this->load->view('notice/view', array('message' => 'Register failed! Please contact : admin@sniperoj.cn'));
 										$this->load->view('user/register');
 										$this->load->view('templates/footer');
 									}
 								}else{
 									// User existed!
-									$this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_visitor')));
+									$this->load->view('templates/header');
+									$this->load->view('navigation_bar/navigation_bar_visitor');
 									$this->load->view('notice/view', array('message' => 'User existed!'));
 									$this->load->view('user/register');
 									$this->load->view('templates/footer');
 								}
 							}else{
 								// Email illegal
-								$this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_visitor')));
+								$this->load->view('templates/header');
+								$this->load->view('navigation_bar/navigation_bar_visitor');
 								$this->load->view('notice/view', array('message' => 'Email illegal!'));
 								$this->load->view('user/register');
 								$this->load->view('templates/footer');
 							}
 						}else{
 							// College illegal
-							$this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_visitor')));
+							$this->load->view('templates/header');
+							$this->load->view('navigation_bar/navigation_bar_visitor');
 							$this->load->view('notice/view', array('message' => 'College length < 64!'));
 							$this->load->view('user/register');
 							$this->load->view('templates/footer');
 						}
 					}else{
 						// password illegal
-						$this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_visitor')));
+						$this->load->view('templates/header');
+						$this->load->view('navigation_bar/navigation_bar_visitor');
 						$this->load->view('notice/view', array('message' => '密码长度必须大于等于 6 小于等于 16 个字符'));
 						$this->load->view('user/register');
 						$this->load->view('templates/footer');
 					}
 				}else{
 					// username illegal
-					$this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_visitor')));
+					$this->load->view('templates/header');
+					$this->load->view('navigation_bar/navigation_bar_visitor');
 					$this->load->view('notice/view', array('message' => '用户名只可以是字母和数字的组合 , 请不要在用户名中使用符号! 长度大于等于 4 字符 , 小于等于 16 个字符'));
 					$this->load->view('user/register');
 					$this->load->view('templates/footer');
 				}
 			}else{
 				// verify captcha failed
-				$this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_visitor')));
+				$this->load->view('templates/header');
+				$this->load->view('navigation_bar/navigation_bar_visitor');
 					$this->load->view('notice/view', array('message' => 'Captcha error!'));
 				$this->load->view('user/register');
 				$this->load->view('templates/footer');
@@ -419,7 +435,8 @@ class User extends CI_Controller {
 			redirect("/challenges/view");
 		}else{
 			// active failed
-			$this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_visitor')));
+			$this->load->view('templates/header');
+			$this->load->view('navigation_bar/navigation_bar_visitor');
 			$this->load->view('notice/view', array('message' => '激活失败!'));
 			$this->load->view('user/login');
 			$this->load->view('templates/footer');
@@ -439,7 +456,8 @@ class User extends CI_Controller {
 				'user_data' => $this->user_model->get_user_data($userID),
 				'submit_log' => $submit_log,
 			);
-			$this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_user')));
+			                        $this->load->view('templates/header');
+                        $this->load->view('navigation_bar/navigation_bar_user');
 			$this->load->view('user/profile', $user_data);
 			$this->load->view('templates/footer');
 		}else{
@@ -452,7 +470,8 @@ class User extends CI_Controller {
 	{
 		if($this->is_logined()){
 			$score_data = array('scores' => $this->user_model->get_all_score(),);
-			$this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_user')));
+			$this->load->view('templates/header');
+			$this->load->view('navigation_bar/navigation_bar_user');
 			$this->load->view('user/score', $score_data);
 			$this->load->view('templates/footer');
 		}else{

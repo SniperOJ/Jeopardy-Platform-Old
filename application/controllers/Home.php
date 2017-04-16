@@ -48,7 +48,8 @@ class Home extends CI_Controller {
 			redirect("/user/profile");
 
 		}else{
-			$this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_visitor')));
+			                        $this->load->view('templates/header');
+                        $this->load->view('navigation_bar/navigation_bar_visitor');
 			$this->load->view('home/view');
 			$this->load->view('templates/footer');
 		}

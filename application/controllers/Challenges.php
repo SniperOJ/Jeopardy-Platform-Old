@@ -45,7 +45,8 @@ class Challenges extends CI_Controller {
     {
         if($this->is_logined()){
             $data['challenges'] = $this->challenges_model->get_all_challenges();
-            $this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_user')));
+            $this->load->view('templates/header');
+            $this->load->view('navigation_bar/navigation_bar_user');
             $this->load->view('challenges/view', $data);
             $this->load->view('templates/footer');
         }else{
@@ -96,7 +97,8 @@ class Challenges extends CI_Controller {
 
             if ($this->form_validation->run() === FALSE)
             {
-                $this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_user')));
+                $this->load->view('templates/header');
+                $this->load->view('navigation_bar/navigation_bar_user');
                 $this->load->view('notice/view', array('message' => 'Please input flag!'));
                 $this->load->view('challenges/view', $data);
                 $this->load->view('templates/footer');
@@ -107,7 +109,8 @@ class Challenges extends CI_Controller {
                 $challengeID = $this->input->post('challengeID');
                 $user_flag = $this->input->post('flag');
                 if ($this->is_solved($userID, $challengeID)){
-                    $this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_user')));
+                    $this->load->view('templates/header');
+$this->load->view('navigation_bar/navigation_bar_user');
                     $this->load->view('notice/view', array('message' => 'You have solved this challenge!'));
                     $this->load->view('challenges/view', $data);
                     $this->load->view('templates/footer');
@@ -139,12 +142,14 @@ class Challenges extends CI_Controller {
 
                     // load seccess view
                     if ($is_current === 1){
-                        $this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_user')));
+                        $this->load->view('templates/header');
+                        $this->load->view('navigation_bar/navigation_bar_user');
                         $this->load->view('notice/view', array('message' => 'Congratulations'));
                         $this->load->view('challenges/view', $data);
                         $this->load->view('templates/footer');
                     }else{
-                        $this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_user')));
+                        $this->load->view('templates/header');
+                        $this->load->view('navigation_bar/navigation_bar_user');
                         $this->load->view('notice/view', array('message' => 'Wrong answer!'));
                         $this->load->view('challenges/view', $data);
                         $this->load->view('templates/footer');
@@ -197,7 +202,8 @@ class Challenges extends CI_Controller {
 
                 if ($this->form_validation->run() === FALSE)
                 {
-                        $this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_user')));
+                        $this->load->view('templates/header');
+$this->load->view('navigation_bar/navigation_bar_user');
                         $this->load->view('notice/view', array('message' => 'Please check your input! You have forgot something!'));
                         $this->load->view('challenges/create');
                         $this->load->view('templates/footer');
@@ -219,13 +225,15 @@ class Challenges extends CI_Controller {
 
                     if ($this->do_create($new_challenge)) {
                         $data['challenges'] = $this->challenges_model->get_all_challenges();
-                        $this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_user')));
+                        $this->load->view('templates/header');
+$this->load->view('navigation_bar/navigation_bar_user');
                         $this->load->view('notice/view', array('message' => 'Create challenge success!'));
                         $this->load->view('challenges/view', $data);
                         $this->load->view('templates/footer');
                     }else{
                         $data['challenges'] = $this->challenges_model->get_all_challenges();
-                        $this->load->view('templates/header', array('navigation_bar' => $this->config->item('navigation_bar_user')));
+                        $this->load->view('templates/header');
+$this->load->view('navigation_bar/navigation_bar_user');
                         $this->load->view('notice/view', array('message' => 'Create challenge error! Please contact admin@sniperoj.cn'));
                         $this->load->view('challenges/create', $data);
                         $this->load->view('templates/footer');

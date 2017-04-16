@@ -1,4 +1,3 @@
-    </div>
     
     <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
       <em>&copy; 2017</em><br>

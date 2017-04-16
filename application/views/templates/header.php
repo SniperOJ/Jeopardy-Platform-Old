@@ -32,23 +32,4 @@
 	</head>
 
 	<body>
-		<nav class="navbar navbar-inverse" role="navigation">
-		    <div class="container-fluid">
-			    <div class="navbar-header">
-			        <a class="navbar-brand" href="#">Sniper OJ</a>
-			    </div>
-			    <div class="pull-right">
-			        <ul class="nav navbar-nav">
-				        <?php
-				        	foreach ($navigation_bar as $key => $value) {
-				        		echo "<li><a href='$value'>$key</a></li>";
-				        	}
-				        	echo "\n";
-				        ?>
-			        </ul>
-			    </div>
-		    </div>
-		</nav>
-
-		<div class="cover-container">
 
