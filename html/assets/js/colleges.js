@@ -1,6 +1,6 @@
-﻿var schoolList = [{
+var collegeList = [{
     "id": 1,
-    "school": [{
+    "college": [{
         "id": 1001,
         "name": "\u6e05\u534e\u5927\u5b66"
     },
@@ -628,7 +628,7 @@
 },
 {
     "id": 2,
-    "school": [{
+    "college": [{
         "id": 2001,
         "name": "\u590d\u65e6\u5927\u5b66"
     },
@@ -984,7 +984,7 @@
 },
 {
     "id": 3,
-    "school": [{
+    "college": [{
         "id": 3001,
         "name": "\u54c8\u5c14\u6ee8\u5de5\u4e1a\u5927\u5b66"
     },
@@ -1404,7 +1404,7 @@
 },
 {
     "id": 4,
-    "school": [{
+    "college": [{
         "id": 4001,
         "name": "\u5409\u6797\u5927\u5b66"
     },
@@ -1728,7 +1728,7 @@
 },
 {
     "id": 5,
-    "school": [{
+    "college": [{
         "id": 5001,
         "name": "\u5927\u8fde\u7406\u5de5"
     },
@@ -2340,7 +2340,7 @@
 },
 {
     "id": 6,
-    "school": [{
+    "college": [{
         "id": 6001,
         "name": "\u5357\u5f00\u5927\u5b66"
     },
@@ -2660,7 +2660,7 @@
 },
 {
     "id": 7,
-    "school": [{
+    "college": [{
         "id": 7001,
         "name": "\u4e2d\u56fd\u79d1\u5927"
     },
@@ -3120,7 +3120,7 @@
 },
 {
     "id": 8,
-    "school": [{
+    "college": [{
         "id": 8001,
         "name": "\u5357\u4eac\u5927\u5b66"
     },
@@ -3972,7 +3972,7 @@
 },
 {
     "id": 9,
-    "school": [{
+    "college": [{
         "id": 9001,
         "name": "\u6d59\u6c5f\u5927\u5b66"
     },
@@ -4424,7 +4424,7 @@
 },
 {
     "id": 10,
-    "school": [{
+    "college": [{
         "id": 10001,
         "name": "\u897f\u5b89\u4ea4\u5927"
     },
@@ -4884,7 +4884,7 @@
 },
 {
     "id": 11,
-    "school": [{
+    "college": [{
         "id": 11001,
         "name": "\u6b66\u6c49\u5927\u5b66"
     },
@@ -5420,7 +5420,7 @@
 },
 {
     "id": 12,
-    "school": [{
+    "college": [{
         "id": 12001,
         "name": "\u534e\u5357\u7406\u5de5\u5927\u5b66"
     },
@@ -6080,7 +6080,7 @@
 },
 {
     "id": 13,
-    "school": [{
+    "college": [{
         "id": 13001,
         "name": "\u6e56\u5357\u5e08\u5927"
     },
@@ -6640,7 +6640,7 @@
 },
 {
     "id": 14,
-    "school": [{
+    "college": [{
         "id": 14001,
         "name": "\u5170\u5dde\u5927\u5b66"
     },
@@ -6804,7 +6804,7 @@
 },
 {
     "id": 15,
-    "school": [{
+    "college": [{
         "id": 15001,
         "name": "\u56db\u5ddd\u5927\u5b66"
     },
@@ -7312,7 +7312,7 @@
 },
 {
     "id": 16,
-    "school": [{
+    "college": [{
         "id": 16001,
         "name": "\u5c71\u4e1c\u5927\u5b66"
     },
@@ -8096,7 +8096,7 @@
 },
 {
     "id": 17,
-    "school": [{
+    "college": [{
         "id": 17001,
         "name": "\u53a6\u95e8\u5927\u5b66"
     },
@@ -8492,7 +8492,7 @@
 },
 {
     "id": 18,
-    "school": [{
+    "college": [{
         "id": 18001,
         "name": "\u90d1\u5dde\u5927\u5b66"
     },
@@ -8980,7 +8980,7 @@
 },
 {
     "id": 19,
-    "school": [{
+    "college": [{
         "id": 19001,
         "name": "\u91cd\u5e86\u5927\u5b66"
     },
@@ -9244,7 +9244,7 @@
 },
 {
     "id": 20,
-    "school": [{
+    "college": [{
         "id": 20001,
         "name": "\u6606\u660e\u7406\u5de5"
     },
@@ -9512,7 +9512,7 @@
 },
 {
     "id": 21,
-    "school": [{
+    "college": [{
         "id": 21001,
         "name": "\u6cb3\u5317\u5927\u5b66"
     },
@@ -10108,7 +10108,7 @@
 },
 {
     "id": 22,
-    "school": [{
+    "college": [{
         "id": 22001,
         "name": "\u6c5f\u897f\u8d22\u7ecf"
     },
@@ -10496,7 +10496,7 @@
 },
 {
     "id": 23,
-    "school": [{
+    "college": [{
         "id": 23001,
         "name": "\u5c71\u897f\u5927\u5b66"
     },
@@ -10908,7 +10908,7 @@
 },
 {
     "id": 24,
-    "school": [{
+    "college": [{
         "id": 24001,
         "name": "\u8d35\u5dde\u5927\u5b66"
     },
@@ -11108,7 +11108,7 @@
 },
 {
     "id": 25,
-    "school": [{
+    "college": [{
         "id": 25001,
         "name": "\u5e7f\u897f\u5927\u5b66"
     },
@@ -11408,7 +11408,7 @@
 },
 {
     "id": 26,
-    "school": [{
+    "college": [{
         "id": 26001,
         "name": "\u5185\u8499\u53e4\u5927\u5b66"
     },
@@ -11608,7 +11608,7 @@
 },
 {
     "id": 27,
-    "school": [{
+    "college": [{
         "id": 27001,
         "name": "\u5b81\u590f\u5927\u5b66"
     },
@@ -11672,7 +11672,7 @@
 },
 {
     "id": 28,
-    "school": [{
+    "college": [{
         "id": 28001,
         "name": "\u9752\u6d77\u5927\u5b66"
     },
@@ -11720,7 +11720,7 @@
 },
 {
     "id": 29,
-    "school": [{
+    "college": [{
         "id": 29001,
         "name": "\u65b0\u7586\u5927\u5b66"
     },
@@ -11896,7 +11896,7 @@
 },
 {
     "id": 30,
-    "school": [{
+    "college": [{
         "id": 30001,
         "name": "\u6d77\u5357\u5927\u5b66"
     },
@@ -11976,7 +11976,7 @@
 },
 {
     "id": 31,
-    "school": [{
+    "college": [{
         "id": 31001,
         "name": "\u897f\u85cf\u5927\u5b66"
     },
@@ -12008,7 +12008,7 @@
 },
 {
     "id": 32,
-    "school": [{
+    "college": [{
         "id": 32001,
         "name": "\u9999\u6e2f\u5927\u5b66"
     },
@@ -12064,7 +12064,7 @@
 },
 {
     "id": 33,
-    "school": [{
+    "college": [{
         "id": 33001,
         "name": "\u6fb3\u95e8\u5927\u5b66"
     },
@@ -12108,7 +12108,7 @@
 },
 {
     "id": 34,
-    "school": [{
+    "college": [{
         "id": 34001,
         "name": "\u56fd\u7acb\u53f0\u6e7e\u5927\u5b66"
     },
@@ -12330,3 +12330,20 @@
     }],
     "name": "\u53f0\u6e7e"
 }]
+
+var colleges = [];
+
+for (var i = collegeList.length - 1; i >= 0; i--) {
+    for (var j = collegeList[i]["college"].length - 1; j >= 0; j--) {
+        colleges.push(collegeList[i]["college"][j]["name"]);
+    }
+}
+
+var input = document.getElementById("inputCollege");
+
+new Awesomplete(input, {
+    list: colleges,
+    minChars: 1,
+    maxItems: 5,
+    autoFirst: true,
+});

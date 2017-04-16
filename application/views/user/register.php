@@ -2,6 +2,7 @@
     $this->load->language("info");
 ?>
 
+
 <?php
 
     $this->load->helper('captcha');
@@ -59,3 +60,7 @@
 </form>
 <script src="/assets/js/mail-auto-complete.js"></script>
 <script type="text/javascript">$(".inputMailList").mailAutoComplete();//使用方法</script>
+
+<link rel="stylesheet" type="text/css" href="/assets/css/awesomplete.css">
+<script src="/assets/js/awesomplete.min.js"></script>
+<script src="/assets/js/colleges.js"></script>
