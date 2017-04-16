@@ -1,3 +1,7 @@
+<?php
+    $this->load->language("challenges");
+?>
+
 <h1>Challenges</h1>
 
 <div class="challenges">
@@ -5,15 +9,15 @@
   <table class="table" style="font-size: 20px">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Score</th>
-        <th>Type</th>
-        <th>Online Time</th>
-        <th>PassRate</th>
-        <th>Resource</th>
-        <th>Document</th>
-        <th>Submit</th>
+        <th><?php echo $this->lang->line('NAME'); ?></th>
+        <th><?php echo $this->lang->line('DESCRIPTION'); ?></th>
+        <th><?php echo $this->lang->line('SCORE'); ?></th>
+        <th><?php echo $this->lang->line('TYPE'); ?></th>
+        <th><?php echo $this->lang->line('ONLINE_TIME'); ?></th>
+        <th><?php echo $this->lang->line('PASSRATE'); ?></th>
+        <th><?php echo $this->lang->line('RESOURCE'); ?></th>
+        <th><?php echo $this->lang->line('DOCUMENT'); ?></th>
+        <th><?php echo $this->lang->line('SUBMIT'); ?></th>
       </tr>
     </thead>
 
