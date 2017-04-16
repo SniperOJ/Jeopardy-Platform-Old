@@ -7,36 +7,30 @@
 		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<link rel="icon" href="../../favicon.ico">
+		<link rel="icon" href="/favicon.ico">
 
 		<title>Sniper OJ</title>
 
 		<!-- Bootstrap core CSS -->
 		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-		<link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+		<link href="/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
 		<!-- Custom styles for this template -->
-		<link href="../../assets/css/cover.css" rel="stylesheet">
+		<link href="/assets/css/cover.css" rel="stylesheet">
 
-		<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-		<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-		<script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+		<script src="/assets/js/ie-emulation-modes-warning.js"></script>
 
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-		<!--[if lt IE 9]>
-			<script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-			<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-		<link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
-		<style>
-		  /* override styles here */
-		  .notie-container {
-		    box-shadow: none;
-		  }
-		</style>
-		<script src="https://unpkg.com/notie"></script>
+		<script src="/assets/js/jquery.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+		<script type="text/javascript" src="/assets/js/pnotify.custom.min.js"></script>
+		<link href="/assets/css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
+
+		<link rel="stylesheet" href="/assets/css/jquery-ui.css" />
+		<script src="/assets/js/jquery.min.js"></script>
+		<script src="/assets/js/jquery-ui.js"></script>
 	</head>
 
 	<body>

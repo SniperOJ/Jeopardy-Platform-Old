@@ -1,19 +1,10 @@
 <script type="text/javascript">
-	function check() {
-		  notie.alert({
-		  type: 
-		  <?php 
-		  	if (isset($type)) {
-		  		echo '"'.$type.'"';
-		  	}else{
-		  		echo '"error"'; 
-		  	}
-		  ?>, // optional, default = 4, enum: [1, 2, 3, 4, 5, 'success', 'warning', 'error', 'info', 'neutral']
-		  text: <?php echo '"'.$message.'"'; ?>,
-		  stay: false, // optional, default = false
-		  time: 3, // optional, default = 3, minimum = 1,
-		  position: "top" // optional, default = 'top', enum: ['top', 'bottom']
-		})
-	}
-	check();
+    $(function(){
+    	PNotify.prototype.options.styling = "jqueryui";
+        new PNotify({
+            type: <?php echo '"'.$type.'"'; ?>,
+            text: <?php echo '"'.$message.'"'; ?>,
+            icon: false
+        });
+    });
 </script>

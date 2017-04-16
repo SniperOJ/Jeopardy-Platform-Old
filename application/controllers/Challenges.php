@@ -99,7 +99,7 @@ class Challenges extends CI_Controller {
             {
                 $this->load->view('templates/header');
                 $this->load->view('navigation_bar/navigation_bar_user');
-                $this->load->view('notice/view', array('tyep' => 'error', 'message' => 'Please input flag!'));
+                $this->load->view('notice/view', array('type' => 'error', 'message' => 'Please input flag!'));
                 $this->load->view('challenges/view', $data);
                 $this->load->view('templates/footer');
             }
@@ -111,7 +111,7 @@ class Challenges extends CI_Controller {
                 if ($this->is_solved($userID, $challengeID)){
                     $this->load->view('templates/header');
 $this->load->view('navigation_bar/navigation_bar_user');
-                    $this->load->view('notice/view', array('tyep' => 'warning', 'message' => 'You have solved this challenge!'));
+                    $this->load->view('notice/view', array('type' => 'warning', 'message' => 'You have solved this challenge!'));
                     $this->load->view('challenges/view', $data);
                     $this->load->view('templates/footer');
                 }else{
@@ -147,13 +147,13 @@ $this->load->view('navigation_bar/navigation_bar_user');
                     if ($is_current === 1){
                         $this->load->view('templates/header');
                         $this->load->view('navigation_bar/navigation_bar_user');
-                        $this->load->view('notice/view', array('tyep' => 'success', 'message' => 'Congratulations'));
+                        $this->load->view('notice/view', array('type' => 'success', 'message' => 'Congratulations'));
                         $this->load->view('challenges/view', $data);
                         $this->load->view('templates/footer');
                     }else{
                         $this->load->view('templates/header');
                         $this->load->view('navigation_bar/navigation_bar_user');
-                        $this->load->view('notice/view', array('tyep' => 'error', 'message' => 'Wrong answer!'));
+                        $this->load->view('notice/view', array('type' => 'error', 'message' => 'Wrong answer!'));
                         $this->load->view('challenges/view', $data);
                         $this->load->view('templates/footer');
                     }
@@ -207,7 +207,7 @@ $this->load->view('navigation_bar/navigation_bar_user');
                 {
                         $this->load->view('templates/header');
 $this->load->view('navigation_bar/navigation_bar_user');
-                        $this->load->view('notice/view', array('tyep' => 'error', 'message' => 'Please check your input! You have forgot something!'));
+                        $this->load->view('notice/view', array('type' => 'error', 'message' => 'Please check your input! You have forgot something!'));
                         $this->load->view('challenges/create');
                         $this->load->view('templates/footer');
                 }
@@ -230,14 +230,14 @@ $this->load->view('navigation_bar/navigation_bar_user');
                         $data['challenges'] = $this->challenges_model->get_all_challenges();
                         $this->load->view('templates/header');
 $this->load->view('navigation_bar/navigation_bar_user');
-                        $this->load->view('notice/view', array('tyep' => 'success', 'message' => 'Create challenge success!'));
+                        $this->load->view('notice/view', array('type' => 'success', 'message' => 'Create challenge success!'));
                         $this->load->view('challenges/view', $data);
                         $this->load->view('templates/footer');
                     }else{
                         $data['challenges'] = $this->challenges_model->get_all_challenges();
                         $this->load->view('templates/header');
 $this->load->view('navigation_bar/navigation_bar_user');
-                        $this->load->view('notice/view', array('tyep' => 'error', 'message' => 'Create challenge error! Please contact admin@sniperoj.cn'));
+                        $this->load->view('notice/view', array('type' => 'error', 'message' => 'Create challenge error! Please contact admin@sniperoj.cn'));
                         $this->load->view('challenges/create', $data);
                         $this->load->view('templates/footer');
                     }
