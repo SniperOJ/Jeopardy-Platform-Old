@@ -4,7 +4,11 @@
         new PNotify({
             type: <?php echo '"'.$type.'"'; ?>,
             text: <?php echo '"'.$message.'"'; ?>,
-            icon: false
+            icon: false,
+            delay: 1000,
+            buttons: {
+            	closer: false,
+            },
         });
     });
 </script>
