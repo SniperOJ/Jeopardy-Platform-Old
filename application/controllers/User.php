@@ -343,7 +343,7 @@ class User extends CI_Controller {
 
 		$this->form_validation->set_rules('username', 'Username', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
-		$this->form_validation->set_rules('email', 'Email', 'valid_email');
+		$this->form_validation->set_rules('email', 'Email', 'required'); // 不直接使用CI自带的验证(因为无法结果错误信息并沉浸式提示用户)
 		$this->form_validation->set_rules('captcha', 'Captcha', 'required');
 
 
@@ -548,28 +548,37 @@ class User extends CI_Controller {
 
 			// get form data success
 			if($this->verify_captcha($captcha)){
-				if($this->user_model->is_email_exist($email)){
-					if($this->do_forget_password($email)){
-						// load reset password view
-						$this->load->view('templates/header');
-						$this->load->view('navigation_bar/navigation_bar_visitor');
-						$this->load->view('notice/view', array('type' => 'error', 'message' => 'Send reset code success! Please check your email box!'));
-						$this->load->view('user/login');
-						$this->load->view('templates/footer');
+				if ($this->check_email($email)){
+					if($this->user_model->is_email_exist($email)){
+						if($this->do_forget_password($email)){
+							// load reset password view
+							$this->load->view('templates/header');
+							$this->load->view('navigation_bar/navigation_bar_visitor');
+							$this->load->view('notice/view', array('type' => 'error', 'message' => 'Send reset code success! Please check your email box!'));
+							$this->load->view('user/login');
+							$this->load->view('templates/footer');
+						}else{
+							// reset error
+							$this->load->view('templates/header');
+							$this->load->view('navigation_bar/navigation_bar_visitor');
+							$this->load->view('notice/view', array('type' => 'error', 'message' => 'System error! Please contact with admin@sniperoj.cn'));
+							$this->load->view('user/forget');
+							$this->load->view('templates/footer');
+						}
 					}else{
-						// reset error
+						// Email not existed
 						$this->load->view('templates/header');
 						$this->load->view('navigation_bar/navigation_bar_visitor');
-						$this->load->view('notice/view', array('type' => 'error', 'message' => 'System error! Please contact with admin@sniperoj.cn'));
+						$this->load->view('notice/view', array('type' => 'error', 'message' => 'Email not exist!'));
 						$this->load->view('user/forget');
 						$this->load->view('templates/footer');
 					}
 				}else{
-					// Email not existed
+					// Email illegal
 					$this->load->view('templates/header');
 					$this->load->view('navigation_bar/navigation_bar_visitor');
-					$this->load->view('notice/view', array('type' => 'error', 'message' => 'Email not exist!'));
-					$this->load->view('user/forget');
+					$this->load->view('notice/view', array('type' => 'error', 'message' => 'Email illegal!'));
+					$this->load->view('user/register');
 					$this->load->view('templates/footer');
 				}
 			}else{
@@ -761,7 +770,7 @@ class User extends CI_Controller {
 	// 	}
 	// 	else
 	// 	{
-			
+
 	// 		$user_info = array(
 	// 			'verified' => '1',
 	// 			'token' => '',
