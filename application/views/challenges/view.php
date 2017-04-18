@@ -19,9 +19,9 @@
       }elseif($time < 60 * 60 * 24 * 3){           
           $d = floor($time/(60*60*24));           
           if($d==1){  
-              $str = '昨天 '.$rtime;
+              $str = '昨天 '.$htime;
           }else{  
-              $str = '前天 '.$rtime;       
+              $str = '前天 '.$htime;       
           }  
       }else{           
           $str = $rtime;       
