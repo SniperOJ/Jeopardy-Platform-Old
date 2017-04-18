@@ -33,7 +33,6 @@
 <h1><?php echo $this->lang->line('CHALLENGES'); ?></h1>
 
 <div class="challenges">
-  
   <table class="table" style="font-size: 20px">
     <thead>
       <tr>
@@ -56,7 +55,13 @@
           <td><?php echo $challenge_item['description']; ?></td>
           <td><?php echo $challenge_item['score']; ?></td>
           <td><?php echo $challenge_item['type']; ?></td>
-          <td><?php echo formatTime($challenge_item['online_time']);?></td>
+          <?php
+            echo '<td class="hint--right" aria-label="';
+            echo date('Y-m-d H:i:s', $challenge_item['online_time']);
+            echo '">';
+            echo formatTime($challenge_item['online_time']);
+            echo '</td>';
+          ?>
           <td><?php echo $challenge_item['solved_times']." / ".$challenge_item['submit_times']; ?></td>
           <?php
             echo '<td>';

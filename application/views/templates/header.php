@@ -17,6 +17,7 @@
 		<link rel="stylesheet" href="/assets/css/jquery-ui.css" />
 		<!-- Custom styles for this template -->
 		<link href="/assets/css/cover.css" rel="stylesheet">
+  		<link rel="stylesheet" href="/assets/css/hint.min.css">
 		
 		<title>Sniper OJ</title>
 

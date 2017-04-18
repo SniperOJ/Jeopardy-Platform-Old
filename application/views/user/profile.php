@@ -101,7 +101,11 @@
 			echo "<td>".(count($submit_log) - ($i))."</td>";
 			echo "<td>".$submit_log[$i]['challengeName']."</td>";
 			echo "<td>".$submit_log[$i]['flag']."</td>";
-			echo "<td>".formatTime($submit_log[$i]['submit_time'])."</td>";
+            echo '<td class="hint--right" aria-label="';
+            echo date('Y-m-d H:i:s', $submit_log[$i]['submit_time']);
+            echo '">';
+            echo formatTime($submit_log[$i]['submit_time']);
+            echo '</td>';
 			if ($submit_log[$i]['is_current'] == 1){
 				echo "<td>√</td>";
 			}else{
