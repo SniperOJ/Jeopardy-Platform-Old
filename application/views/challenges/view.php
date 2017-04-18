@@ -53,9 +53,9 @@
             if ($challenge_item['document'] === ""){
               echo '<td>无</td>';
             }else{
-              echo '<a target="_blank" href="';
+              echo '<td><a target="_blank" href="';
               echo $challenge_item['document']; 
-              echo '">';
+              echo '"></td>';
             }
           ?>
           <td>
