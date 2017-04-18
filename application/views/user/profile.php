@@ -3,6 +3,33 @@
     $this->load->language("submit_log");
 ?>
 
+<?php
+  function formatTime($time){       
+      $rtime = date("m-d H:i",$time);       
+      $htime = date("H:i",$time);             
+      $time = time() - $time;         
+      if ($time < 60){           
+          $str = '刚刚';       
+      }elseif($time < 60 * 60){           
+          $min = floor($time/60);           
+          $str = $min.'分钟前';       
+      }elseif($time < 60 * 60 * 24){           
+          $h = floor($time/(60*60));           
+          $str = $h.'小时前 ';       
+      }elseif($time < 60 * 60 * 24 * 3){           
+          $d = floor($time/(60*60*24));           
+          if($d==1){  
+              $str = '昨天 '.$htime;
+          }else{  
+              $str = '前天 '.$htime;       
+          }  
+      }else{           
+          $str = $rtime;       
+      }       
+      return $str;   
+  } 
+?>
+
 <link href="../../assets/css/style.css" rel='stylesheet' type='text/css' />
 <div class="banner-info">
 	<div class="col-md-7 header-right" style="color:#111;text-align:initial;padding-left: 400px;">
@@ -74,7 +101,7 @@
 			echo "<td>".(count($submit_log) - ($i))."</td>";
 			echo "<td>".$submit_log[$i]['challengeName']."</td>";
 			echo "<td>".$submit_log[$i]['flag']."</td>";
-			echo "<td>".date("Y-m-d H:i:s", $submit_log[$i]['submit_time'])."</td>";
+			echo "<td>".formatTime($submit_log[$i]['submit_time'])."</td>";
 			if ($submit_log[$i]['is_current'] == 1){
 				echo "<td>√</td>";
 			}else{
