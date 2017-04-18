@@ -55,7 +55,7 @@
             }else{
               echo '<td><a target="_blank" href="';
               echo $challenge_item['document']; 
-              echo '"></td>';
+              echo '">参考资料</a></td>';
             }
           ?>
           <td>
