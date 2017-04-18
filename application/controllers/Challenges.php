@@ -103,55 +103,67 @@ class Challenges extends CI_Controller {
                 $userID = $this->session->userID;
                 $challengeID = $this->input->post('challengeID');
                 $user_flag = $this->input->post('flag');
-                if ($this->is_solved($userID, $challengeID)){
+                $last_submit_time = $this->user_model->get_last_submit_time($userID);
+                $time = time();
+                $intervals = 10;
+                // 每 $intervals 秒只允许提交一次
+                if(($time - $last_submit_time) > $intervals){
+                    if ($this->is_solved($userID, $challengeID)){
+                        $this->load->view('templates/header');
+                        $this->load->view('navigation_bar/navigation_bar_user');
+                        $this->load->view('notice/view', array('type' => 'warning', 'message' => 'You have solved this challenge!'));
+                        $this->load->view('challenges/view', $data);
+                        $this->load->view('templates/footer');
+                    }else{
+                        $challenge_score = $this->challenges_model->get_score($challengeID);
+                        $current_flag = $this->challenges_model->get_flag($challengeID);
+                        $is_current = 0;
+
+                        if($this->is_current($user_flag, $current_flag)){
+                            // set current flag bit
+                            $is_current = 1;
+                            // update user score
+                            $user_score = $this->user_model->get_score($userID);
+                            $this->user_model->set_score($userID, $user_score + $challenge_score);
+                        }else{
+                            $is_current = 0;
+                        }
+
+                        // insert into submit_log
+                        // TODO : use model to do it
+                        $submit_data = array(
+                            'challengeID' => $challengeID,
+                            'userID' => $userID,
+                            'flag' => $user_flag,
+                            'submit_time' => time(),
+                            'is_current' => $is_current,
+                        );
+                        $this->db->insert('submit_log', $submit_data);
+
+                        // flush data
+                        $data['challenges'] = $this->challenges_model->get_all_challenges($this->session->userID);
+
+                        // load seccess view
+                        if ($is_current === 1){
+                            $this->load->view('templates/header');
+                            $this->load->view('navigation_bar/navigation_bar_user');
+                            $this->load->view('notice/view', array('type' => 'success', 'message' => 'Congratulations'));
+                            $this->load->view('challenges/view', $data);
+                            $this->load->view('templates/footer');
+                        }else{
+                            $this->load->view('templates/header');
+                            $this->load->view('navigation_bar/navigation_bar_user');
+                            $this->load->view('notice/view', array('type' => 'error', 'message' => 'Wrong answer!'));
+                            $this->load->view('challenges/view', $data);
+                            $this->load->view('templates/footer');
+                        }
+                    }
+                }else{
                     $this->load->view('templates/header');
                     $this->load->view('navigation_bar/navigation_bar_user');
-                    $this->load->view('notice/view', array('type' => 'warning', 'message' => 'You have solved this challenge!'));
+                    $this->load->view('notice/view', array('type' => 'error', 'message' => 'You can only submit once every '.$intervals.' seconds!'));
                     $this->load->view('challenges/view', $data);
                     $this->load->view('templates/footer');
-                }else{
-                    $challenge_score = $this->challenges_model->get_score($challengeID);
-                    $current_flag = $this->challenges_model->get_flag($challengeID);
-                    $is_current = 0;
-
-                    if($this->is_current($user_flag, $current_flag)){
-                        // set current flag bit
-                        $is_current = 1;
-                        // update user score
-                        $user_score = $this->user_model->get_score($userID);
-                        $this->user_model->set_score($userID, $user_score + $challenge_score);
-                    }else{
-                        $is_current = 0;
-                    }
-
-                    // insert into submit_log
-                    // TODO : use model to do it
-                    $submit_data = array(
-                        'challengeID' => $challengeID,
-                        'userID' => $userID,
-                        'flag' => $user_flag,
-                        'submit_time' => time(),
-                        'is_current' => $is_current,
-                    );
-                    $this->db->insert('submit_log', $submit_data);
-
-                    // flush data
-                    $data['challenges'] = $this->challenges_model->get_all_challenges($this->session->userID);
-
-                    // load seccess view
-                    if ($is_current === 1){
-                        $this->load->view('templates/header');
-                        $this->load->view('navigation_bar/navigation_bar_user');
-                        $this->load->view('notice/view', array('type' => 'success', 'message' => 'Congratulations'));
-                        $this->load->view('challenges/view', $data);
-                        $this->load->view('templates/footer');
-                    }else{
-                        $this->load->view('templates/header');
-                        $this->load->view('navigation_bar/navigation_bar_user');
-                        $this->load->view('notice/view', array('type' => 'error', 'message' => 'Wrong answer!'));
-                        $this->load->view('challenges/view', $data);
-                        $this->load->view('templates/footer');
-                    }
                 }
             }
         }else{

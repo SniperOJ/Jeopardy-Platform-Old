@@ -312,4 +312,17 @@ class User_model extends CI_Model {
         $this->db->where('reset_code', $reset_code);
         $this->db->update('reset_password');
     }
+
+
+    public function get_last_submit_time($userID)
+    {
+        $query = $this->db->select(array('submit_time'))
+        ->order_by('submit_time','desc')
+        ->where(array(
+            'userID'=>$userID,
+        ))
+        ->get('submit_log');
+        $result = $query->row_array();
+        return $result['submit_time'];
+    }
 }
