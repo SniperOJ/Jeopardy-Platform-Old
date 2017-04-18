@@ -48,7 +48,16 @@
             echo '</td>';
           ?>  
           
-          <td><a target="_blank" href="<?php echo $challenge_item['document']; ?>">参考资料</a></td>
+          
+          <?php 
+            if ($challenge_item['document'] === ""){
+              echo '<td>无</td>'
+            }else{
+              echo '<a target="_blank" href="';
+              echo $challenge_item['document']; 
+              echo '">';
+            }
+          ?>
           <td>
             <?php
               if ($challenge_item['is_solved'] === 0){
