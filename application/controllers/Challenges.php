@@ -461,6 +461,7 @@ $this->load->view('navigation_bar/navigation_bar_user');
     public function detail()
     {
         $challengeID = intval($this->uri->segment(3));
+        $this->update_visit_times($challengeID);
         $challenge = array(
             'name' => $this->challenges_model->get_challenge_name($challengeID), 
             'description' => $this->challenges_model->get_description($challengeID), 
@@ -473,6 +474,11 @@ $this->load->view('navigation_bar/navigation_bar_user');
             'document' => $this->challenges_model->get_document($challengeID), 
         );
         echo json_encode($challenge);
+    }
+
+    public function update_visit_times($challengeID)
+    {
+        $this->challenges_model->update_visit_times($challengeID);
     }
 
 

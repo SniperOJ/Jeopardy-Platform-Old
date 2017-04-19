@@ -35,7 +35,7 @@ li{
   position: relative;
   width: 256px;
   height: 160px;
-  font-size: 32px;
+  font-size: 24px;
   color: #111;
   text-align: center;
   box-shadow: 0px 0px 2px rgba(0,0,0,0.5),0px -5px 20px rgba(0,0,0,0.1) inset;
@@ -46,7 +46,7 @@ li{
   position: relative;
   width: 256px;
   height: 160px;
-  font-size: 32px;
+  font-size: 24px;
   color: #111;
   text-align: center;
   box-shadow: 0px 0px 2px rgba(0,0,0,0.5),0px -5px 20px rgba(0,0,0,0.1) inset;
@@ -75,8 +75,9 @@ li{
           }
 
         ?>">
-            <?php echo $challenge_item['name']; ?><br>
-            <?php echo $challenge_item['score']; ?>
+            名称 : <?php echo $challenge_item['name']; ?><br>
+            分数 : <?php echo $challenge_item['score']; ?><br>
+            点击量 : <?php echo $challenge_item['visit_times']; ?>
         </li>
       </div>
 

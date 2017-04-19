@@ -109,6 +109,13 @@ class Challenges_model extends CI_Model {
         $this->db->update('challenges');
     }
 
+    public function set_visit_times($challengeID, $visit_times)
+    {
+        $this->db->set(array('visit_times' => $visit_times));
+        $this->db->where('challengeID', $challengeID);
+        $this->db->update('challenges');
+    }
+
     public function set_type($challengeID, $type)
     {
         $this->db->set(array('type' => $type));
@@ -119,13 +126,6 @@ class Challenges_model extends CI_Model {
     public function set_online_time($challengeID, $online_time)
     {
         $this->db->set(array('online_time' => $online_time));
-        $this->db->where('challengeID', $challengeID);
-        $this->db->update('challenges');
-    }
-
-    public function set_visit_times($challengeID, $visit_times)
-    {
-        $this->db->set(array('visit_times' => $visit_times));
         $this->db->where('challengeID', $challengeID);
         $this->db->update('challenges');
     }
@@ -226,5 +226,11 @@ class Challenges_model extends CI_Model {
         ->get('challenges');
         $result = $query->num_rows();
         return $result;
+    }
+
+    public function update_visit_times($challengeID)
+    {
+        $visit_times = intval($this->get_visit_times($challengeID));
+        $this->set_visit_times($challengeID, $visit_times+1);
     }
 }
