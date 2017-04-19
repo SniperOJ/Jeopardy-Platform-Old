@@ -21,7 +21,7 @@
   padding: 0;
 }
 body{
-  background-color: lightsalmon;
+  background-color: #333333;
 }
 li{
   float: left;
