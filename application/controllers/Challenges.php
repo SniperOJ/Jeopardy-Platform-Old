@@ -250,6 +250,13 @@ class Challenges extends CI_Controller {
             $this->load->library('form_validation');
 
             $data['challenges'] = $this->challenges_model->get_all_challenges($this->session->userID);
+            $data['web_challenges_number'] = $this->challenges_model->get_challenges_number('web');
+            $data['pwn_challenges_number'] = $this->challenges_model->get_challenges_number('pwn');
+            $data['misc_challenges_number'] = $this->challenges_model->get_challenges_number('misc');
+            $data['forensics_challenges_number'] = $this->challenges_model->get_challenges_number('forensics');
+            $data['crypto_challenges_number'] = $this->challenges_model->get_challenges_number('crypto');
+            $data['stego_challenges_number'] = $this->challenges_model->get_challenges_number('stego');
+            $data['other_challenges_number'] = $this->challenges_model->get_challenges_number('other');
 
             $this->form_validation->set_rules('challengeID', 'challengeID', 'required');
             $this->form_validation->set_rules('flag', 'Flag', 'required');
@@ -423,5 +430,22 @@ $this->load->view('navigation_bar/navigation_bar_user');
             $this->session->sess_destroy();
             redirect("/");
         }
+    }
+
+
+    public function detail()
+    {
+        $challengeID = intval($this->uri->segment(3));
+        $challenge = array(
+            'name' => $this->challenges_model->get_challenge_name($challengeID), 
+            'description' => $this->challenges_model->get_description($challengeID), 
+            'score' => $this->challenges_model->get_score($challengeID), 
+            'type' => $this->challenges_model->get_type($challengeID), 
+            'online_time' => $this->challenges_model->get_online_time($challengeID), 
+            'visit_times' => $this->challenges_model->get_visit_times($challengeID), 
+            'resource' => $this->challenges_model->get_resource($challengeID), 
+            'document' => $this->challenges_model->get_document($challengeID), 
+        );
+        echo json_encode($challenge);
     }
 }

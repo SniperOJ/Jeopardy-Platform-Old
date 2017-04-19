@@ -44,40 +44,63 @@
 
 <h1><?php echo $this->lang->line('CHALLENGES'); ?></h1>
 
-<ul class="nav nav-tabs nav-justified">
-  <li><h3><a href="/challenges/view/all">All (<?php echo $all_challenges_number; ?>)</a></h3></li>
-  <li><h3><a href="/challenges/view/web">Web (<?php echo $web_challenges_number; ?>)</a></h3></li>
-  <li><h3><a href="/challenges/view/pwn">Pwn (<?php echo $pwn_challenges_number; ?>)</a></h3></li>
-  <li><h3><a href="/challenges/view/misc">Misc (<?php echo $misc_challenges_number; ?>)</a></h3></li>
-  <li><h3><a href="/challenges/view/forensics">Forensics (<?php echo $forensics_challenges_number; ?>)</a></h3></li>
-  <li><h3><a href="/challenges/view/stego">Stego (<?php echo $stego_challenges_number; ?>)</a></h3></li>
-  <li><h3><a href="/challenges/view/crypto">Crypto (<?php echo $crypto_challenges_number; ?>)</a></h3></li>
-  <li><h3><a href="/challenges/view/other">Other (<?php echo $other_challenges_number; ?>)</a></h3></li>
-</ul>
+<style type=text/css>  
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: lightsalmon;
+}
+li{
+  float: left;
+  list-style: none;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+.challenge-item{
+  padding: 5px;
+  background-color: #EEEEEE;
+  position: relative;
+  width: 256px;
+  height: 96px;
+  font-size: 32px;
+  color: #111;
+  text-align: center;
+  box-shadow: 0px 0px 2px rgba(0,0,0,0.5),0px -5px 20px rgba(0,0,0,0.1) inset;
+}
+.challenge-item:hover{
+  background-color:cornflowerblue;
+  transition: all 0.5s ease;
+}
 
+</style>  
+
+<link rel="stylesheet" href="/assets/css/alert-dialog.css">
+
+<!-- <div id="alert-dialog">
+  <div id="alert-dialog-title">
+    Title
+  </div>
+  <div id="alert-dialog-content">
+    Content
+  </div>
+</div>
+ -->
 <div class="challenges">
-  <table class="table" style="font-size: 20px;margin-bottom: 50px;">
-    <thead>
-      <tr>
-        <th><?php echo $this->lang->line('NAME'); ?></th>
-        <th><?php echo $this->lang->line('DESCRIPTION'); ?></th>
-        <th><?php echo $this->lang->line('SCORE'); ?></th>
-        <th><?php echo $this->lang->line('TYPE'); ?></th>
-        <th><?php echo $this->lang->line('ONLINE_TIME'); ?></th>
-        <th><?php echo $this->lang->line('PASSRATE'); ?></th>
-        <th><?php echo $this->lang->line('RESOURCE'); ?></th>
-        <th><?php echo $this->lang->line('DOCUMENT'); ?></th>
-        <th><?php echo $this->lang->line('SUBMIT'); ?></th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <?php foreach ($challenges as $challenge_item): ?>
-      <tr>
-          <td><?php echo $challenge_item['name']; ?></td>
-          <td><?php echo $challenge_item['description']; ?></td>
-          <td><?php echo $challenge_item['score']; ?></td>
-          <td><?php echo $challenge_item['type']; ?></td>
+  <ul>
+    <?php foreach ($challenges as $challenge_item): ?>
+      <div class="click-to-alert-dialog">
+
+      <li id="challenge-<?php echo $challenge_item['challengeID']; ?>" class="challenge-item">
+        
+
+          <?php echo $challenge_item['name']; ?><br>
+          <?php echo $challenge_item['score']; ?>
+
+          <!-- <?php echo $challenge_item['description']; ?> -->
+<!--           <?php echo $challenge_item['type']; ?>
           <?php
             echo '<td class="hint--right" aria-label="';
             echo date('Y-m-d H:i:s', $challenge_item['online_time']);
@@ -85,7 +108,7 @@
             echo formatTime($challenge_item['online_time']);
             echo '</td>';
           ?>
-          <td><?php echo $challenge_item['solved_times']." / ".$challenge_item['submit_times']; ?></td>
+          <?php echo $challenge_item['solved_times']." / ".$challenge_item['submit_times']; ?>
           <?php
             echo '<td>';
             if (strlen($challenge_item['resource']) == 0){
@@ -102,9 +125,8 @@
               echo '</a>';
             }
             echo '</td>';
-          ?>  
-          
-          
+          ?>
+
           <?php 
             if ($challenge_item['document'] === ""){
               echo '<td>无</td>';
@@ -114,26 +136,31 @@
               echo '">参考资料</a></td>';
             }
           ?>
-          <td>
-            <?php
-              if ($challenge_item['is_solved'] === 0){
-                echo '<form action="/challenges/submit" method="POST">';
-                echo '<input type="text" name="flag">';
-                echo '<input type="hidden" name="challengeID" value="';
-                echo html_escape($challenge_item['challengeID']);
-                echo '">';
-                echo '<input class="btn btn-default" type="submit">';
-                echo '</form>';
-              }else{
-                echo "Solved";
-              }
-            ?>
-            </td>
-      </tr>
-      <?php endforeach; ?>
 
-    </tbody>
-  </table>
+          <?php
+            if ($challenge_item['is_solved'] === 0){
+              echo '<form action="/challenges/submit" method="POST">';
+              echo '<input type="text" name="flag">';
+              echo '<input type="hidden" name="challengeID" value="';
+              echo html_escape($challenge_item['challengeID']);
+              echo '">';
+              echo '<input class="btn btn-default" type="submit">';
+              echo '</form>';
+            }else{
+              echo "Solved";
+            }
+          ?> -->
+
+      </li>
+        </div>
+
+    <?php endforeach; ?>
+
+
+  </ul>
+
+
 </div>
-<a href="SniperOJ{This_IS-A_QIanDAOti}"><a>
 
+<a href="SniperOJ{This_IS-A_QIanDAOti}"><a>
+<script src="/assets/js/alert-dialog.js"></script>

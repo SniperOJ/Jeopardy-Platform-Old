@@ -72,6 +72,7 @@ $route['challenges/view/other'] = 'challenges/view_other';
 $route['challenges/view/all'] = 'challenges/view';
 $route['challenges/view'] = 'challenges/view';
 $route['challenges/(:any)'] = 'challenges/view';
+$route['challenges/detail/(:num)'] = 'challenges/detail';
 $route['challenges'] = 'challenges/view';
 
 // $route['news/create'] = 'news/create';

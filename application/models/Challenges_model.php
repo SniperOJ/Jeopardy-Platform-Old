@@ -29,13 +29,6 @@ class Challenges_model extends CI_Model {
         return $result['flag'];
     }
 
-    public function get_name($challengeID)
-    {
-        $query = $this->db->get_where('challenges', array('challengeID' => $challengeID));
-        $result = $query->row_array();
-        return $result['name'];
-    }
-
     public function get_score($challengeID)
     {
         $query = $this->db->get_where('challenges', array('challengeID' => $challengeID));
