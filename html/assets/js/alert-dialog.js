@@ -51,7 +51,7 @@ function getChallengeDetail(challengeID) {
 
     var container = document.getElementById("alert-dialog")
     container.innerHTML = "";
-    
+
     var xmlhttp;
     if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
@@ -76,14 +76,13 @@ function getChallengeDetail(challengeID) {
 
             var content_element = document.createElement("div");
             content_element.setAttribute("id", "alert-dialog-content")
-            var content = "<p>"+data["description"]+"</p>";
-            content += "<p>"+data["score"]+"</p>";
-            content += "<p>"+data["type"]+"</p>";
-            content += "<p>"+data["online_time"]+"</p>";
-            content += "<p>"+data["get_challenge_solved_times"]+"</p>";
-            content += "<p>"+data["get_challenge_submit_times"]+"</p>";
-            content += "<p>"+data["resource"]+"</p>";
-            content += "<p>"+data["document"]+"</p>";
+            var content = "描述 : "+data["description"]+"<br>";
+            content += "分数 : "+data["score"]+"<br>";
+            content += "类型 : "+data["type"]+"<br>";
+            content += "上线时间 : "+data["online_time"]+"<br>";
+            content += "战况 : "+data["get_challenge_solved_times"] + " / " + data["get_challenge_submit_times"]+"<br>";
+            content += "链接 : "+data["resource"]+"<br>";
+            content += "参考资料 : "+data["document"]+"<br>";
 
             content += "<form action=\"/challenges/submit\" method=\"POST\"><input type=\"text\" name=\"flag\"><input type=\"hidden\" name=\"challengeID\" value=\""+challengeID+"\"><input class=\"btn btn-default\" type=\"submit\"></form>"
             content_element.innerHTML = content; 

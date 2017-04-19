@@ -433,7 +433,7 @@ $this->load->view('navigation_bar/navigation_bar_user');
     }
 
     function formatTime($time){       
-        $rtime = date("y年m月d日 H:i",$time);       
+        $rtime = date("Y年m月d日 H:i",$time);       
         $htime = date("H:i",$time);             
         $time = time() - $time;         
         if ($time < 60){           
