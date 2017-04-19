@@ -11,6 +11,5 @@
 	<p class="lead">
 		<a href="/user/login" class="btn btn-lg btn-default">Get Start</a>
 		<h3><a target="_blank" href="https://github.com/WangYihang/SniperOJ">Fork/Star This Repositories On Github</a></h3>
-
 	</p>
 </div>

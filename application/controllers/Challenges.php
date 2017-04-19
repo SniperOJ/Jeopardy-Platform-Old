@@ -432,6 +432,31 @@ $this->load->view('navigation_bar/navigation_bar_user');
         }
     }
 
+    function formatTime($time){       
+        $rtime = date("m-d H:i",$time);       
+        $htime = date("H:i",$time);             
+        $time = time() - $time;         
+        if ($time < 60){           
+            $str = '刚刚';       
+        }elseif($time < 60 * 60){           
+            $min = floor($time/60);           
+            $str = $min.'分钟前';       
+        }elseif($time < 60 * 60 * 24){           
+            $h = floor($time/(60*60));           
+            $str = $h.'小时前 ';       
+        }elseif($time < 60 * 60 * 24 * 3){           
+            $d = floor($time/(60*60*24));           
+            if($d==1){  
+                $str = '昨天 '.$htime;
+            }else{  
+                $str = '前天 '.$htime;       
+            }  
+        }else{           
+            $str = $rtime;       
+        }       
+        return $str;
+    }
+
 
     public function detail()
     {
@@ -441,7 +466,7 @@ $this->load->view('navigation_bar/navigation_bar_user');
             'description' => $this->challenges_model->get_description($challengeID), 
             'score' => $this->challenges_model->get_score($challengeID), 
             'type' => $this->challenges_model->get_type($challengeID), 
-            'online_time' => $this->challenges_model->get_online_time($challengeID), 
+            'online_time' => formatTime($this->challenges_model->get_online_time($challengeID)), 
             'get_challenge_solved_times' => $this->challenges_model->get_challenge_solved_times($challengeID), 
             'get_challenge_submit_times' => $this->challenges_model->get_challenge_submit_times($challengeID), 
             'resource' => $this->challenges_model->get_resource($challengeID), 
@@ -449,4 +474,6 @@ $this->load->view('navigation_bar/navigation_bar_user');
         );
         echo json_encode($challenge);
     }
+
+
 }
