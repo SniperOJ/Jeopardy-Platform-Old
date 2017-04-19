@@ -47,12 +47,6 @@ function hideE(e){
     e.style.display = "none";
 }
 
-// function showHint()
-// {
-
-// }
-
-
 function getChallengeDetail(challengeID) {
     var xmlhttp;
     if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -71,7 +65,6 @@ function getChallengeDetail(challengeID) {
             eval("var data="+result); // 竟然这样解析 json , 三观颠覆
 
             var container = document.getElementById("alert-dialog")
-            console.log(container)
             container.innerHTML = "";
 
             var title_element = document.createElement("div");
@@ -131,12 +124,17 @@ function hideDialog(mask_id, dialog_id){
 }
 
 function alertDialog(dialog_title_id, dialog_id, mask_id) {
-    var elem = getE(dialog_title_id);
-    if (elem == null){
-        elem = create_alert_dialog()
+    if (getE(dialog_id) == null){
+        create_alert_dialog()
+        var elem = getE(dialog_title_id);
+        var dialog = getE(dialog_id);
+        var mask = getE(mask_id);
+    }else{
+        var elem = getE(dialog_title_id);
+        var dialog = getE(dialog_id);
+        var mask = getE(mask_id);
     }
-    var dialog = getE(dialog_id);
-    var mask = getE(mask_id);
+
     //开始处理拖动
     //鼠标按下位置
     var offsetX;
@@ -207,7 +205,6 @@ function create_alert_dialog() {
     container.appendChild(content);
 
     document.body.appendChild(container)
-    return container;
 }
 
 var click_to_show_class_name = "click-to-alert-dialog"
