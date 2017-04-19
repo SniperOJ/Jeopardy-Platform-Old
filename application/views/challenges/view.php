@@ -40,6 +40,17 @@ li{
   text-align: center;
   box-shadow: 0px 0px 2px rgba(0,0,0,0.5),0px -5px 20px rgba(0,0,0,0.1) inset;
 }
+.challenge-item-solved{
+  padding: 5px;
+  background-color: #666666;
+  position: relative;
+  width: 256px;
+  height: 160px;
+  font-size: 32px;
+  color: #111;
+  text-align: center;
+  box-shadow: 0px 0px 2px rgba(0,0,0,0.5),0px -5px 20px rgba(0,0,0,0.1) inset;
+}
 .challenge-item:hover{
   background-color:cornflowerblue;
   transition: all 0.5s ease;
@@ -55,11 +66,19 @@ li{
     <?php foreach ($challenges as $challenge_item): ?>
       <div class="click-to-alert-dialog">
 
-      <li id="challenge-<?php echo $challenge_item['challengeID']; ?>" class="challenge-item">
-          <?php echo $challenge_item['name']; ?><br>
-          <?php echo $challenge_item['score']; ?>
-      </li>
-        </div>
+        <li id="challenge-<?php echo $challenge_item['challengeID']; ?>" class="
+        <?php 
+          if($challenge_item['is_solved']){
+            echo 'challenge-item';
+          }else{
+            echo 'challenge-item-solved';
+          }
+
+        ?>">
+            <?php echo $challenge_item['name']; ?><br>
+            <?php echo $challenge_item['score']; ?>
+        </li>
+      </div>
 
     <?php endforeach; ?>
 
