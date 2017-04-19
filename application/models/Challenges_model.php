@@ -223,5 +223,4 @@ class Challenges_model extends CI_Model {
         }
         return $challenges;
     }
-
 }

@@ -68,6 +68,7 @@ $route['challenges/view/misc'] = 'challenges/view_misc';
 $route['challenges/view/forensics'] = 'challenges/view_forensics';
 $route['challenges/view/stego'] = 'challenges/view_stego';
 $route['challenges/view/crypto'] = 'challenges/view_crypto';
+$route['challenges/view/other'] = 'challenges/view_other';
 $route['challenges/view/all'] = 'challenges/view';
 $route['challenges/view'] = 'challenges/view';
 $route['challenges/(:any)'] = 'challenges/view';

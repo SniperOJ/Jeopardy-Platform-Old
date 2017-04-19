@@ -144,6 +144,20 @@ class Challenges extends CI_Controller {
         }
     }
 
+    public function view_other()
+    {
+        if($this->is_logined()){
+            $data['challenges'] = $this->challenges_model->get_type_challenges($this->session->userID, '');
+            $this->load->view('templates/header');
+            $this->load->view('navigation_bar/navigation_bar_user');
+            $this->load->view('challenges/view', $data);
+            $this->load->view('templates/footer');
+        }else{
+            $this->session->sess_destroy();
+            redirect("/");
+        }
+    }
+
 
     public function get_encrypted_flag($flag)
     {
@@ -314,11 +328,15 @@ $this->load->view('navigation_bar/navigation_bar_user');
                 }
                 else
                 {
+                    $type = $this->input->post('type');
+                    if ($type == 'other'){
+                        $type = '';
+                    }
                     $new_challenge = array(
                         'name' => $this->input->post('name'),
                         'description' => $this->input->post('description'),
                         'score' => $this->input->post('score'),
-                        'type' => $this->input->post('type'),
+                        'type' => $type,
                         'flag' => $this->get_encrypted_flag($this->input->post('flag')),
                         'resource' => $this->input->post('resource'),
                         'document' => $this->input->post('document'),

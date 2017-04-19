@@ -23,7 +23,7 @@ CREATE TABLE `challenges` (
   `description` varchar(512) NOT NULL,
   `flag` varchar(64) NOT NULL,
   `score` int NOT NULL DEFAULT 0,
-  `type` ENUM('web', 'pwn', 'stego', 'misc', 'crypto', 'forensics', 'others'),
+  `type` ENUM('web', 'pwn', 'stego', 'misc', 'crypto', 'forensics', 'others') DEFAULT 'others',
   `online_time` int NOT NULL,
   `visit_times` int DEFAULT 0,
   `fixing` tinyint DEFAULT 0,
