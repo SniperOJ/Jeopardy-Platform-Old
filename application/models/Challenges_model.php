@@ -223,4 +223,15 @@ class Challenges_model extends CI_Model {
         }
         return $challenges;
     }
+
+    public function get_challenges_number($type)
+    {
+        $query = $this->db->select('challengeID')
+        ->where(array(
+            "type" => $type,
+        ))
+        ->get('challenges');
+        $result = $query->num_rows();
+        return $result;
+    }
 }
