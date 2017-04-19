@@ -31,7 +31,7 @@ li{
 }
 .challenge-item{
   padding: 5px;
-  background-color: #EEEEEE;
+  background-color: #666666;
   position: relative;
   width: 256px;
   height: 160px;
@@ -42,7 +42,7 @@ li{
 }
 .challenge-item-solved{
   padding: 5px;
-  background-color: #666666;
+  background-color: #EEEEEE;
   position: relative;
   width: 256px;
   height: 160px;
