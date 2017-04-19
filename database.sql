@@ -83,4 +83,4 @@ CREATE TABLE `reset_password` (
   `verified` tinyint NOT NULL DEFAULT 0,
   PRIMARY KEY (`resetID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
+    
