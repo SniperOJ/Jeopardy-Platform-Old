@@ -10,7 +10,7 @@
 
 		<link rel="icon" href="/favicon.ico">
 		<!-- Bootstrap core CSS -->
-		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/assets/css/bootstrap.min.css" rel="stylesheet">
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 		<link href="/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 		<link href="/assets/css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
@@ -23,7 +23,7 @@
 
 		<script src="/assets/js/ie-emulation-modes-warning.js"></script>
 		<script src="/assets/js/jquery.js"></script>
-		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="/assets/js/bootstrap.min.js"></script>
 		<script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
 		<script type="text/javascript" src="/assets/js/pnotify.custom.min.js"></script>
 		<script src="/assets/js/jquery.min.js"></script>
