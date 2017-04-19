@@ -34,7 +34,7 @@ li{
   background-color: #EEEEEE;
   position: relative;
   width: 256px;
-  height: 96px;
+  height: 128px;
   font-size: 32px;
   color: #111;
   text-align: center;
