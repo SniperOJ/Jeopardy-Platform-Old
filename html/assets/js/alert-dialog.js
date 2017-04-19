@@ -49,9 +49,6 @@ function hideE(e){
 
 function getChallengeDetail(challengeID) {
 
-    var container = document.getElementById("alert-dialog")
-    container.innerHTML = "";
-
     var xmlhttp;
     if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
@@ -68,6 +65,8 @@ function getChallengeDetail(challengeID) {
             result = xmlhttp.responseText;
             eval("var data="+result); // 竟然这样解析 json , 三观颠覆
 
+            var container = document.getElementById("alert-dialog")
+            container.innerHTML = "";
 
             var title_element = document.createElement("div");
             title_element.setAttribute("id", "alert-dialog-title")
@@ -81,8 +80,8 @@ function getChallengeDetail(challengeID) {
             content += "类型 : "+data["type"]+"<br>";
             content += "上线时间 : "+data["online_time"]+"<br>";
             content += "战况 : "+data["get_challenge_solved_times"] + " / " + data["get_challenge_submit_times"]+"<br>";
-            content += "链接 : "+data["resource"]+"<br>";
-            content += "参考资料 : "+data["document"]+"<br>";
+            content += "链接 : "+"<a href=\""+data["resource"]+"\">链接<a><br>";
+            content += "参考资料 : "+"<a href=\""+data["document"]+"\">链接<a><br>";
 
             content += "<form action=\"/challenges/submit\" method=\"POST\"><input type=\"text\" name=\"flag\"><input type=\"hidden\" name=\"challengeID\" value=\""+challengeID+"\"><input class=\"btn btn-default\" type=\"submit\"></form>"
             content_element.innerHTML = content; 
