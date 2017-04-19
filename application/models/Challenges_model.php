@@ -47,7 +47,7 @@ class Challenges_model extends CI_Model {
     {
         $query = $this->db->get_where('challenges', array('challengeID' => $challengeID));
         $result = $query->row_array();
-        return $result['online_time'];
+        return intval($result['online_time']);
     }
 
     public function get_visit_times($challengeID)
