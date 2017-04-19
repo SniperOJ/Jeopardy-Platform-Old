@@ -80,8 +80,8 @@ function getChallengeDetail(challengeID) {
             content += "类型 : "+data["type"]+"<br>";
             content += "上线时间 : "+data["online_time"]+"<br>";
             content += "战况 : "+data["get_challenge_solved_times"] + " / " + data["get_challenge_submit_times"]+"<br>";
-            content += "链接 : "+"<a href=\""+data["resource"]+"\">链接<a><br>";
-            content += "参考资料 : "+"<a href=\""+data["document"]+"\">链接<a><br>";
+            content += "链接 : "+"<a target='_black' href=\""+data["resource"]+"\">链接<a><br>";
+            content += "参考资料 : "+"<a target='_black' href=\""+data["document"]+"\">链接<a><br>";
 
             content += "<form action=\"/challenges/submit\" method=\"POST\"><input type=\"text\" name=\"flag\"><input type=\"hidden\" name=\"challengeID\" value=\""+challengeID+"\"><input class=\"btn btn-default\" type=\"submit\"></form>"
             content_element.innerHTML = content; 
