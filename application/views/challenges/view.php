@@ -26,7 +26,7 @@
       }else{           
           $str = $rtime;       
       }       
-      return $str;   
+      return $str;
   } 
 ?>
 

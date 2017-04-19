@@ -129,52 +129,57 @@ function alertDialog(dialog_title_id, dialog_id, mask_id) {
         var elem = getE(dialog_title_id);
         var dialog = getE(dialog_id);
         var mask = getE(mask_id);
+        console.log("new")
     }else{
         var elem = getE(dialog_title_id);
         var dialog = getE(dialog_id);
         var mask = getE(mask_id);
+        console.log("old")
     }
 
-    //开始处理拖动
-    //鼠标按下位置
-    var offsetX;
-    var offsetY;
-    //拖动状态标记
-    var isDraging = false;
-    //鼠标事件一(鼠标按下)
-    elem.addEventListener("mousedown",function(e){
-        var e = e || window.event;//兼容IE,IE的鼠标事件从window.event获得
-        offsetX = e.pageX - dialog.offsetLeft;
-        offsetY = e.pageY - dialog.offsetTop;
-        isDraging = true;
-    })
-    //鼠标事件二(鼠标移动)
-    document.onmousemove = function(e){
-        var e = e || window.event;//兼容IE,IE的鼠标事件从window.event获得
-        //定义移动距离
-        var moveX = e.pageX - offsetX;
-        var moveY = e.pageY - offsetY;
-        //获得页面可视尺寸
-        var vH = document.documentElement.clientHeight;
-        var vW = document.documentElement.clientWidth;
-        //获取元素尺寸
-        var eH = dialog.offsetHeight;
-        var eW = dialog.offsetWidth;
-        //最大移动举例
-        var maxX = vW - eW;
-        var maxY = vH - eH;
-        if(isDraging === true){
-            //限制移动范围(厉害!)
-            moveX = Math.min(maxX,Math.max(0, moveX));
-            moveY = Math.min(maxY,Math.max(0, moveY));
-            dialog.style.left = moveX + "px";
-            dialog.style.top = moveY + "px";
-        }
-    }
-    //鼠标事件三(鼠标松开)
-    document.onmouseup = function(){
-        isDraging = false;
-    }
+    // console.log(elem)
+    // console.log(dialog)
+
+    // //开始处理拖动
+    // //鼠标按下位置
+    // var offsetX;
+    // var offsetY;
+    // //拖动状态标记
+    // var isDraging = false;
+    // //鼠标事件一(鼠标按下)
+    // dialog.addEventListener("mousedown",function(e){
+    //     var e = e || window.event;//兼容IE,IE的鼠标事件从window.event获得
+    //     offsetX = e.pageX - dialog.offsetLeft;
+    //     offsetY = e.pageY - dialog.offsetTop;
+    //     isDraging = true;
+    // })
+    // //鼠标事件二(鼠标移动)
+    // document.onmousemove = function(e){
+    //     var e = e || window.event;//兼容IE,IE的鼠标事件从window.event获得
+    //     //定义移动距离
+    //     var moveX = e.pageX - offsetX;
+    //     var moveY = e.pageY - offsetY;
+    //     //获得页面可视尺寸
+    //     var vH = document.documentElement.clientHeight;
+    //     var vW = document.documentElement.clientWidth;
+    //     //获取元素尺寸
+    //     var eH = dialog.offsetHeight;
+    //     var eW = dialog.offsetWidth;
+    //     //最大移动举例
+    //     var maxX = vW - eW;
+    //     var maxY = vH - eH;
+    //     if(isDraging === true){
+    //         //限制移动范围(厉害!)
+    //         moveX = Math.min(maxX,Math.max(0, moveX));
+    //         moveY = Math.min(maxY,Math.max(0, moveY));
+    //         dialog.style.left = moveX + "px";
+    //         dialog.style.top = moveY + "px";
+    //     }
+    // }
+    // //鼠标事件三(鼠标松开)
+    // document.onmouseup = function(){
+    //     isDraging = false;
+    // }
 }
 function create_mask(mask_id, dialog_id) {
     var e = document.createElement("div");
