@@ -38,8 +38,102 @@ class Challenges extends CI_Controller {
 
     public function view()
     {
+        // $active_code = $this->uri->segment(3);
+        // die($active_code);
         if($this->is_logined()){
             $data['challenges'] = $this->challenges_model->get_all_challenges($this->session->userID);
+            $this->load->view('templates/header');
+            $this->load->view('navigation_bar/navigation_bar_user');
+            $this->load->view('challenges/view', $data);
+            $this->load->view('templates/footer');
+        }else{
+            $this->session->sess_destroy();
+            redirect("/");
+        }
+    }
+
+    public function view_web()
+    {
+        if($this->is_logined()){
+            $data['challenges'] = $this->challenges_model->get_type_challenges($this->session->userID, "web");
+            $this->load->view('templates/header');
+            $this->load->view('navigation_bar/navigation_bar_user');
+            $this->load->view('challenges/view', $data);
+            $this->load->view('templates/footer');
+        }else{
+            $this->session->sess_destroy();
+            redirect("/");
+        }
+    }
+
+
+    public function view_pwn()
+    {
+        if($this->is_logined()){
+            $data['challenges'] = $this->challenges_model->get_type_challenges($this->session->userID, "pwn");
+            $this->load->view('templates/header');
+            $this->load->view('navigation_bar/navigation_bar_user');
+            $this->load->view('challenges/view', $data);
+            $this->load->view('templates/footer');
+        }else{
+            $this->session->sess_destroy();
+            redirect("/");
+        }
+    }
+
+
+
+    public function view_misc()
+    {
+        if($this->is_logined()){
+            $data['challenges'] = $this->challenges_model->get_type_challenges($this->session->userID, "misc");
+            $this->load->view('templates/header');
+            $this->load->view('navigation_bar/navigation_bar_user');
+            $this->load->view('challenges/view', $data);
+            $this->load->view('templates/footer');
+        }else{
+            $this->session->sess_destroy();
+            redirect("/");
+        }
+    }
+
+
+
+    public function view_forensics()
+    {
+        if($this->is_logined()){
+            $data['challenges'] = $this->challenges_model->get_type_challenges($this->session->userID, "forensics");
+            $this->load->view('templates/header');
+            $this->load->view('navigation_bar/navigation_bar_user');
+            $this->load->view('challenges/view', $data);
+            $this->load->view('templates/footer');
+        }else{
+            $this->session->sess_destroy();
+            redirect("/");
+        }
+    }
+
+
+
+    public function view_crypto()
+    {
+        if($this->is_logined()){
+            $data['challenges'] = $this->challenges_model->get_type_challenges($this->session->userID, "crypto");
+            $this->load->view('templates/header');
+            $this->load->view('navigation_bar/navigation_bar_user');
+            $this->load->view('challenges/view', $data);
+            $this->load->view('templates/footer');
+        }else{
+            $this->session->sess_destroy();
+            redirect("/");
+        }
+    }
+
+
+    public function view_stego()
+    {
+        if($this->is_logined()){
+            $data['challenges'] = $this->challenges_model->get_type_challenges($this->session->userID, "stego");
             $this->load->view('templates/header');
             $this->load->view('navigation_bar/navigation_bar_user');
             $this->load->view('challenges/view', $data);

@@ -32,6 +32,16 @@
 
 <h1><?php echo $this->lang->line('CHALLENGES'); ?></h1>
 
+<ul class="nav nav-tabs nav-justified">
+  <li class="active"><a href="/challenges/view/all">All</a></li>
+  <li><a href="/challenges/view/web">Web</a></li>
+  <li><a href="/challenges/view/pwn">Pwn</a></li>
+  <li><a href="/challenges/view/misc">Misc</a></li>
+  <li><a href="/challenges/view/forensics">Forensics</a></li>
+  <li><a href="/challenges/view/stego">Stego</a></li>
+  <li><a href="/challenges/view/crypto">Crypto</a></li>
+</ul>
+
 <div class="challenges">
   <table class="table" style="font-size: 20px">
     <thead>
@@ -113,3 +123,4 @@
   </table>
 </div>
 <a href="SniperOJ{This_IS-A_QIanDAOti}"><a>
+

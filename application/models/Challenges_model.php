@@ -206,4 +206,22 @@ class Challenges_model extends CI_Model {
         $result = $query->num_rows();
         return $result;
     }
+
+    public function get_type_challenges($userID, $type)
+    {
+        $query = $this->db
+            ->where(array(
+                "fixing" => "0",
+                "type" => $type,
+            ))
+            ->get("challenges");
+        $challenges = $query->result_array();
+        for ($i=0; $i < count($challenges); $i++) { 
+            $challenges[$i]['solved_times'] = $this->challenges_model->get_challenge_solved_times($challenges[$i]['challengeID']);
+            $challenges[$i]['submit_times'] = $this->challenges_model->get_challenge_submit_times($challenges[$i]['challengeID']);
+            $challenges[$i]['is_solved'] = $this->challenges_model->is_solved_by_userID($challenges[$i]['challengeID'], $userID);
+        }
+        return $challenges;
+    }
+
 }

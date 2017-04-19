@@ -62,8 +62,16 @@ $route['user'] = 'user/profile';
 
 $route['challenges/create'] = 'challenges/create';
 $route['challenges/submit'] = 'challenges/submit';
+$route['challenges/view/web'] = 'challenges/view_web';
+$route['challenges/view/pwn'] = 'challenges/view_pwn';
+$route['challenges/view/misc'] = 'challenges/view_misc';
+$route['challenges/view/forensics'] = 'challenges/view_forensics';
+$route['challenges/view/stego'] = 'challenges/view_stego';
+$route['challenges/view/crypto'] = 'challenges/view_crypto';
+$route['challenges/view/all'] = 'challenges/view';
+$route['challenges/view'] = 'challenges/view';
 $route['challenges/(:any)'] = 'challenges/view';
-$route['challenges'] = 'challenges';
+$route['challenges'] = 'challenges/view';
 
 // $route['news/create'] = 'news/create';
 // $route['news/(:any)'] = 'news/view';
