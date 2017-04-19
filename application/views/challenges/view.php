@@ -45,14 +45,14 @@
 <h1><?php echo $this->lang->line('CHALLENGES'); ?></h1>
 
 <ul class="nav nav-tabs nav-justified">
-  <li><a href="/challenges/view/all">All (<?php echo $all_challenges_number; ?>)</a></li>
-  <li><a href="/challenges/view/web">Web (<?php echo $web_challenges_number; ?>)</a></li>
-  <li><a href="/challenges/view/pwn">Pwn (<?php echo $pwn_challenges_number; ?>)</a></li>
-  <li><a href="/challenges/view/misc">Misc (<?php echo $misc_challenges_number; ?>)</a></li>
-  <li><a href="/challenges/view/forensics">Forensics (<?php echo $forensics_challenges_number; ?>)</a></li>
-  <li><a href="/challenges/view/stego">Stego (<?php echo $stego_challenges_number; ?>)</a></li>
-  <li><a href="/challenges/view/crypto">Crypto (<?php echo $crypto_challenges_number; ?>)</a></li>
-  <li><a href="/challenges/view/other">Other (<?php echo $other_challenges_number; ?>)</a></li>
+  <li><h3><a href="/challenges/view/all">All (<?php echo $all_challenges_number; ?>)</a></h3></li>
+  <li><h3><a href="/challenges/view/web">Web (<?php echo $web_challenges_number; ?>)</a></h3></li>
+  <li><h3><a href="/challenges/view/pwn">Pwn (<?php echo $pwn_challenges_number; ?>)</a></h3></li>
+  <li><h3><a href="/challenges/view/misc">Misc (<?php echo $misc_challenges_number; ?>)</a></h3></li>
+  <li><h3><a href="/challenges/view/forensics">Forensics (<?php echo $forensics_challenges_number; ?>)</a></h3></li>
+  <li><h3><a href="/challenges/view/stego">Stego (<?php echo $stego_challenges_number; ?>)</a></h3></li>
+  <li><h3><a href="/challenges/view/crypto">Crypto (<?php echo $crypto_challenges_number; ?>)</a></h3></li>
+  <li><h3><a href="/challenges/view/other">Other (<?php echo $other_challenges_number; ?>)</a></h3></li>
 </ul>
 
 <div class="challenges">
