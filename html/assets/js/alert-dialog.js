@@ -48,6 +48,10 @@ function hideE(e){
 }
 
 function getChallengeDetail(challengeID) {
+
+    var container = document.getElementById("alert-dialog")
+    container.innerHTML = "";
+    
     var xmlhttp;
     if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
@@ -64,8 +68,6 @@ function getChallengeDetail(challengeID) {
             result = xmlhttp.responseText;
             eval("var data="+result); // 竟然这样解析 json , 三观颠覆
 
-            var container = document.getElementById("alert-dialog")
-            container.innerHTML = "";
 
             var title_element = document.createElement("div");
             title_element.setAttribute("id", "alert-dialog-title")
