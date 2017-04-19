@@ -78,7 +78,8 @@ function getChallengeDetail(challengeID) {
             content += "<p>"+data["score"]+"</p>";
             content += "<p>"+data["type"]+"</p>";
             content += "<p>"+data["online_time"]+"</p>";
-            content += "<p>"+data["visit_times"]+"</p>";
+            content += "<p>"+data["get_challenge_solved_times"]+"</p>";
+            content += "<p>"+data["get_challenge_submit_times"]+"</p>";
             content += "<p>"+data["resource"]+"</p>";
             content += "<p>"+data["document"]+"</p>";
 

@@ -442,7 +442,8 @@ $this->load->view('navigation_bar/navigation_bar_user');
             'score' => $this->challenges_model->get_score($challengeID), 
             'type' => $this->challenges_model->get_type($challengeID), 
             'online_time' => $this->challenges_model->get_online_time($challengeID), 
-            'visit_times' => $this->challenges_model->get_visit_times($challengeID), 
+            'get_challenge_solved_times' => $this->challenges_model->get_challenge_solved_times($challengeID), 
+            'get_challenge_submit_times' => $this->challenges_model->get_challenge_submit_times($challengeID), 
             'resource' => $this->challenges_model->get_resource($challengeID), 
             'document' => $this->challenges_model->get_document($challengeID), 
         );
