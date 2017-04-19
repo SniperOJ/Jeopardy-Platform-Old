@@ -83,7 +83,7 @@
 	</div>
 </div>
 
-<table class="table table-hover">
+<table class="table table-hover" style="margin-bottom: 50px;">
   <caption><h3><?php echo $this->lang->line('SUBMIT_LOG_NAME'); ?></h3></caption>
   <thead>
     <tr>

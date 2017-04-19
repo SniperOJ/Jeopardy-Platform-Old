@@ -56,7 +56,7 @@
 </ul>
 
 <div class="challenges">
-  <table class="table" style="font-size: 20px">
+  <table class="table" style="font-size: 20px;margin-bottom: 50px;">
     <thead>
       <tr>
         <th><?php echo $this->lang->line('NAME'); ?></th>

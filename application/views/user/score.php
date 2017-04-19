@@ -4,7 +4,7 @@
 
 
 <h1><?php echo $this->lang->line('SCORE_NAME'); ?></h1>
-<table class="table table-hover">
+<table class="table table-hover" style="margin-bottom: 50px;">
   <thead>
     <tr>
       <th><?php echo $this->lang->line('RANK'); ?></th>
