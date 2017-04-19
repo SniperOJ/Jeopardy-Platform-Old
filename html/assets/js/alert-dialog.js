@@ -74,13 +74,13 @@ function getChallengeDetail(challengeID) {
 
             var content_element = document.createElement("div");
             content_element.setAttribute("id", "alert-dialog-content")
-            var content = "<p>"+data["description"]+"</p>"+"<br>";
-            content += "<p>"+data["score"]+"</p>"+"<br>";
-            content += "<p>"+data["type"]+"</p>"+"<br>";
-            content += "<p>"+data["online_time"]+"</p>"+"<br>";
-            content += "<p>"+data["visit_times"]+"</p>"+"<br>";
-            content += "<p>"+data["resource"]+"</p>"+"<br>";
-            content += "<p>"+data["document"]+"</p>"+"<br>";
+            var content = "<p>"+data["description"]+"</p>";
+            content += "<p>"+data["score"]+"</p>";
+            content += "<p>"+data["type"]+"</p>";
+            content += "<p>"+data["online_time"]+"</p>";
+            content += "<p>"+data["visit_times"]+"</p>";
+            content += "<p>"+data["resource"]+"</p>";
+            content += "<p>"+data["document"]+"</p>";
 
             content += "<form action=\"/challenges/submit\" method=\"POST\"><input type=\"text\" name=\"flag\"><input type=\"hidden\" name=\"challengeID\" value=\""+challengeID+"\"><input class=\"btn btn-default\" type=\"submit\"></form>"
             content_element.innerHTML = content; 
