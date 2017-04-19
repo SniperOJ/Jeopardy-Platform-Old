@@ -1,5 +1,5 @@
     
-    <nav class="navbar navbar-inverse" role="navigation">
+    <nav class="navbar navbar-inverse" role="navigation" style="position: fixed;bottom: 0px;width: 100%; margin: 0px;">
       <em>&copy; 2017</em><br>
       <a target="_black" href="https://github.com/WangYihang/SniperOJ">Github</a>
       &nbsp;&nbsp;
