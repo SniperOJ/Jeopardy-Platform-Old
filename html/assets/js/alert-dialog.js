@@ -127,6 +127,8 @@ function hideDialog(mask_id, dialog_id){
     hideE(dialog);
     //隐藏遮罩层
     hideE(mask);
+    // 清空内容
+    dialog.innerHTML= "";
 }
 
 function alertDialog(dialog_title_id, dialog_id, mask_id) {
