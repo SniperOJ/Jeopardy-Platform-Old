@@ -13,8 +13,6 @@
   $all_challenges_number += $other_challenges_number;
 ?>
 
-<h1><?php echo $this->lang->line('CHALLENGES'); ?></h1>
-
 <style type=text/css>  
 *{
   margin: 0;
