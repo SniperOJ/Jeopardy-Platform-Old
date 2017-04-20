@@ -74,15 +74,10 @@ li{
   background-color: #F75000;
 }
 .challenge-item-solved{
-  padding: 5px;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 20px;
   background-color: #EEEEEE;
-  position: relative;
-  width: 256px;
-  height: 160px;
-  font-size: 24px;
-  color: #111;
-  text-align: center;
-  box-shadow: 0px 0px 2px rgba(0,0,0,0.5),0px -5px 20px rgba(0,0,0,0.1) inset;
   opacity:0.1;
 }
 </style>  
