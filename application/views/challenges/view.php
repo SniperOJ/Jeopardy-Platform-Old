@@ -125,7 +125,7 @@ li{
         }
         echo '<strong>'.$challenge_item['name'].'</strong><br>';
         echo '分数 : '.$challenge_item['score'].'<br>';
-        echo '点击量 : '.$challenge_item['visit_times'];
+        echo '点击量 : '.$challenge_item['visit_times'].'<br>';
         echo '战况 : '.$challenge_item['solved_times'].' / '.$challenge_item['submit_times'];
         echo '</li>';
         echo '</div>';
@@ -144,7 +144,7 @@ li{
         }
         echo '<strong>'.$challenge_item['name'].'</strong><br>';
         echo '分数 : '.$challenge_item['score'].'<br>';
-        echo '点击量 : '.$challenge_item['visit_times'];
+        echo '点击量 : '.$challenge_item['visit_times'].'<br>';
         echo '战况 : '.$challenge_item['solved_times'].' / '.$challenge_item['submit_times'];
         echo '</li>';
         echo '</div>';
@@ -163,7 +163,7 @@ li{
         }
         echo '<strong>'.$challenge_item['name'].'</strong><br>';
         echo '分数 : '.$challenge_item['score'].'<br>';
-        echo '点击量 : '.$challenge_item['visit_times'];
+        echo '点击量 : '.$challenge_item['visit_times'].'<br>';
         echo '</li>';
         echo '</div>';
       ?>
@@ -181,7 +181,7 @@ li{
         }
         echo '<strong>'.$challenge_item['name'].'</strong><br>';
         echo '分数 : '.$challenge_item['score'].'<br>';
-        echo '点击量 : '.$challenge_item['visit_times'];
+        echo '点击量 : '.$challenge_item['visit_times'].'<br>';
         echo '战况 : '.$challenge_item['solved_times'].' / '.$challenge_item['submit_times'];
         echo '</li>';
         echo '</div>';
@@ -200,7 +200,7 @@ li{
         }
         echo '<strong>'.$challenge_item['name'].'</strong><br>';
         echo '分数 : '.$challenge_item['score'].'<br>';
-        echo '点击量 : '.$challenge_item['visit_times'];
+        echo '点击量 : '.$challenge_item['visit_times'].'<br>';
         echo '战况 : '.$challenge_item['solved_times'].' / '.$challenge_item['submit_times'];
         echo '</li>';
         echo '</div>';
@@ -218,7 +218,7 @@ li{
         }
         echo '<strong>'.$challenge_item['name'].'</strong><br>';
         echo '分数 : '.$challenge_item['score'].'<br>';
-        echo '点击量 : '.$challenge_item['visit_times'];
+        echo '点击量 : '.$challenge_item['visit_times'].'<br>';
         echo '战况 : '.$challenge_item['solved_times'].' / '.$challenge_item['submit_times'];
         echo '</li>';
         echo '</div>';
