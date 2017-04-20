@@ -27,6 +27,31 @@ li{
   text-align: center;
   box-shadow: 0px 0px 2px rgba(0,0,0,0.5),0px -5px 20px rgba(0,0,0,0.1) inset;
 }
+.challenge-item:hover{
+  background-color:cornflowerblue;
+  transition: all 0.5s ease;
+}
+.challenge-item-web{
+  background-color: #0080FF;
+} 
+.challenge-item-pwn{
+  background-color: #FF2D2D;
+}
+.challenge-item-misc{
+  background-color: #FFD306;
+}
+.challenge-item-crypto{
+  background-color: #C07AB8;
+}
+.challenge-item-stego{
+  background-color: #79FF79;
+}
+.challenge-item-forensics{
+  background-color: #B15BFF;
+}
+.challenge-item-other{
+  background-color: #F75000;
+}
 .challenge-item-solved{
   padding: 5px;
   background-color: #EEEEEE;
@@ -38,31 +63,6 @@ li{
   text-align: center;
   box-shadow: 0px 0px 2px rgba(0,0,0,0.5),0px -5px 20px rgba(0,0,0,0.1) inset;
 }
-.challenge-item:hover{
-  background-color:cornflowerblue;
-  transition: all 0.5s ease;
-}
-.challenge-item-web{
-  
-}
-.challenge-item-pwn{
-  
-}
-.challenge-item-misc{
-  
-}
-.challenge-item-crypto{
-  
-}
-.challenge-item-stego{
-  
-}
-.challenge-item-forensics{
-  
-}
-.challenge-item-other{
-  
-}
 </style>  
 
 <link rel="stylesheet" href="/assets/css/alert-dialog.css">
@@ -72,10 +72,10 @@ li{
 
     <?php foreach ($challenges_web as $challenge_item): ?>
       <?php 
-        echo '<div class="click-to-alert-dialog challenge-item-web">';
+        echo '<div class="click-to-alert-dialog">';
 
         if($challenge_item['is_solved']){
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item">';
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item challenge-item-web">';
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved">';
         }
@@ -89,10 +89,10 @@ li{
 
     <?php foreach ($challenges_pwn as $challenge_item): ?>
       <?php 
-        echo '<div class="click-to-alert-dialog challenge-item-pwn">';
+        echo '<div class="click-to-alert-dialog">';
 
         if($challenge_item['is_solved']){
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item">';
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item challenge-item-pwn">';
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved">';
         }
@@ -107,10 +107,10 @@ li{
 
     <?php foreach ($challenges_misc as $challenge_item): ?>
       <?php 
-        echo '<div class="click-to-alert-dialog challenge-item-misc">';
+        echo '<div class="click-to-alert-dialog">';
 
         if($challenge_item['is_solved']){
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item">';
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item challenge-item-misc">';
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved">';
         }
@@ -125,10 +125,10 @@ li{
 
     <?php foreach ($challenges_crypto as $challenge_item): ?>
       <?php 
-        echo '<div class="click-to-alert-dialog challenge-item-crypto">';
+        echo '<div class="click-to-alert-dialog">';
 
         if($challenge_item['is_solved']){
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item">';
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item challenge-item-crypto">';
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved">';
         }
@@ -143,10 +143,10 @@ li{
 
     <?php foreach ($challenges_forensics as $challenge_item): ?>
       <?php 
-        echo '<div class="click-to-alert-dialog challenge-item-forensics">';
+        echo '<div class="click-to-alert-dialog">';
 
         if($challenge_item['is_solved']){
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item">';
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item challenge-item-forensics">';
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved">';
         }
@@ -161,10 +161,10 @@ li{
 
     <?php foreach ($challenges_other as $challenge_item): ?>
       <?php 
-        echo '<div class="click-to-alert-dialog challenge-item-other">';
+        echo '<div class="click-to-alert-dialog">';
 
         if($challenge_item['is_solved']){
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item">';
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item challenge-item-other">';
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved">';
         }
