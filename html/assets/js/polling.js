@@ -1,5 +1,12 @@
 data_shown = []
 
+// load sound file
+$('<audio id="chatAudio">\
+    <source src="notify.ogg" type="audio/ogg">\
+    <source src="notify.mp3" type="audio/mpeg">\
+    <source src="notify.wav" type="audio/wav">\
+   </audio>').appendTo('body');
+
 function get_index(new_child, father){
     var index = -1;
     for(var child in father){
@@ -27,9 +34,10 @@ function show_process()
                         var username = msg[i]['username'];
                         var challenge_name = msg[i]['challenge_name'];
                         var submit_time = msg[i]['submit_time'];
-
                         var content = challenge_name + ' is solved by ' + username + '<br>' + submit_time;
-                        
+                        // play the sound 
+                        $('#chatAudio')[0].play()
+                        // show the alert dialog
                         $(function(){
                             PNotify.prototype.options.styling = "bootstrap3";
                             new PNotify({
