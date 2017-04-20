@@ -28,14 +28,17 @@ function showUnreadNews()
                         var submit_time = msg[i]['submit_time'];
 
                         var content = challenge_name + ' is solved by ' + username + ' ' + submit_time;
-
+                        
                         $(function(){
                             PNotify.prototype.options.styling = "bootstrap3";
                             new PNotify({
+                                title: "New Progress!",
                                 type: 'info',
                                 text: content,
                                 icon: false,
                                 delay: 3000,
+                                addclass: "stack-topleft",
+                                stack: stack_topleft,
                                 buttons: {
                                     closer: false,
                                 },
