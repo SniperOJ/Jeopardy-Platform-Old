@@ -3,7 +3,6 @@
     $this->load->language("submit_log");
 ?>
 
-<script src="/assets/js/polling.js"></script>
 
 <?php
   function formatTime($time){       

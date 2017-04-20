@@ -18,6 +18,10 @@
 		<link href="/assets/css/cover.css" rel="stylesheet">
   		<link rel="stylesheet" href="/assets/css/hint.min.css">
 		
+  		<audio id="chatAudio">
+  			<source src="/assets/sounds/message.wav" type="audio/wav">
+  		</audio>
+		
 		<title>Sniper OJ</title>
 
 		<script src="/assets/js/ie-emulation-modes-warning.js"></script>
@@ -26,10 +30,8 @@
 		<script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
 		<script type="text/javascript" src="/assets/js/pnotify.custom.min.js"></script>
 		<script src="/assets/js/jquery.min.js"></script>
+		<script src="/assets/js/polling.js"></script>
 
-		<audio id="chatAudio">
-			<source src="/assets/sounds/message.wav" type="audio/wav">
-		</audio>
 	</head>
 
 	<body>
