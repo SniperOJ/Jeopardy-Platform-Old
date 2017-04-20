@@ -50,7 +50,7 @@ function show_process()
                         data_shown += i;
                     }
                 }
-                play sound only once
+                // play sound only once
                 if (sound_flag){
                     $('#chatAudio')[0].play()
                 }
