@@ -31,12 +31,12 @@ function show_process()
                         var username = msg[i]['username'];
                         var challenge_name = msg[i]['challenge_name'];
                         var submit_time = msg[i]['submit_time'];
-                        var content = challenge_name + ' is solved by ' + username + '<br>' + submit_time;
+                        var content = 'Solved by ' + username + '<br>' + submit_time;
                         // show the alert dialog
                         $(function(){
                             PNotify.prototype.options.styling = "bootstrap3";
                             new PNotify({
-                                title: "New Progress!",
+                                title: challenge_name,
                                 type: 'info',
                                 text: content,
                                 icon: false,
