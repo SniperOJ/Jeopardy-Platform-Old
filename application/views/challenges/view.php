@@ -7,44 +7,8 @@
 <script type="text/javascript" src="/assets/js/jquery.masonry.min.js"></script>
 <!--这个插件只是为了扩展jquery的animate函数动态效果可有可无-->
 <script type="text/javascript" src="/assets/js/jQeasing.js"></script>
-<script type="text/javascript">
 
-  $(function(){
-      /*瀑布流开始*/
-      var container = $('.waterfull ul');
-      /*判断瀑布流最大布局宽度，最大为1280*/
-      function tores(){
-        var tmpWid=$(window).width();
-        // if(tmpWid>1280){
-        //   tmpWid=1280;
-        // }else{
-          var column=Math.floor(tmpWid/320);
-          tmpWid=column*320;
-        // }
-        $('.waterfull').width(tmpWid);
-      }
-      tores();
-      $(window).resize(function(){
-        tores();
-      });
-      function a(){
-          container.masonry({
-            columnWidth: 320,
-            itemSelector : '.item',
-            isFitWidth: true,//是否根据浏览器窗口大小自动适应默认false
-            isAnimated: true,//是否采用jquery动画进行重拍版
-            isRTL:false,//设置布局的排列方式，即：定位砖块时，是从左向右排列还是从右向左排列。默认值为false，即从左向右
-            isResizable: true,//是否自动布局默认true
-            animationOptions: {
-            duration: 800,
-            easing: 'easeInOutBack',//如果你引用了jQeasing这里就可以添加对应的动态动画效果，如果没引用删除这行，默认是匀速变化
-            queue: false//是否队列，从一点填充瀑布流
-          }
-          });
-        }
-        a();
-    });
-</script>
+<script src="/assets/js/isotope.pkgd.min.js"></script>
 
 <style type=text/css>  
 *{
@@ -133,15 +97,8 @@ li{
 
 <link rel="stylesheet" href="/assets/css/alert-dialog.css">
 
-<<<<<<< HEAD
-<script src="/assets/js/isotope.pkgd.min.js"></script>
-
-
 <div class="challenges grid">
 
-=======
-<div class="challenges waterfull">
->>>>>>> dde25c20a6b9139d5db35ed393dd0dddecb2add2
   <ul>
 
     <?php foreach ($challenges_web as $challenge_item): ?>
