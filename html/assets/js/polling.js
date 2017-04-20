@@ -24,11 +24,6 @@ function show_process()
                 var size = msg.length
                 // play sound only once
                 if (size > 0){
-                    // load sound file
-                    $('<audio id="chatAudio">\
-                        <source src="/assets/sounds/message.wav" type="audio/wav">\
-                       </audio>').appendTo('body');
-                    
                     $('#chatAudio')[0].play()
                 }
                 for(var i in msg){
