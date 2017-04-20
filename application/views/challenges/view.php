@@ -33,36 +33,43 @@ li{
 }
 .challenge-item-web{
   padding: 10px;
+  border-radius: 20px;
   font-size: 20px;
   background-color: #0080FF;
 } 
 .challenge-item-pwn{
   padding: 10px;
+  border-radius: 20px;
   font-size: 20px;
   background-color: #FF2D2D;
 }
 .challenge-item-misc{
   padding: 10px;
+  border-radius: 20px;
   font-size: 20px;
   background-color: #FFD306;
 }
 .challenge-item-crypto{
   padding: 10px;
+  border-radius: 20px;
   font-size: 20px;
   background-color: #C07AB8;
 }
 .challenge-item-stego{
   padding: 10px;
+  border-radius: 20px;
   font-size: 20px;
   background-color: #79FF79;
 }
 .challenge-item-forensics{
   padding: 10px;
+  border-radius: 20px;
   font-size: 20px;
   background-color: #B15BFF;
 }
 .challenge-item-other{
   padding: 10px;
+  border-radius: 20px;
   font-size: 20px;
   background-color: #F75000;
 }
@@ -94,7 +101,7 @@ li{
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-web">';
         }
-        echo '<h2>'.$challenge_item['name'].'</h2>';
+        echo '<strong>'.$challenge_item['name'].'</strong><br>';
         echo '分数 : '.$challenge_item['score'].'<br>';
         echo '点击量 : '.$challenge_item['visit_times'];
         echo '</li>';
@@ -111,7 +118,7 @@ li{
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-pwn">';
         }
-        echo '<h2>'.$challenge_item['name'].'</h2>';
+        echo '<strong>'.$challenge_item['name'].'</strong><br>';
         echo '分数 : '.$challenge_item['score'].'<br>';
         echo '点击量 : '.$challenge_item['visit_times'];
         echo '</li>';
@@ -129,7 +136,7 @@ li{
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-misc">';
         }
-        echo '<h2>'.$challenge_item['name'].'</h2>';
+        echo '<strong>'.$challenge_item['name'].'</strong><br>';
         echo '分数 : '.$challenge_item['score'].'<br>';
         echo '点击量 : '.$challenge_item['visit_times'];
         echo '</li>';
@@ -147,7 +154,7 @@ li{
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-crypto">';
         }
-        echo '<h2>'.$challenge_item['name'].'</h2>';
+        echo '<strong>'.$challenge_item['name'].'</strong><br>';
         echo '分数 : '.$challenge_item['score'].'<br>';
         echo '点击量 : '.$challenge_item['visit_times'];
         echo '</li>';
@@ -165,7 +172,7 @@ li{
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-forensics">';
         }
-        echo '<h2>'.$challenge_item['name'].'</h2>';
+        echo '<strong>'.$challenge_item['name'].'</strong><br>';
         echo '分数 : '.$challenge_item['score'].'<br>';
         echo '点击量 : '.$challenge_item['visit_times'];
         echo '</li>';
@@ -183,7 +190,7 @@ li{
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-other">';
         }
-        echo '<h2>'.$challenge_item['name'].'</h2>';
+        echo '<strong>'.$challenge_item['name'].'</strong><br>';
         echo '分数 : '.$challenge_item['score'].'<br>';
         echo '点击量 : '.$challenge_item['visit_times'];
         echo '</li>';
