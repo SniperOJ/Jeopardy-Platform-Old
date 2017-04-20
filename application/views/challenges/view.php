@@ -1,12 +1,6 @@
 <?php
     $this->load->language("challenges");
 ?>
-<script type="text/javascript" src="/assets/js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="/assets/js/jQueryColor.js"></script>
-<!--这个插件是瀑布流主插件函数必须-->
-<script type="text/javascript" src="/assets/js/jquery.masonry.min.js"></script>
-<!--这个插件只是为了扩展jquery的animate函数动态效果可有可无-->
-<script type="text/javascript" src="/assets/js/jQeasing.js"></script>
 
 <script src="/assets/js/isotope.pkgd.min.js"></script>
 
