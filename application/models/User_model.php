@@ -251,14 +251,42 @@ class User_model extends CI_Model {
         return $result;
     }
 
+    public function get_user_submit_accept_times($userID){
+        $query = $this->db->select(array('submitID'))
+        ->order_by('submit_time','desc')
+        ->where(array('userID' => $userID, 'is_current' => '1'))
+        ->get('submit_log');
+        $result = $query->num_rows();
+        return $result;
+    }
+
+    public function get_user_submit_times($userID){
+        $query = $this->db->select(array('submitID'))
+        ->order_by('submit_time','desc')
+        ->where(array('userID' => $userID))
+        ->get('submit_log');
+        $result = $query->num_rows();
+        return $result;
+    }
+
     // get_all_score
     public function get_all_score()
     {
-        $query = $this->db->select(array('username','college','score',))
+        $query = $this->db->select(array('userID', 'username','college','score',))
                 ->where('score >', 0)
                 ->order_by('score','desc')
                 ->get('users');
         $result = $query->result_array();
+
+        for ($i=0; $i < count($result); $i++) {
+            $userID = $result[$i]['userID'];
+            $submit_times = $this->get_user_submit_times($userID);
+            $accept_times = $this->get_user_submit_accept_times($userID);
+            $pass_rate = sprintf("%.1f", $accept_times * 100.0 / $submit_times);
+            $result[$i]['submit_times'] = $submit_times;
+            $result[$i]['accept_times'] = $accept_times;
+            $result[$i]['pass_rate'] = $pass_rate;
+        }
         return $result;
     }
 

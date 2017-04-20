@@ -493,10 +493,15 @@ class User extends CI_Controller {
 		}
 	}
 
+	public function get_all_score(){
+		$data = array('scores' => $this->user_model->get_all_score());
+		return $data;
+	}
+
 	public function score()
 	{
 		if($this->is_logined()){
-			$score_data = array('scores' => $this->user_model->get_all_score(),);
+			$score_data = $this->get_all_score();
 			$this->load->view('templates/header');
 			$this->load->view('navigation_bar/navigation_bar_user');
 			$this->load->view('user/score', $score_data);
