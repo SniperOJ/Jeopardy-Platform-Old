@@ -185,6 +185,23 @@ li{
     <?php endforeach; ?>
 
 
+    <?php foreach ($challenges_stego as $challenge_item): ?>
+      <?php 
+        echo '<div class="click-to-alert-dialog">';
+
+        if($challenge_item['is_solved']){
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="item challenge challenge-item-other challenge-item-solved">';
+        }else{
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="item challenge challenge-item-other">';
+        }
+        echo '<strong>'.$challenge_item['name'].'</strong><br>';
+        echo '分数 : '.$challenge_item['score'].'<br>';
+        echo '点击量 : '.$challenge_item['visit_times'];
+        echo '</li>';
+        echo '</div>';
+      ?>
+    <?php endforeach; ?>
+
     <?php foreach ($challenges_other as $challenge_item): ?>
       <?php 
         echo '<div class="click-to-alert-dialog">';
