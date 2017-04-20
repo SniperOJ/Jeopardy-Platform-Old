@@ -37,8 +37,6 @@ function show_process()
                                 text: content,
                                 icon: false,
                                 delay: 3000,
-                                addclass: "stack-topleft",
-                                stack: stack_topleft,
                                 buttons: {
                                     closer: false,
                                 },
