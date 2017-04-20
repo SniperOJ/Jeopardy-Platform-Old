@@ -11,7 +11,7 @@ function get_index(new_child, father){
     return -1;
 }
 
-function showUnreadNews()
+function show_process()
 {
     $(document).ready(function() {
         $.ajax({
@@ -52,4 +52,5 @@ function showUnreadNews()
         });
     });
 }
-setInterval('showUnreadNews()', 60 * 1000);
+setInterval('show_process()', 60 * 1000);
+show_process()
