@@ -68,7 +68,6 @@ li{
 <link rel="stylesheet" href="/assets/css/alert-dialog.css">
 
 <div class="challenges">
-  <h1>Web</h1>
   <ul>
 
     <?php foreach ($challenges_web as $challenge_item): ?>
