@@ -337,6 +337,7 @@ $this->load->view('navigation_bar/navigation_bar_user');
 
 
     public function progress(){
+        var_dump($this->is_logined());
         if($this->is_logined()){
             $offset_time = 60 * 60 * 3; // 3 hours
             echo json_encode($this->challenges_model->get_progress($offset_time));
