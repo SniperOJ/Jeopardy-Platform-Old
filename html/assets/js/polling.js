@@ -2,9 +2,7 @@ data_shown = []
 
 // load sound file
 $('<audio id="chatAudio">\
-    <source src="notify.ogg" type="audio/ogg">\
-    <source src="notify.mp3" type="audio/mpeg">\
-    <source src="notify.wav" type="audio/wav">\
+    <source src="/assets/sounds/message.wav" type="audio/wav">\
    </audio>').appendTo('body');
 
 function get_index(new_child, father){
