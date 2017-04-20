@@ -19,6 +19,7 @@ function show_process()
             url: "/challenges/progress",
             dataType: "json",
             success: function(msg) {
+                var size = msg.length
                 for(var i in msg){
                     var index = get_index(i, data_shown);
                     if (index == -1){
@@ -36,7 +37,7 @@ function show_process()
                                 type: 'info',
                                 text: content,
                                 icon: false,
-                                delay: 3000,
+                                delay: 5000 * length,
                                 buttons: {
                                     closer: false,
                                 },
