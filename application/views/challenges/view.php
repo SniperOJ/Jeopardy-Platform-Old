@@ -75,9 +75,9 @@ li{
         echo '<div class="click-to-alert-dialog">';
 
         if($challenge_item['is_solved']){
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item challenge-item-web">';
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-web challenge-item">';
         }else{
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved challenge-item-web">';
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-web challenge-item-solved">';
         }
         echo '<h2>'.$challenge_item['name'].'</h2>';
         echo '分数 : '.$challenge_item['score'].'<br>';
@@ -92,9 +92,9 @@ li{
         echo '<div class="click-to-alert-dialog">';
 
         if($challenge_item['is_solved']){
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item challenge-item-pwn">';
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-pwn challenge-item">';
         }else{
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved challenge-item-pwn">';
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-pwn challenge-item-solved">';
         }
         echo '<h2>'.$challenge_item['name'].'</h2>';
         echo '分数 : '.$challenge_item['score'].'<br>';
@@ -110,9 +110,9 @@ li{
         echo '<div class="click-to-alert-dialog">';
 
         if($challenge_item['is_solved']){
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item challenge-item-misc">';
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-misc challenge-item">';
         }else{
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved challenge-item-misc">';
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-misc challenge-item-solved">';
         }
         echo '<h2>'.$challenge_item['name'].'</h2>';
         echo '分数 : '.$challenge_item['score'].'<br>';
@@ -128,9 +128,9 @@ li{
         echo '<div class="click-to-alert-dialog">';
 
         if($challenge_item['is_solved']){
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item challenge-item-crypto">';
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-crypto challenge-item">';
         }else{
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved challenge-item-crypto">';
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-crypto challenge-item-solved">';
         }
         echo '<h2>'.$challenge_item['name'].'</h2>';
         echo '分数 : '.$challenge_item['score'].'<br>';
@@ -146,10 +146,10 @@ li{
         echo '<div class="click-to-alert-dialog">';
 
         if($challenge_item['is_solved']){
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item challenge-item-forensics">';
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-forensics challenge-item">';
         }else{
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved challenge-item-forensics">';
-       }
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-forensics challenge-item-solved">';
+        }
         echo '<h2>'.$challenge_item['name'].'</h2>';
         echo '分数 : '.$challenge_item['score'].'<br>';
         echo '点击量 : '.$challenge_item['visit_times'];
@@ -164,10 +164,10 @@ li{
         echo '<div class="click-to-alert-dialog">';
 
         if($challenge_item['is_solved']){
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item challenge-item-other">';
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-other challenge-item">';
         }else{
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved challenge-item-other ">';
-       }
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-other challenge-item-solved">';
+        }
         echo '<h2>'.$challenge_item['name'].'</h2>';
         echo '分数 : '.$challenge_item['score'].'<br>';
         echo '点击量 : '.$challenge_item['visit_times'];
