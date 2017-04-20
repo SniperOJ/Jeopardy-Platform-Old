@@ -10,7 +10,7 @@
       <th><?php echo $this->lang->line('USERNAME'); ?></th>
       <th><?php echo $this->lang->line('COLLEGE'); ?></th>
       <th>Submition</th>
-      <th>Percent</th>
+      <th>Pass Rate</th>
       <th><?php echo $this->lang->line('SCORE'); ?></th>
     </tr>
   </thead>
