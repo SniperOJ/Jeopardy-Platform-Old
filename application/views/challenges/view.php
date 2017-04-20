@@ -79,7 +79,7 @@ li{
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved">';
         }
-        echo '名称 : '.$challenge_item['name'].'<br>';
+        echo '<h2>'.$challenge_item['name'].'</h2>';
         echo '分数 : '.$challenge_item['score'].'<br>';
         echo '点击量 : '.$challenge_item['visit_times'];
         echo '</li>';
@@ -96,7 +96,7 @@ li{
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved">';
         }
-        echo '名称 : '.$challenge_item['name'].'<br>';
+        echo '<h2>'.$challenge_item['name'].'</h2>';
         echo '分数 : '.$challenge_item['score'].'<br>';
         echo '点击量 : '.$challenge_item['visit_times'];
         echo '</li>';
@@ -114,7 +114,7 @@ li{
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved">';
         }
-        echo '名称 : '.$challenge_item['name'].'<br>';
+        echo '<h2>'.$challenge_item['name'].'</h2>';
         echo '分数 : '.$challenge_item['score'].'<br>';
         echo '点击量 : '.$challenge_item['visit_times'];
         echo '</li>';
@@ -132,7 +132,7 @@ li{
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved">';
         }
-        echo '名称 : '.$challenge_item['name'].'<br>';
+        echo '<h2>'.$challenge_item['name'].'</h2>';
         echo '分数 : '.$challenge_item['score'].'<br>';
         echo '点击量 : '.$challenge_item['visit_times'];
         echo '</li>';
@@ -150,7 +150,7 @@ li{
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved">';
         }
-        echo '名称 : '.$challenge_item['name'].'<br>';
+        echo '<h2>'.$challenge_item['name'].'</h2>';
         echo '分数 : '.$challenge_item['score'].'<br>';
         echo '点击量 : '.$challenge_item['visit_times'];
         echo '</li>';
@@ -168,7 +168,7 @@ li{
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved">';
         }
-        echo '名称 : '.$challenge_item['name'].'<br>';
+        echo '<h2>'.$challenge_item['name'].'</h2>';
         echo '分数 : '.$challenge_item['score'].'<br>';
         echo '点击量 : '.$challenge_item['visit_times'];
         echo '</li>';
