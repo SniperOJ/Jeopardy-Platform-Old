@@ -255,6 +255,7 @@ class User_model extends CI_Model {
     public function get_all_score()
     {
         $query = $this->db->select(array('username','college','score',))
+                ->where('score >', 0)
                 ->order_by('score','desc')
                 ->get('users');
         $result = $query->result_array();
