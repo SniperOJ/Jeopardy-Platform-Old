@@ -2,17 +2,6 @@
     $this->load->language("challenges");
 ?>
 
-<?php
-  $all_challenges_number = 0;
-  $all_challenges_number += $web_challenges_number;
-  $all_challenges_number += $pwn_challenges_number;
-  $all_challenges_number += $misc_challenges_number;
-  $all_challenges_number += $forensics_challenges_number;
-  $all_challenges_number += $stego_challenges_number;
-  $all_challenges_number += $crypto_challenges_number;
-  $all_challenges_number += $other_challenges_number;
-?>
-
 <style type=text/css>  
 *{
   margin: 0;
@@ -53,38 +42,142 @@ li{
   background-color:cornflowerblue;
   transition: all 0.5s ease;
 }
-
+.challenge-item-web{
+  
+}
+.challenge-item-pwn{
+  
+}
+.challenge-item-misc{
+  
+}
+.challenge-item-crypto{
+  
+}
+.challenge-item-stego{
+  
+}
+.challenge-item-forensics{
+  
+}
+.challenge-item-other{
+  
+}
 </style>  
 
 <link rel="stylesheet" href="/assets/css/alert-dialog.css">
 
 <div class="challenges">
-
+  <h1>Web</h1>
   <ul>
-    <?php foreach ($challenges as $challenge_item): ?>
-      <div class="click-to-alert-dialog">
 
-        <li id="challenge-<?php echo $challenge_item['challengeID']; ?>" class="
-        <?php 
-          if($challenge_item['is_solved']){
-            echo 'challenge-item';
-          }else{
-            echo 'challenge-item-solved';
-          }
+    <?php foreach ($challenges_web as $challenge_item): ?>
+      <?php 
+        echo '<div class="click-to-alert-dialog challenge-item-web">';
 
-        ?>">
-            名称 : <?php echo $challenge_item['name']; ?><br>
-            分数 : <?php echo $challenge_item['score']; ?><br>
-            点击量 : <?php echo $challenge_item['visit_times']; ?>
-        </li>
-      </div>
+        if($challenge_item['is_solved']){
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item">';
+        }else{
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved">';
+        }
+        echo '名称 : '.$challenge_item['name'].'<br>';
+        echo '分数 : '.$challenge_item['score'].'<br>';
+        echo '点击量 : '.$challenge_item['visit_times'];
+        echo '</li>';
+        echo '</div>';
+      ?>
+    <?php endforeach; ?>
 
+    <?php foreach ($challenges_pwn as $challenge_item): ?>
+      <?php 
+        echo '<div class="click-to-alert-dialog challenge-item-pwn">';
+
+        if($challenge_item['is_solved']){
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item">';
+        }else{
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved">';
+        }
+        echo '名称 : '.$challenge_item['name'].'<br>';
+        echo '分数 : '.$challenge_item['score'].'<br>';
+        echo '点击量 : '.$challenge_item['visit_times'];
+        echo '</li>';
+        echo '</div>';
+      ?>
     <?php endforeach; ?>
 
 
+    <?php foreach ($challenges_misc as $challenge_item): ?>
+      <?php 
+        echo '<div class="click-to-alert-dialog challenge-item-misc">';
+
+        if($challenge_item['is_solved']){
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item">';
+        }else{
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved">';
+        }
+        echo '名称 : '.$challenge_item['name'].'<br>';
+        echo '分数 : '.$challenge_item['score'].'<br>';
+        echo '点击量 : '.$challenge_item['visit_times'];
+        echo '</li>';
+        echo '</div>';
+      ?>
+    <?php endforeach; ?>
+
+
+    <?php foreach ($challenges_crypto as $challenge_item): ?>
+      <?php 
+        echo '<div class="click-to-alert-dialog challenge-item-crypto">';
+
+        if($challenge_item['is_solved']){
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item">';
+        }else{
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved">';
+        }
+        echo '名称 : '.$challenge_item['name'].'<br>';
+        echo '分数 : '.$challenge_item['score'].'<br>';
+        echo '点击量 : '.$challenge_item['visit_times'];
+        echo '</li>';
+        echo '</div>';
+      ?>
+    <?php endforeach; ?>
+
+
+    <?php foreach ($challenges_forensics as $challenge_item): ?>
+      <?php 
+        echo '<div class="click-to-alert-dialog challenge-item-forensics">';
+
+        if($challenge_item['is_solved']){
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item">';
+        }else{
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved">';
+        }
+        echo '名称 : '.$challenge_item['name'].'<br>';
+        echo '分数 : '.$challenge_item['score'].'<br>';
+        echo '点击量 : '.$challenge_item['visit_times'];
+        echo '</li>';
+        echo '</div>';
+      ?>
+    <?php endforeach; ?>
+
+
+    <?php foreach ($challenges_other as $challenge_item): ?>
+      <?php 
+        echo '<div class="click-to-alert-dialog challenge-item-other">';
+
+        if($challenge_item['is_solved']){
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item">';
+        }else{
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="challenge-item-solved">';
+        }
+        echo '名称 : '.$challenge_item['name'].'<br>';
+        echo '分数 : '.$challenge_item['score'].'<br>';
+        echo '点击量 : '.$challenge_item['visit_times'];
+        echo '</li>';
+        echo '</div>';
+      ?>
+    <?php endforeach; ?>
+
   </ul>
-
-
 </div>
 
 <a href="SniperOJ{This_IS-A_QIanDAOti}"><a>

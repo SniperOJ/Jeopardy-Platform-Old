@@ -36,19 +36,36 @@ class Challenges extends CI_Controller {
         }
     }
 
+    public function get_all_challenges_data()
+    {
+        $data = array();
+        $data['challenges_web'] = $this->challenges_model->get_type_challenges($this->session->userID, "web");
+        $data['challenges_pwn'] = $this->challenges_model->get_type_challenges($this->session->userID, "pwn");
+        $data['challenges_misc'] = $this->challenges_model->get_type_challenges($this->session->userID, "misc");
+        $data['challenges_forensics'] = $this->challenges_model->get_type_challenges($this->session->userID, "forensics");
+        $data['challenges_crypto'] = $this->challenges_model->get_type_challenges($this->session->userID, "crypto");
+        $data['challenges_stego'] = $this->challenges_model->get_type_challenges($this->session->userID, "stego");
+        $data['challenges_other'] = $this->challenges_model->get_type_challenges($this->session->userID, "other");
+        return $data;
+    }
+
+    public function get_all_type_challenges_number()
+    {
+        $data = array();
+        $data['web_challenges_number'] = $this->challenges_model->get_challenges_number('web');
+        $data['pwn_challenges_number'] = $this->challenges_model->get_challenges_number('pwn');
+        $data['misc_challenges_number'] = $this->challenges_model->get_challenges_number('misc');
+        $data['forensics_challenges_number'] = $this->challenges_model->get_challenges_number('forensics');
+        $data['crypto_challenges_number'] = $this->challenges_model->get_challenges_number('crypto');
+        $data['stego_challenges_number'] = $this->challenges_model->get_challenges_number('stego');
+        $data['other_challenges_number'] = $this->challenges_model->get_challenges_number('other');
+        return $data;
+    }
+
     public function view()
     {
-        // $active_code = $this->uri->segment(3);
-        // die($active_code);
         if($this->is_logined()){
-            $data['challenges'] = $this->challenges_model->get_all_challenges($this->session->userID);
-            $data['web_challenges_number'] = $this->challenges_model->get_challenges_number('web');
-            $data['pwn_challenges_number'] = $this->challenges_model->get_challenges_number('pwn');
-            $data['misc_challenges_number'] = $this->challenges_model->get_challenges_number('misc');
-            $data['forensics_challenges_number'] = $this->challenges_model->get_challenges_number('forensics');
-            $data['crypto_challenges_number'] = $this->challenges_model->get_challenges_number('crypto');
-            $data['stego_challenges_number'] = $this->challenges_model->get_challenges_number('stego');
-            $data['other_challenges_number'] = $this->challenges_model->get_challenges_number('other');
+            $data = $this->get_all_challenges_data();
             $this->load->view('templates/header');
             $this->load->view('navigation_bar/navigation_bar_user');
             $this->load->view('challenges/view', $data);
@@ -58,162 +75,6 @@ class Challenges extends CI_Controller {
             redirect("/");
         }
     }
-
-    public function view_web()
-    {
-        if($this->is_logined()){
-            $data['challenges'] = $this->challenges_model->get_type_challenges($this->session->userID, "web");
-            $data['web_challenges_number'] = $this->challenges_model->get_challenges_number('web');
-            $data['pwn_challenges_number'] = $this->challenges_model->get_challenges_number('pwn');
-            $data['misc_challenges_number'] = $this->challenges_model->get_challenges_number('misc');
-            $data['forensics_challenges_number'] = $this->challenges_model->get_challenges_number('forensics');
-            $data['crypto_challenges_number'] = $this->challenges_model->get_challenges_number('crypto');
-            $data['stego_challenges_number'] = $this->challenges_model->get_challenges_number('stego');
-            $data['other_challenges_number'] = $this->challenges_model->get_challenges_number('other');
-            $this->load->view('templates/header');
-            $this->load->view('navigation_bar/navigation_bar_user');
-            $this->load->view('challenges/view', $data);
-            $this->load->view('templates/footer');
-        }else{
-            $this->session->sess_destroy();
-            redirect("/");
-        }
-    }
-
-
-    public function view_pwn()
-    {
-        if($this->is_logined()){
-            $data['challenges'] = $this->challenges_model->get_type_challenges($this->session->userID, "pwn");
-            $data['web_challenges_number'] = $this->challenges_model->get_challenges_number('web');
-            $data['pwn_challenges_number'] = $this->challenges_model->get_challenges_number('pwn');
-            $data['misc_challenges_number'] = $this->challenges_model->get_challenges_number('misc');
-            $data['forensics_challenges_number'] = $this->challenges_model->get_challenges_number('forensics');
-            $data['crypto_challenges_number'] = $this->challenges_model->get_challenges_number('crypto');
-            $data['stego_challenges_number'] = $this->challenges_model->get_challenges_number('stego');
-            $data['other_challenges_number'] = $this->challenges_model->get_challenges_number('other');
-            $this->load->view('templates/header');
-            $this->load->view('navigation_bar/navigation_bar_user');
-            $this->load->view('challenges/view', $data);
-            $this->load->view('templates/footer');
-        }else{
-            $this->session->sess_destroy();
-            redirect("/");
-        }
-    }
-
-
-
-    public function view_misc()
-    {
-        if($this->is_logined()){
-            $data['challenges'] = $this->challenges_model->get_type_challenges($this->session->userID, "misc");
-            $data['web_challenges_number'] = $this->challenges_model->get_challenges_number('web');
-            $data['pwn_challenges_number'] = $this->challenges_model->get_challenges_number('pwn');
-            $data['misc_challenges_number'] = $this->challenges_model->get_challenges_number('misc');
-            $data['forensics_challenges_number'] = $this->challenges_model->get_challenges_number('forensics');
-            $data['crypto_challenges_number'] = $this->challenges_model->get_challenges_number('crypto');
-            $data['stego_challenges_number'] = $this->challenges_model->get_challenges_number('stego');
-            $data['other_challenges_number'] = $this->challenges_model->get_challenges_number('other');
-            $this->load->view('templates/header');
-            $this->load->view('navigation_bar/navigation_bar_user');
-            $this->load->view('challenges/view', $data);
-            $this->load->view('templates/footer');
-        }else{
-            $this->session->sess_destroy();
-            redirect("/");
-        }
-    }
-
-
-
-    public function view_forensics()
-    {
-        if($this->is_logined()){
-            $data['challenges'] = $this->challenges_model->get_type_challenges($this->session->userID, "forensics");
-            $data['web_challenges_number'] = $this->challenges_model->get_challenges_number('web');
-            $data['pwn_challenges_number'] = $this->challenges_model->get_challenges_number('pwn');
-            $data['misc_challenges_number'] = $this->challenges_model->get_challenges_number('misc');
-            $data['forensics_challenges_number'] = $this->challenges_model->get_challenges_number('forensics');
-            $data['crypto_challenges_number'] = $this->challenges_model->get_challenges_number('crypto');
-            $data['stego_challenges_number'] = $this->challenges_model->get_challenges_number('stego');
-            $data['other_challenges_number'] = $this->challenges_model->get_challenges_number('other');
-            $this->load->view('templates/header');
-            $this->load->view('navigation_bar/navigation_bar_user');
-            $this->load->view('challenges/view', $data);
-            $this->load->view('templates/footer');
-        }else{
-            $this->session->sess_destroy();
-            redirect("/");
-        }
-    }
-
-
-
-    public function view_crypto()
-    {
-        if($this->is_logined()){
-            $data['challenges'] = $this->challenges_model->get_type_challenges($this->session->userID, "crypto");
-            $data['web_challenges_number'] = $this->challenges_model->get_challenges_number('web');
-            $data['pwn_challenges_number'] = $this->challenges_model->get_challenges_number('pwn');
-            $data['misc_challenges_number'] = $this->challenges_model->get_challenges_number('misc');
-            $data['forensics_challenges_number'] = $this->challenges_model->get_challenges_number('forensics');
-            $data['crypto_challenges_number'] = $this->challenges_model->get_challenges_number('crypto');
-            $data['stego_challenges_number'] = $this->challenges_model->get_challenges_number('stego');
-            $data['other_challenges_number'] = $this->challenges_model->get_challenges_number('other');
-            $this->load->view('templates/header');
-            $this->load->view('navigation_bar/navigation_bar_user');
-            $this->load->view('challenges/view', $data);
-            $this->load->view('templates/footer');
-        }else{
-            $this->session->sess_destroy();
-            redirect("/");
-        }
-    }
-
-
-    public function view_stego()
-    {
-        if($this->is_logined()){
-            $data['challenges'] = $this->challenges_model->get_type_challenges($this->session->userID, "stego");
-            $data['web_challenges_number'] = $this->challenges_model->get_challenges_number('web');
-            $data['pwn_challenges_number'] = $this->challenges_model->get_challenges_number('pwn');
-            $data['misc_challenges_number'] = $this->challenges_model->get_challenges_number('misc');
-            $data['forensics_challenges_number'] = $this->challenges_model->get_challenges_number('forensics');
-            $data['crypto_challenges_number'] = $this->challenges_model->get_challenges_number('crypto');
-            $data['stego_challenges_number'] = $this->challenges_model->get_challenges_number('stego');
-            $data['other_challenges_number'] = $this->challenges_model->get_challenges_number('other');
-            $this->load->view('templates/header');
-            $this->load->view('navigation_bar/navigation_bar_user');
-            $this->load->view('challenges/view', $data);
-            $this->load->view('templates/footer');
-        }else{
-            $this->session->sess_destroy();
-            redirect("/");
-        }
-    }
-
-    public function view_other()
-    {
-        if($this->is_logined()){
-            $data['challenges'] = $this->challenges_model->get_type_challenges($this->session->userID, 'other');
-            $data['web_challenges_number'] = $this->challenges_model->get_challenges_number('web');
-            $data['pwn_challenges_number'] = $this->challenges_model->get_challenges_number('pwn');
-            $data['misc_challenges_number'] = $this->challenges_model->get_challenges_number('misc');
-            $data['forensics_challenges_number'] = $this->challenges_model->get_challenges_number('forensics');
-            $data['crypto_challenges_number'] = $this->challenges_model->get_challenges_number('crypto');
-            $data['stego_challenges_number'] = $this->challenges_model->get_challenges_number('stego');
-            $data['other_challenges_number'] = $this->challenges_model->get_challenges_number('other');
-            $this->load->view('templates/header');
-            $this->load->view('navigation_bar/navigation_bar_user');
-            $this->load->view('challenges/view', $data);
-            $this->load->view('templates/footer');
-        }else{
-            $this->session->sess_destroy();
-            redirect("/");
-        }
-    }
-
 
     public function get_encrypted_flag($flag)
     {
@@ -249,14 +110,7 @@ class Challenges extends CI_Controller {
             $this->load->helper('form');
             $this->load->library('form_validation');
 
-            $data['challenges'] = $this->challenges_model->get_all_challenges($this->session->userID);
-            $data['web_challenges_number'] = $this->challenges_model->get_challenges_number('web');
-            $data['pwn_challenges_number'] = $this->challenges_model->get_challenges_number('pwn');
-            $data['misc_challenges_number'] = $this->challenges_model->get_challenges_number('misc');
-            $data['forensics_challenges_number'] = $this->challenges_model->get_challenges_number('forensics');
-            $data['crypto_challenges_number'] = $this->challenges_model->get_challenges_number('crypto');
-            $data['stego_challenges_number'] = $this->challenges_model->get_challenges_number('stego');
-            $data['other_challenges_number'] = $this->challenges_model->get_challenges_number('other');
+            $data = $this->get_all_challenges_data();
 
             $this->form_validation->set_rules('challengeID', 'challengeID', 'required');
             $this->form_validation->set_rules('flag', 'Flag', 'required');
@@ -312,7 +166,7 @@ class Challenges extends CI_Controller {
                         $this->db->insert('submit_log', $submit_data);
 
                         // flush data
-                        $data['challenges'] = $this->challenges_model->get_all_challenges($this->session->userID);
+                        $data = $this->get_all_challenges_data();
 
                         // load seccess view
                         if ($is_current === 1){
@@ -406,14 +260,14 @@ $this->load->view('navigation_bar/navigation_bar_user');
                     );
 
                     if ($this->do_create($new_challenge)) {
-                        $data['challenges'] = $this->challenges_model->get_all_challenges($this->session->userID);
+                        $data = $this->get_all_challenges_data();
                         $this->load->view('templates/header');
 $this->load->view('navigation_bar/navigation_bar_user');
                         $this->load->view('notice/view', array('type' => 'success', 'message' => 'Create challenge success!'));
                         $this->load->view('challenges/view', $data);
                         $this->load->view('templates/footer');
                     }else{
-                        $data['challenges'] = $this->challenges_model->get_all_challenges($this->session->userID);
+                        $data = $this->get_all_challenges_data();
                         $this->load->view('templates/header');
 $this->load->view('navigation_bar/navigation_bar_user');
                         $this->load->view('notice/view', array('type' => 'error', 'message' => 'Create challenge error! Please contact admin@sniperoj.cn'));
