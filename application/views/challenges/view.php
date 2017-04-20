@@ -37,42 +37,49 @@ li{
   border-radius: 20px;
   font-size: 20px;
   background-color: #0080FF;
+  opacity:0.5;
 } 
 .challenge-item-pwn{
   padding: 10px;
   border-radius: 20px;
   font-size: 20px;
   background-color: #FF2D2D;
+  opacity:0.5;
 }
 .challenge-item-misc{
   padding: 10px;
   border-radius: 20px;
   font-size: 20px;
   background-color: #FFD306;
+  opacity:0.5;
 }
 .challenge-item-crypto{
   padding: 10px;
   border-radius: 20px;
   font-size: 20px;
   background-color: #C07AB8;
+  opacity:0.5;
 }
 .challenge-item-stego{
   padding: 10px;
   border-radius: 20px;
   font-size: 20px;
   background-color: #79FF79;
+  opacity:0.5;
 }
 .challenge-item-forensics{
   padding: 10px;
   border-radius: 20px;
   font-size: 20px;
   background-color: #B15BFF;
+  opacity:0.5;
 }
 .challenge-item-other{
   padding: 10px;
   border-radius: 20px;
   font-size: 20px;
   background-color: #F75000;
+  opacity:0.5;
 }
 .challenge-item-solved{
   padding: 10px;
@@ -84,8 +91,7 @@ li{
 }
 .challenge:hover{
   transition: all 0.5s ease;
-  font-size: 36px;
-  padding: 20px;
+  opacity:1;
 }
 </style>  
 
@@ -100,7 +106,7 @@ li{
         echo '<div class="click-to-alert-dialog">';
         echo '<div class="grid-item">';
         if($challenge_item['is_solved']){
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="item challenge challenge-item-web challenge-item-solved">';
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="item challenge-item-web challenge-item-solved">';
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="item challenge challenge-item-web">';
         }
@@ -119,7 +125,7 @@ li{
         echo '<div class="click-to-alert-dialog">';
 
         if($challenge_item['is_solved']){
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="item challenge challenge-item-pwn challenge-item-solved">';
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="item challenge-item-pwn challenge-item-solved">';
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="item challenge challenge-item-pwn">';
         }
@@ -138,7 +144,7 @@ li{
         echo '<div class="click-to-alert-dialog">';
 
         if($challenge_item['is_solved']){
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="item challenge challenge-item-misc challenge-item-solved">';
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="item challenge-item-misc challenge-item-solved">';
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="item challenge challenge-item-misc">';
         }
@@ -157,7 +163,7 @@ li{
         echo '<div class="click-to-alert-dialog">';
 
         if($challenge_item['is_solved']){
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="item challenge challenge-item-crypto challenge-item-solved">';
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="item challenge-item-crypto challenge-item-solved">';
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="item challenge challenge-item-crypto">';
         }
@@ -175,7 +181,7 @@ li{
         echo '<div class="click-to-alert-dialog">';
 
         if($challenge_item['is_solved']){
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="item challenge challenge-item-forensics challenge-item-solved">';
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="item challenge-item-forensics challenge-item-solved">';
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="item challenge challenge-item-forensics">';
         }
@@ -194,7 +200,7 @@ li{
         echo '<div class="click-to-alert-dialog">';
 
         if($challenge_item['is_solved']){
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="item challenge challenge-item-other challenge-item-solved">';
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="item challenge-item-other challenge-item-solved">';
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="item challenge challenge-item-other">';
         }
@@ -212,7 +218,7 @@ li{
         echo '<div class="click-to-alert-dialog">';
 
         if($challenge_item['is_solved']){
-          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="item challenge challenge-item-other challenge-item-solved">';
+          echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="item challenge-item-other challenge-item-solved">';
         }else{
           echo '<li id="challenge-'.$challenge_item['challengeID'].'" class="item challenge challenge-item-other">';
         }
