@@ -3,8 +3,9 @@
 ?>
 
 <script src="/assets/js/isotope.pkgd.min.js"></script>
+<script src="/assets/js/polling.js"></script>
 
-<style type=text/css>  
+<style type=text/css>
 *{
   transition: all 1s ease;
   margin: 0;

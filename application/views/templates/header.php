@@ -26,7 +26,6 @@
 		<script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
 		<script type="text/javascript" src="/assets/js/pnotify.custom.min.js"></script>
 		<script src="/assets/js/jquery.min.js"></script>
-		<script src="/assets/js/polling.js"></script>
 
 		<audio id="chatAudio">
 			<source src="/assets/sounds/message.wav" type="audio/wav">

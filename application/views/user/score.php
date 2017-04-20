@@ -2,6 +2,9 @@
     $this->load->language("score");
 ?>
 
+<script src="/assets/js/polling.js"></script>
+
+
 <h1><?php echo $this->lang->line('SCORE_NAME'); ?></h1>
 <table class="table table-hover" style="margin-bottom: 50px;">
   <thead>
