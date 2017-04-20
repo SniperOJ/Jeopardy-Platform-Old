@@ -1,9 +1,6 @@
 data_shown = []
 
-// load sound file
-$('<audio id="chatAudio">\
-    <source src="/assets/sounds/message.wav" type="audio/wav">\
-   </audio>').appendTo('body');
+
 
 function get_index(new_child, father){
     var index = -1;
@@ -27,6 +24,11 @@ function show_process()
                 var size = msg.length
                 // play sound only once
                 if (size > 0){
+                    // load sound file
+                    $('<audio id="chatAudio">\
+                        <source src="/assets/sounds/message.wav" type="audio/wav">\
+                       </audio>').appendTo('body');
+                    
                     $('#chatAudio')[0].play()
                 }
                 for(var i in msg){
