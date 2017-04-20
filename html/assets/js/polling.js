@@ -37,7 +37,7 @@ function show_process()
                                 type: 'info',
                                 text: content,
                                 icon: false,
-                                delay: 5000 * size,
+                                delay: 2000 * size,
                                 buttons: {
                                     closer: false,
                                 },
