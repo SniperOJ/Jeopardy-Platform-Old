@@ -262,7 +262,7 @@ class Challenges_model extends CI_Model {
     public function get_progress($offset_time){
         $query = $this->db->select(array('challengeID', 'userID', 'submit_time'))
         ->where(array(
-            // 'is_current' => '1',
+            'is_current' => '1',
             'submit_time > ' => time() - $offset_time,
         ))
         ->get('submit_log');

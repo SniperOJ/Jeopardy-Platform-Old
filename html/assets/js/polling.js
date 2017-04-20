@@ -32,10 +32,10 @@ function showUnreadNews()
                         $(function(){
                             PNotify.prototype.options.styling = "bootstrap3";
                             new PNotify({
-                                type: 'success',
+                                type: 'info',
                                 text: content,
                                 icon: false,
-                                delay: 1000,
+                                delay: 3000,
                                 buttons: {
                                     closer: false,
                                 },
@@ -49,4 +49,4 @@ function showUnreadNews()
         });
     });
 }
-setInterval('showUnreadNews()', 2 * 1000);
+setInterval('showUnreadNews()', 60 * 1000);
