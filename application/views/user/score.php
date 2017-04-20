@@ -19,12 +19,14 @@
     <?php foreach ($scores as $score): ?>
       <?php $rank += 1;?>
       <?php
+        echo '<tr>';
         echo '<td>'.$rank.'</td>';
         echo '<td>'.$score['username'].'</td>';
         echo '<td>'.$score['college'].'</td>';
         echo '<td>'.$score['accept_times'].' / '.$score['submit_times'].'</td>';
         echo '<td>'.$score['pass_rate'].'%'.'</td>';
         echo '<td>'.$score['score'].'</td>';
+        echo '</tr>'."\n";
       ?>
     <?php endforeach; ?>
   </tbody>
