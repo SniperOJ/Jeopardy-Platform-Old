@@ -23,7 +23,7 @@ li{
   width: 256px;
   height: 160px;
   font-size: 24px;
-  color: #111;
+  color: #000;
   text-align: center;
   box-shadow: 0px 0px 2px rgba(0,0,0,0.5),0px -5px 20px rgba(0,0,0,0.1) inset;
 }
@@ -79,6 +79,7 @@ li{
   font-size: 20px;
   background-color: #EEEEEE;
   opacity:0.1;
+  color: #000;
 }
 </style>  
 
