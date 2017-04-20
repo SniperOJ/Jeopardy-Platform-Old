@@ -137,7 +137,6 @@ function alertDialog(dialog_title_id, dialog_id, mask_id) {
         var elem = getE(dialog_title_id);
         var dialog = getE(dialog_id);
         var mask = getE(mask_id);
-        console.log("new")
     }else{
         var elem = getE(dialog_title_id);
         var dialog = getE(dialog_id);
