@@ -4,10 +4,12 @@
 
 <style type=text/css>  
 *{
+  transition: all 0.5s ease;
   margin: 0;
   padding: 0;
 }
 body{
+
   background-color: #333333;
 }
 li{
