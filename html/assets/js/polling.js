@@ -23,9 +23,9 @@ function show_process()
             success: function(msg) {
                 var size = msg.length
                 // play sound only once
-                if (size > 0){
-                    $('#chatAudio')[0].play()
-                }
+                // if (size > 0){
+                //     $('#chatAudio')[0].play()
+                // }
                 for(var i in msg){
                     var index = get_index(i, data_shown);
                     if (index == -1){
