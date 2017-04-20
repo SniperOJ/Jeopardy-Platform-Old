@@ -22,13 +22,11 @@ function show_process()
             dataType: "json",
             success: function(msg) {
                 var size = msg.length
-                // play sound only once
-                // if (size > 0){
-                //     $('#chatAudio')[0].play()
-                // }
+                var sound_flag = false;
                 for(var i in msg){
                     var index = get_index(i, data_shown);
                     if (index == -1){
+                        sound_flag = true;
                         // show
                         var username = msg[i]['username'];
                         var challenge_name = msg[i]['challenge_name'];
@@ -51,6 +49,10 @@ function show_process()
                         // add to shown
                         data_shown += i;
                     }
+                }
+                play sound only once
+                if (sound_flag){
+                    $('#chatAudio')[0].play()
                 }
             }
         });
