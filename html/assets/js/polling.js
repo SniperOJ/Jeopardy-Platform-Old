@@ -25,6 +25,10 @@ function show_process()
             dataType: "json",
             success: function(msg) {
                 var size = msg.length
+                // play sound only once
+                if (size > 0){
+                    $('#chatAudio')[0].play()
+                }
                 for(var i in msg){
                     var index = get_index(i, data_shown);
                     if (index == -1){
@@ -33,8 +37,6 @@ function show_process()
                         var challenge_name = msg[i]['challenge_name'];
                         var submit_time = msg[i]['submit_time'];
                         var content = challenge_name + ' is solved by ' + username + '<br>' + submit_time;
-                        // play the sound 
-                        $('#chatAudio')[0].play()
                         // show the alert dialog
                         $(function(){
                             PNotify.prototype.options.styling = "bootstrap3";
