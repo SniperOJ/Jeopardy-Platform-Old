@@ -28,7 +28,7 @@ function show_process()
                         var challenge_name = msg[i]['challenge_name'];
                         var submit_time = msg[i]['submit_time'];
 
-                        var content = challenge_name + ' is solved by ' + username + ' ' + submit_time;
+                        var content = challenge_name + ' is solved by ' + username + '<br>' + submit_time;
                         
                         $(function(){
                             PNotify.prototype.options.styling = "bootstrap3";
