@@ -62,6 +62,7 @@ $route['user'] = 'user/profile';
 
 $route['challenges/create'] = 'challenges/create';
 $route['challenges/submit'] = 'challenges/submit';
+$route['challenges/progress'] = 'challenges/progress';
 // $route['challenges/view/web'] = 'challenges/view_web';
 // $route['challenges/view/pwn'] = 'challenges/view_pwn';
 // $route['challenges/view/misc'] = 'challenges/view_misc';

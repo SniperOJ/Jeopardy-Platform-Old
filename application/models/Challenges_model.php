@@ -233,4 +233,53 @@ class Challenges_model extends CI_Model {
         $visit_times = intval($this->get_visit_times($challengeID));
         $this->set_visit_times($challengeID, $visit_times+1);
     }
+
+    function formatTime($time){       
+        $rtime = date("Y年m月d日 H:i",$time);       
+        $htime = date("H:i",$time);             
+        $time = time() - $time;         
+        if ($time < 60){           
+            $str = '刚刚';       
+        }elseif($time < 60 * 60){           
+            $min = floor($time/60);           
+            $str = $min.'分钟前';       
+        }elseif($time < 60 * 60 * 24){           
+            $h = floor($time/(60*60));           
+            $str = $h.'小时前 ';       
+        }elseif($time < 60 * 60 * 24 * 3){           
+            $d = floor($time/(60*60*24));           
+            if($d==1){  
+                $str = '昨天 '.$htime;
+            }else{  
+                $str = '前天 '.$htime;       
+            }  
+        }else{           
+            $str = $rtime;       
+        }       
+        return $str;
+    }
+
+    public function get_progress($offset_time){
+        $query = $this->db->select(array('challengeID', 'userID', 'submit_time'))
+        ->where(array(
+            // 'is_current' => '1',
+            'submit_time > ' => time() - $offset_time,
+        ))
+        ->get('submit_log');
+        $result = $query->result_array();
+
+        for ($i=0; $i < count($result); $i++) { 
+            $result[$i]['submit_time'] = $this->formatTime($result[$i]['submit_time']);
+
+            $userID = $result[$i]['userID'];
+            $challengeID = $result[$i]['challengeID'];
+
+            $username = $this->user_model->get_username($userID);
+            $challenge_name = $this->get_challenge_name($challengeID);
+
+            $result[$i]['username'] = $username;
+            $result[$i]['challenge_name'] = $challenge_name;
+        }
+        return $result;
+    }
 }
