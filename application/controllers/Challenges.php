@@ -335,8 +335,11 @@ $this->load->view('navigation_bar/navigation_bar_user');
         $this->challenges_model->update_visit_times($challengeID);
     }
 
+
     public function progress(){
-        $offset_time = 60 * 60 * 3; // 3 hours
-        echo json_encode($this->challenges_model->get_progress($offset_time));
+        if($this->is_logined()){
+            $offset_time = 60 * 60 * 3; // 3 hours
+            echo json_encode($this->challenges_model->get_progress($offset_time));
+        }
     }
 }
