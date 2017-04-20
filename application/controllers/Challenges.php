@@ -336,7 +336,7 @@ $this->load->view('navigation_bar/navigation_bar_user');
     }
 
     public function progress(){
-        $offset_time = 60 * 10; // 10 min
+        $offset_time = 60 * 60 * 3; // 3 hours
         echo json_encode($this->challenges_model->get_progress($offset_time));
     }
 }
