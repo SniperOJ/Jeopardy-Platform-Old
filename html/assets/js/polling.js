@@ -1,7 +1,5 @@
 data_shown = []
 
-
-
 function get_index(new_child, father){
     var index = -1;
     for(var child in father){

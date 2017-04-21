@@ -17,6 +17,7 @@
 		<!-- Custom styles for this template -->
 		<link href="/assets/css/cover.css" rel="stylesheet">
   		<link rel="stylesheet" href="/assets/css/hint.min.css">
+  		<link rel="stylesheet" href="/assets/css/pnotify.custom.min.css">
 		
   		<audio id="chatAudio">
   			<source src="/assets/sounds/message.wav" type="audio/wav">
