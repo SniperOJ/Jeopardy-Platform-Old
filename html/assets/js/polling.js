@@ -20,13 +20,6 @@ function show_stack_topleft(type, title, text) {
         // stack: stack_topleft
     };
 
-    // icon: false,
-    // stack: stack_topleft,
-    // delay: 2000 * size,
-    // addclass: "stack-topleft",
-    // buttons: {
-    //     closer: false,
-    // },
     switch (type) {
     case 'error':
         opts.title = title;
