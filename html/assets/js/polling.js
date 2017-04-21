@@ -13,6 +13,42 @@ function get_index(new_child, father){
     return -1;
 }
 
+
+function show_stack_topleft(type, title, text) {
+    var opts = {
+        title: "Over Here",
+        text: "Check me out. I'm in a different stack.",
+        addclass: "stack-topleft",
+        stack: stack_topleft
+    };
+
+    // icon: false,
+    // stack: stack_topleft,
+    // delay: 2000 * size,
+    // addclass: "stack-topleft",
+    // buttons: {
+    //     closer: false,
+    // },
+    switch (type) {
+    case 'error':
+        opts.title = title;
+        opts.text = text;
+        opts.type = "error";
+        break;
+    case 'info':
+        opts.title = title;
+        opts.text = text;
+        opts.type = "info";
+        break;
+    case 'success':
+        opts.title = title;
+        opts.text = text;
+        opts.type = "success";
+        break;
+    }
+    new PNotify(opts);
+}
+
 function show_process()
 {
     $(document).ready(function() {
@@ -33,21 +69,8 @@ function show_process()
                         var submit_time = msg[i]['submit_time'];
                         var content = 'Solved by ' + username + '<br>' + submit_time;
                         // show the alert dialog
-                        $(function(){
-                            PNotify.prototype.options.styling = "bootstrap3";
-                            new PNotify({
-                                title: challenge_name,
-                                type: 'info',
-                                text: content,
-                                icon: false,
-                                stack: stack_topleft,
-                                delay: 2000 * size,
-                                addclass: "stack-topleft",
-                                buttons: {
-                                    closer: false,
-                                },
-                            });
-                        });
+
+                        show_stack_topleft('info', challenge_name, content);
 
                         // add to shown
                         data_shown += i;
