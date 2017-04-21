@@ -6,6 +6,9 @@
     <div class="container-fluid">
 	    <div class="navbar-header">
 	        <a class="navbar-brand" href="#">Sniper OJ</a>
+		    <img src="../../assets/images/icon.png" alt="" style="width: 48px;
+		      height:48px;
+		      border-radius:24px;padding: 5px;">
 	    </div>
 	    <div class="pull-right">
 	        <ul class="nav navbar-nav">
@@ -18,3 +21,5 @@
 	    </div>
     </div>
 </nav>
+
+
