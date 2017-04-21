@@ -42,6 +42,7 @@ function show_process()
                                 icon: false,
                                 stack: stack_topleft,
                                 delay: 2000 * size,
+                                addclass: "stack-topleft",
                                 buttons: {
                                     closer: false,
                                 },
