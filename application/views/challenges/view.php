@@ -3,6 +3,7 @@
 ?>
 
 <script src="/assets/js/isotope.pkgd.min.js"></script>
+<script src="/assets/js/polling.js"></script>
 
 <style type=text/css>
 *{
