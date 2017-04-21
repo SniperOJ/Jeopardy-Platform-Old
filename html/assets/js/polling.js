@@ -40,12 +40,14 @@ function show_process()
                                 type: 'info',
                                 text: content,
                                 icon: false,
+                                stack: stack_topleft,
                                 delay: 2000 * size,
                                 buttons: {
                                     closer: false,
                                 },
                             });
                         });
+
                         // add to shown
                         data_shown += i;
                     }
