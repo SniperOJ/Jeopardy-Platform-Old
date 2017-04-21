@@ -17,7 +17,7 @@ function show_stack_topleft(type, title, text) {
         title: "Over Here",
         text: "Check me out. I'm in a different stack.",
         addclass: "stack-topleft",
-        stack: stack_topleft
+        // stack: stack_topleft
     };
 
     // icon: false,
