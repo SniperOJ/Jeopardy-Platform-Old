@@ -34,4 +34,4 @@
 
 	</head>
 
-	<body>
+	<body style="padding-bottom: 70px;">
