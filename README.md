@@ -1,4 +1,5 @@
-# SniperOJ (项目已迁移至 : https://github.com/WangYihang/SniperOJ)
+# SniperOJ 
+# (项目已迁移至 : https://github.com/WangYihang/SniperOJ)
 一个开源的 CTF 训练平台
 
 TODO : 
