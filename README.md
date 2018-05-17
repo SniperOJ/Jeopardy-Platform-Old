@@ -1,6 +1,6 @@
 # SniperOJ 
 
-> 项目已迁移至 : https://github.com/SniperOJ/SniperOJ-Platform
+> 项目已迁移至 : https://github.com/SniperOJ/Platform
 
 一个开源的 CTF 训练平台
 
